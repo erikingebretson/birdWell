@@ -13,7 +13,7 @@ class App extends React.Component {
         return (
             <div>
                 <Header />
-                <ProtectedRoute exact path='/account/' component={AccountPage} />
+                <ProtectedRoute exact path='/account' component={AccountPage} />
                 <AuthRoute exact path='/account/login' component={AccountForms} />
                 
             </div>
