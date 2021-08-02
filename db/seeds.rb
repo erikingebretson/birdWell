@@ -8,4 +8,6 @@
 
 User.destroy_all
 
-user1 = User.create!(first_name: 'test', last_name: '123', email: 'test@gmail', password: 'test123')
+user1 = User.create!(first_name: 'testfirstname', last_name: 'testlastname', email: 'test123', password: 'test123')
+
+mTreeRunner = Product.create!(product_name: 'Tree Runner', size: 8, colorway: 'Jet Black', price: 95, cart_id: nil, review_id: nil)
