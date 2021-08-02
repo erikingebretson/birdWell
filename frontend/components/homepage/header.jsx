@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 class Header extends React.Component {
     constructor(props) {
@@ -8,19 +9,19 @@ class Header extends React.Component {
     sessionGreeting() {
         if (this.props.currentUser) {
             return (
-                <h3>Hello {this.props.currentUser.username}</h3>
+                <div>
+                    <h3>Hello {this.props.currentUser.username}</h3>
+                    <button onClick={ () => this.props.logout() }>Log Out</button>
+                </div>
             )
         } else {
             return (
-                <h3>Welcome</h3>
+                <div>
+                    <h3>Welcome</h3>
+                    <Link to='/account/login'>Log In</Link>
+                </div>
             )
         }
-    }
-
-    logOutButton() {
-        return (
-            <button onClick={() => this.props.logout()}>Log Out</button>
-        )
     }
 
     render() {
@@ -28,7 +29,6 @@ class Header extends React.Component {
             <div>
                 <h1>BirdWell</h1>
                 {this.sessionGreeting()}
-                { this.props.currentUser ? this.logOutButton() : '' }
             </div>
         )
     }
