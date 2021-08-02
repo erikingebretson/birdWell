@@ -27,7 +27,7 @@ export const signup = (user) => (dispatch) => (
 )
 
 export const login = (user) => (dispatch) => (
-    SessionApiUtl.signup(user)
+    SessionApiUtl.login(user)
         .then(res => dispatch(receiveCurrentUser(res)),
         err => dispatch(receiveSessionErrors(err))
     )
