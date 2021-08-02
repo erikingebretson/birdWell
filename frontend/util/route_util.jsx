@@ -5,13 +5,13 @@ import { connect } from 'react-redux';
 
 const Auth = ({ component: Component, path, loggedIn, exact }) => (
     <Route path={path} exact={exact} render={props => (
-        !loggedIn ? (<Component {...props} />) : (<Redirect to='/' />)
+        !loggedIn ? (<Component {...props} />) : (<Redirect to='/account' />)
     )} />
 )
 
 const Protected = ({ component: Component, path, loggedIn, exact }) => (
     <Route path={path} exact={exact} render={props => (
-        loggedIn ? (<Component {...props} />) : (<Redirect to="/login" />)
+        loggedIn ? (<Component {...props} />) : (<Redirect to="/account/login" />)
     )} />
 )
 

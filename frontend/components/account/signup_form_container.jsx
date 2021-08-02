@@ -8,7 +8,8 @@ const mSTP = (state) => ({
         first_name: '',
         last_name: '',
         email: '',
-        password: ''
+        password: '',
+        passwordCheck: '',
     },
     errors: state.errors.sessionErrors,
     class: 'register-form',

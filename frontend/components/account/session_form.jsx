@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 class sessionForm extends React.Component {
     constructor(props) {
@@ -9,10 +10,30 @@ class sessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault()
         this.props.formAction(this.state)
+
     }
 
     update(field) {
         return e => this.setState({ [field]: e.target.value })
+    }
+
+    createAccountInfo() {
+        return (
+            <div>
+                <p>We never save credit card information.</p>
+                <p>Registering makes checkout fast and easy and saves your order information in your account.</p>
+            </div>
+        )
+    }
+
+    readErrors() {
+        console.log(this.props.errors)
+        return this.props.errors.map( (error, i) => (
+            <div>
+                <p key={i}>{error}</p>
+                <br />
+            </div>
+        ))
     }
 
     nameFields() {
@@ -27,23 +48,14 @@ class sessionForm extends React.Component {
         </div>
         )
     }
-    
-    createAccountInfo() {
+
+    passwordConfirm() {
         return (
             <div>
-                <p>We never save credit card information.</p>
-                <p>Registering makes checkout fast and easy and saves your order information in your account.</p>
+                <label >Confirm Password*</label>
+                <input type="password" onChange={this.update('passwordCheck')} value={this.state.passwordCheck} />
             </div>
         )
-    }
-
-    readErrors() {
-        return this.props.errors.map( (error, i) => (
-            <div>
-                <p key={i}>{error}</p>
-                <br />
-            </div>
-        ))
     }
 
     render() {
@@ -57,12 +69,14 @@ class sessionForm extends React.Component {
 
                 <form className="account-form" onSubmit={e => this.handleSubmit(e)}>
                     {this.props.formEvent === 'Register' ? this.nameFields() : '' }
-                    <label >Email</label>
-                        <input type="text" onChange={this.update('email')} value={this.state.email} />
+                    <label htmlFor={`${this.props.class}email`}>{this.props.formEvent === 'Register' ? 'Email*' : 'Email'}</label>
+                    <input id={`${this.props.class}email`} type="text" onChange={this.update('email')} value={this.state.email} />
                     <br />
-                    <label >Password</label>
-                        <input type="password" onChange={this.update('password')} value={this.state.password} />
-                    <button type="submit">{this.props.formEvent}</button>
+                    <label htmlFor={`${this.props.class}password`}>{this.props.formEvent === 'Register' ? 'Password*' : 'Password'}</label>
+                    <input id={`${this.props.class}password`} type="password" onChange={this.update('password')} autoComplete='on' value={this.state.password} />
+                    {this.props.formEvent === 'Register' ? this.passwordConfirm() : ''}
+                    <button type="submit"><Link to='/account'>{this.props.formEvent}</Link></button>
+                    {this.props.formEvent === 'Register' ? <p>* Required Fields</p> : ''}
                 </form>
             </div>
         )
