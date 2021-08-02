@@ -3,7 +3,6 @@
 # Table name: users
 #
 #  id              :bigint           not null, primary key
-#  username        :string           not null
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
@@ -11,16 +10,18 @@
 #  review_id       :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  first_name      :string           not null
+#  last_name       :string           not null
 #
 class User < ApplicationRecord
     attr_reader :password
-    validates :username, uniqueness: true, presence: true
+    validates :email, uniqueness: true, presence: true
     validates :session_token, presence: true
-    validates :password_digest, presence: true, length: {minimum: 6 }, allow_nil: true
+    validates :password, presence: true, length: {minimum: 6 }, allow_nil: true
     after_initialize :ensure_session_token
 
-    def self.find_by_credentials(username, password)
-        user = User.find_by(username: username)
+    def self.find_by_credentials(email, password)
+        user = User.find_by(email: email)
         if user && user.is_password?(password)
             return user
         else

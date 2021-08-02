@@ -5,10 +5,14 @@ import sessionForm from './session_form';
 
 const mSTP = (state) => ({
     user: {
-        username: '',
+        first_name: '',
+        last_name: '',
         email: '',
         password: ''
     },
+    errors: state.errors.sessionErrors,
+    class: 'login-form',
+    formHeader: 'LOGIN',
     formEvent: 'Sign In'
 })
 

@@ -4,7 +4,7 @@ import SignUp from './signup_form_container'
 
 const accountForms = () => {
     return (
-        <div>
+        <div className="account-login-page">
             <LogIn />
             <SignUp />
         </div>
