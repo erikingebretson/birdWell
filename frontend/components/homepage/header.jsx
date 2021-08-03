@@ -6,6 +6,10 @@ class Header extends React.Component {
         super(props)
     }
 
+    // componentDidMount() {
+    //     this.props.fetchAllProduct()
+    // }
+
     sessionGreeting() {
         if (this.props.currentUser) {
             return (

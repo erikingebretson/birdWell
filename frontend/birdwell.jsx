@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // window.signup = signup
     // window.login = login
     // window.logout = logout
-    // window.fetchAllProduct = fetchAllProduct
-    // window.fetchProduct = fetchProduct
+    window.fetchAllProduct = fetchAllProduct
+    window.fetchProduct = fetchProduct
     window.getState = store.getState;
     window.dispatch = store.dispatch;
     //REMOVE WHEN DONE WITH TESTING
