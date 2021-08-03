@@ -7,7 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Product.destroy_all
 
 user1 = User.create!(first_name: 'testfirstname', last_name: 'testlastname', email: 'test123', password: 'test123')
 
-mTreeRunner = Product.create!(product_name: 'Tree Runner', size: 8, colorway: 'Jet Black', price: 95, cart_id: nil, review_id: nil)
+mTreeRunner = Product.create!(product_name: 'Tree Runner', size: 8, colorway: 'Jet Black', price: 95, cart_id: [], review_id: [])
+wTreePiper = Product.create!(product_name: 'Tree Piper', size: 5, colorway: 'Luna', price: 95, cart_id: [], review_id: [])
