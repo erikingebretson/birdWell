@@ -1,8 +1,23 @@
-.plp-root {
+.plp-item-root {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 .plp-details-box {
     display: flex;
     flex-direction: column;
+    margin: 10px;
+}
+
+.plp-details-box a {
+    text-decoration: none;
+}
+
+.plp-details-box img {
+    width: 200px;
+}
+
+.plp-hero-img img {
+    width: 200px;
 }
