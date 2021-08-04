@@ -16,5 +16,4 @@ class Product < ApplicationRecord
     validates :product_name, :size, :colorway, :price, presence: true
 
     has_many_attached :photos
-
 end

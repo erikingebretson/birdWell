@@ -1,0 +1,6 @@
+.root-header-div {
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    height: 60px
+}

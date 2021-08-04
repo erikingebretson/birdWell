@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 
 User.destroy_all
 Product.destroy_all
@@ -12,4 +13,12 @@ Product.destroy_all
 user1 = User.create!(first_name: 'testfirstname', last_name: 'testlastname', email: 'test123', password: 'test123')
 
 mTreeRunner = Product.create!(product_name: 'Tree Runner', size: 8, colorway: 'Jet Black', price: 95, cart_id: [], review_id: [])
+file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/1-tree-runner-blk.jpeg')
+file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/2-tree-runner-blk.jpeg')
+file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/3-tree-runner-blk.jpeg')
+mTreeRunner.photos.attach(io: file1, filename: '1-tree-runner-blk.jpeg')
+mTreeRunner.photos.attach(io: file2, filename: '2-tree-runner-blk.jpeg')
+mTreeRunner.photos.attach(io: file3, filename: '3-tree-runner-blk.jpeg')
+
+
 wTreePiper = Product.create!(product_name: 'Tree Piper', size: 5, colorway: 'Luna', price: 95, cart_id: [], review_id: [])

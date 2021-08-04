@@ -6,10 +6,6 @@ class Header extends React.Component {
         super(props)
     }
 
-    // componentDidMount() {
-    //     this.props.fetchAllProduct()
-    // }
-
     sessionGreeting() {
         if (this.props.currentUser) {
             return (
@@ -30,7 +26,7 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="root-header-div">
                 <h1>BirdWell</h1>
                 {this.sessionGreeting()}
             </div>

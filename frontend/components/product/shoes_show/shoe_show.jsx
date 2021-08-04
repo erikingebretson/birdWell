@@ -11,11 +11,12 @@ class ShoeShow extends React.Component {
 
     render() {
         if (this.props.shoe === undefined) return null;
-
+        // console.log(this.props.shoe.photoUrls[0])
         return (
             <div>
                 <h1>I am a shoe</h1>
                 <h2>{this.props.shoe.productName}</h2>
+                <img src={this.props.shoe.photoUrls[1]} alt="" />
             </div>
         )   
     }

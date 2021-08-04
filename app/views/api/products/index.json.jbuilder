@@ -7,6 +7,7 @@
         json.price product.price
         json.cart_id product.cart_id
         json.review_id product.review_id
+        json.photo_urls product.photos.map { |url| url_for(url) }
     end
 end
 # json.partial! "api/products/product", product: @product
