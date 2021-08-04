@@ -11,12 +11,12 @@ class ShoeShow extends React.Component {
 
     productImages() {
         return (
-            <div className="shoe-grid">
+            <ul >
                 {this.props.shoe.photoUrls.map( (imgUrl, idx) => (
                     <p key={idx} ><img src={imgUrl} alt="" /></p>
                 ))
                 }
-            </div>
+            </ul>
         )
     }
 
@@ -25,9 +25,9 @@ class ShoeShow extends React.Component {
 
         return (
             <div className="shoe-show-main" >
-                <ul  >
+                <div className="shoe-grid">
                     {this.productImages()}
-                </ul>
+                </div>
                 <div className="product-desc" >
                     <h3>{this.props.shoe.productName}</h3>
                     <p>${this.props.shoe.price}</p>

@@ -1,19 +1,29 @@
 .shoe-show-main {
     display: flex;
-    /* flex-wrap: wrap; */
+    justify-content: center;
+
 }
 
 .shoe-grid {
-    display: flex;
-    flex-flow: row wrap;
-    width: 55%;
+    width: 42.5vw;
 }
-
+.shoe-grid ul {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    flex-flow: row wrap;
+}
 .shoe-grid p {
-    width: 45%;
-    padding: 5px;
+    /* width: 40%; */
+    width: 20vw;
+    margin: 5px;
 }
 
 .shoe-grid img {
     width: 100%;
+}
+
+.product-desc {
+width: 30vw;
+padding-left: 36px;
 }
