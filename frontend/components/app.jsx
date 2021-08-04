@@ -5,6 +5,7 @@ import ShoeShow from './product/shoes_show/shoe_show_container'
 import Header from './homepage/header_container'
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
 import { Route } from 'react-router-dom'
+import ShoeIndex from './product/shoes_index/shoe_index_container';
 
 class App extends React.Component {
     constructor(props) {
@@ -18,6 +19,7 @@ class App extends React.Component {
                 <ProtectedRoute exact path='/account' component={AccountPage} />
                 <AuthRoute exact path='/account/login' component={AccountForms} />
                 <Route exact path='/shoes/:shoeId' component={ShoeShow} />
+                <Route exact path='/shoes' component={ShoeIndex} />
                 
             </div>
         )

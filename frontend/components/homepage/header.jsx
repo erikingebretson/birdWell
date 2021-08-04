@@ -18,7 +18,13 @@ class Header extends React.Component {
             return (
                 <div>
                     <h3>Welcome</h3>
+                    <br />
+                    <Link to='/'>Home</Link>
+                    <br />
                     <Link to='/account/login'>Log In</Link>
+                    <br />
+                    <Link to='/shoes'>Shoes</Link>
+                    
                 </div>
             )
         }

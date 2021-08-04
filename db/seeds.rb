@@ -16,9 +16,15 @@ mTreeRunner = Product.create!(product_name: 'Tree Runner', size: 8, colorway: 'J
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/1-tree-runner-blk.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/2-tree-runner-blk.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/3-tree-runner-blk.jpeg')
+file4 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/4-tree-runner-blk.jpeg')
+file5 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/5-tree-runner-blk.jpeg')
+file6 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/6-tree-runner-blk.jpeg')
 mTreeRunner.photos.attach(io: file1, filename: '1-tree-runner-blk.jpeg')
 mTreeRunner.photos.attach(io: file2, filename: '2-tree-runner-blk.jpeg')
 mTreeRunner.photos.attach(io: file3, filename: '3-tree-runner-blk.jpeg')
+mTreeRunner.photos.attach(io: file4, filename: '4-tree-runner-blk.jpeg')
+mTreeRunner.photos.attach(io: file5, filename: '5-tree-runner-blk.jpeg')
+mTreeRunner.photos.attach(io: file6, filename: '6-tree-runner-blk.jpeg')
 
 
 wTreePiper = Product.create!(product_name: 'Tree Piper', size: 5, colorway: 'Luna', price: 95, cart_id: [], review_id: [])
