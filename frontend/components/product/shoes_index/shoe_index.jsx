@@ -13,7 +13,7 @@ class ShoeIndex extends React.Component {
 
     buildGrid() {
         return this.props.shoes.map( shoe => (
-            <ShoeGridItem key={shoe.id} shoe={shoe} />
+            <ShoeGridItem key={shoe.id} shoe={shoe} allShoes={this.props.shoes} />
         ))
     }
 
