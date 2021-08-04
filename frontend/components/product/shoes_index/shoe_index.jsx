@@ -18,7 +18,6 @@ class ShoeIndex extends React.Component {
 
     render() {
         if (Object.keys(this.props.shoes).length === 0) return null;
-        console.log(this.props.shoes)
 
         return (
             <div>

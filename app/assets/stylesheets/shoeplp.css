@@ -1,8 +1,24 @@
-.plp-root {
+.plp-element-root {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 .plp-details-box {
     display: flex;
     flex-direction: column;
+    margin: 10px;
+    width: 210px;
+}
+
+.plp-details-box a {
+    text-decoration: none;
+}
+
+.plp-details-box img {
+    width: 150px;
+}
+
+.plp-hero-img img {
+    width: 200px;
 }
