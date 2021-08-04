@@ -9,14 +9,29 @@ class ShoeShow extends React.Component {
         this.props.fetchProduct()
     }
 
+    productImages() {
+        return (
+            <div className="shoe-grid">
+                {this.props.shoe.photoUrls.map( (imgUrl, idx) => (
+                    <p key={idx} ><img src={imgUrl} alt="" /></p>
+                ))
+                }
+            </div>
+        )
+    }
+
     render() {
         if (this.props.shoe === undefined) return null;
-        // console.log(this.props.shoe.photoUrls[0])
+
         return (
-            <div>
-                <h1>I am a shoe</h1>
-                <h2>{this.props.shoe.productName}</h2>
-                <img src={this.props.shoe.photoUrls[0]} alt="" />
+            <div className="shoe-show-main" >
+                <ul  >
+                    {this.productImages()}
+                </ul>
+                <div className="product-desc" >
+                    <h3>{this.props.shoe.productName}</h3>
+                    <p>${this.props.shoe.price}</p>
+                </div>
             </div>
         )   
     }

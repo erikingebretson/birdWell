@@ -1,0 +1,19 @@
+.shoe-show-main {
+    display: flex;
+    /* flex-wrap: wrap; */
+}
+
+.shoe-grid {
+    display: flex;
+    flex-flow: row wrap;
+    width: 55%;
+}
+
+.shoe-grid p {
+    width: 45%;
+    padding: 5px;
+}
+
+.shoe-grid img {
+    width: 100%;
+}
