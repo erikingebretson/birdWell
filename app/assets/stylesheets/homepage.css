@@ -1,19 +1,59 @@
 .root-header-div {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     position: relative;
     height: 60px;
     box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, .09);
 }
 
+.logo {
+    font-family: 'Pattaya', sans-serif;
+    font-size: 32px;
+}
+
 .nav-greeting {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.nav-greeting h1, .nav-greeting h3 {
-    margin: 10px;
+.product-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-transform: uppercase;
+    align-items: center;
+    width: 43%;
 }
 
-.nav-greeting a {
-    margin: 10px;
+.account-nav {
+    display: flex;
+    flex-direction: row;
+    text-transform: uppercase;
+    justify-content: flex-end;
+    align-items: center;
+
+    width: 43%;
+}
+
+.product-nav a {
+    text-decoration: none;
+    min-width: 42px;
+    min-height: 42px;
+    margin-left: 18px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    vertical-align: middle;
+}
+
+.account-nav a {
+    text-decoration: none;
+    min-width: 42px;
+    min-height: 42px;
+    margin-right: 18px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }

@@ -1,32 +1,28 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 
+
 class Header extends React.Component {
     constructor(props) {
         super(props)
     }
 
     sessionGreeting() {
-        if (this.props.currentUser) {
-            return (
-                <div className='nav-greeting' >
-                    <h1>BirdWell</h1>
-                    <h3>Hello {this.props.currentUser.firstName}</h3>
-                    <button onClick={ () => this.props.logout() }>Log Out</button>
-                </div>
-            )
-        } else {
             return (
                 <div className='nav-greeting'>
-                    <h1>BirdWell</h1>
-                    <h3>Welcome</h3>
-                    <Link to='/'>Home</Link>
-                    <Link to='/shoes'>Shoes</Link>
-                    <Link to='/account/login'>Log In</Link>
-                    
+                    <div className="product-nav">
+                        <Link to='/shoes'>Men</Link>
+                        <Link to='/shoes'>Women</Link>
+                        <Link to='/shoes'>New Arrivals</Link>
+                    </div>
+                    <Link to='/'><h1 className="logo" >BirdWell</h1></Link>
+                    <div className="account-nav" >
+                        <Link to='/account'>Account</Link>
+                        <Link to='/account/login'>Help</Link>
+                        <Link to='/'>Cart</Link>
+                    </div>
                 </div>
             )
-        }
     }
 
     render() {

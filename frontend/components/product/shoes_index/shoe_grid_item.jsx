@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 const ShoeGridItem = (props) => {
-    console.log(props)
     return (
         <div>
             <h4>{props.shoe.productName}</h4>
