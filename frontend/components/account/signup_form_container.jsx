@@ -4,13 +4,13 @@ import { signup } from '../../actions/session_actions'
 import sessionForm from './session_form';
 
 const mSTP = (state) => ({
-    user: {
-        first_name: '',
-        last_name: '',
-        email: '',
-        password: '',
-        passwordCheck: '',
-    },
+    // user: {
+    //     first_name: '',
+    //     last_name: '',
+    //     email: '',
+    //     password: '',
+    //     passwordCheck: '',
+    // },
     errors: state.errors.sessionErrors,
     class: 'register-form',
     formHeader: 'CREATE AN ACCOUNT',
