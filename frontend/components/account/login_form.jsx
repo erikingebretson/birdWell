@@ -18,7 +18,6 @@ class loginForm extends React.Component {
     }
 
     readErrors() {
-        console.log(this.props)
         return this.props.errors.map((error, i) => (
             <div>
                 <p key={i}>{error}</p>
@@ -28,12 +27,16 @@ class loginForm extends React.Component {
     }
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
+        
+        // console.log(this.props.errors[0])
+        // console.log(this.props.errors[0] === "Incorrect email or password.")
+
         return (
             <div className={this.props.class}>
                 <h3>{this.props.formHeader}</h3>
-
-                {this.props.errors.length > 0 && this.props.formEvent === 'Sign In' ? this.readErrors() : ''}
+                {/* {this.props.errors.length > 0 && this.props.class === 'login-form' ? this.readErrors() : ''} */}
+                {this.props.errors[0] === "Incorrect email or password." ? this.readErrors() : ''}
 
                 <form className="account-form" onSubmit={e => this.handleSubmit(e)}>
                     {this.props.formEvent === 'Register' ? this.nameFields() : ''}
