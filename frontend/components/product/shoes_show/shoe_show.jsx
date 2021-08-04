@@ -13,7 +13,7 @@ class ShoeShow extends React.Component {
         return (
             <ul >
                 {this.props.shoe.photoUrls.map( (imgUrl, idx) => (
-                    <p key={idx} ><img src={imgUrl} alt="" /></p>
+                    idx < 6 ? <p key={idx} ><img src={imgUrl} alt="" /></p> : ''
                 ))
                 }
             </ul>
@@ -31,6 +31,7 @@ class ShoeShow extends React.Component {
                 <div className="product-desc" >
                     <h3>{this.props.shoe.productName}</h3>
                     <p>${this.props.shoe.price}</p>
+                    
                 </div>
             </div>
         )   

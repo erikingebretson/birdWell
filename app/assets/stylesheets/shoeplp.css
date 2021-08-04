@@ -1,0 +1,8 @@
+.plp-root {
+    display: flex;
+}
+
+.plp-details-box {
+    display: flex;
+    flex-direction: column;
+}
