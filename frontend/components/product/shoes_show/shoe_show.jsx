@@ -16,7 +16,7 @@ class ShoeShow extends React.Component {
             <div>
                 <h1>I am a shoe</h1>
                 <h2>{this.props.shoe.productName}</h2>
-                <img src={this.props.shoe.photoUrls[1]} alt="" />
+                <img src={this.props.shoe.photoUrls[0]} alt="" />
             </div>
         )   
     }
