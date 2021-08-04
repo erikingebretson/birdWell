@@ -4,3 +4,15 @@
     position: relative;
     height: 60px
 }
+
+.nav-greeting {
+    display: flex;
+}
+
+.nav-greeting h1, .nav-greeting h3 {
+    margin: 10px;
+}
+
+.nav-greeting a {
+    margin: 10px;
+}
