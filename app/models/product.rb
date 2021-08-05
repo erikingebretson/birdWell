@@ -13,7 +13,7 @@
 #  updated_at   :datetime         not null
 #
 class Product < ApplicationRecord
-    validates :product_name, :size, :colorway, :price, presence: true
+    validates :product_name, :size, :colorway, :price, :detail1, :detail2, presence: true
 
     has_many_attached :photos
 end

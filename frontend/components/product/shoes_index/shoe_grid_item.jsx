@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 class ShoeGridItem extends React.Component {
 
     getAllImages() {
-        // NEED TO REVISIT THIS LOGIC ONCE DB HAS BEEN SEEDED
-         return this.props.allShoes.map( (shoe, idx) => (
+        // NEED TO REVISIT THIS LOGIC ONCE DB HAS BEEN SEEDED - if tempshoe.productName === this.props.shoe.productName THEN LINK THE url/img
+         return this.props.allShoes.map( (tempshoe, idx) => (
              <div key={idx} >
-                <Link to={`/shoes/${shoe.id}`} ><img className="thumbnail" src={shoe.photoUrls[2]} alt="" /></Link>
+                 <Link to={`/shoes/${tempshoe.id}`} ><img className="thumbnail" src={tempshoe.photoUrls[2]} alt="" /></Link>
             </div>
          ))
         }
