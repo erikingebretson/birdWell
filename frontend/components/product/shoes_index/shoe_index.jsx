@@ -12,9 +12,11 @@ class ShoeIndex extends React.Component {
     }
 
     buildGrid() {
-        return this.props.shoes.map( shoe => (
-            <ShoeGridItem key={shoe.id} shoe={shoe} allShoes={this.props.shoes} />
-        ))
+        return this.props.shoes.map( (shoe, idx) => {
+           if ( idx % 4 === 0 ) {
+                return <ShoeGridItem key={idx} shoe={shoe} allShoes={this.props.shoes} />
+           }
+        })
     }
 
     indexMenu() {

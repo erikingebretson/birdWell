@@ -80,7 +80,7 @@
     margin-bottom: 6px;
 }
 
-.plp-details-box > img {
+.plp-details-box  img {
     width: 100%;
     padding-bottom: 12px;
 }
@@ -120,12 +120,6 @@
     /* height: auto; */
     /* height: fit-content; */
     width: 50%;
-}
-
-.plp-hero-img > img {
-    /* position: absolute; */
-    /* width: 100%; */
-    /* z-index: -1; */
 }
 
 .image-copy {
