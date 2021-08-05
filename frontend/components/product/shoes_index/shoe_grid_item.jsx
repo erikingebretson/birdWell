@@ -5,17 +5,12 @@ class ShoeGridItem extends React.Component {
 
     getAllImages() {
         // NEED TO REVISIT THIS LOGIC ONCE DB HAS BEEN SEEDED
-        let fotoUrls = this.props.allShoes.map( shoe => {
-            
-            return shoe.photoUrls[2]
-            shoe.productName === this.props.shoe.productName ? shoe.photoUrls[2] : null
-        })
-        console.log(fotoUrls)
-
-        return fotoUrls.map( (img, idx) => (
-            <li key={idx} ><img className="thumbnail" src={img} alt="" /></li>
-        ))
-    }
+         return this.props.allShoes.map( (shoe, idx) => (
+             <div key={idx} >
+                <Link to={`/shoes/${shoe.id}`} ><img className="thumbnail" src={shoe.photoUrls[2]} alt="" /></Link>
+            </div>
+         ))
+        }
 
 
     render() {
@@ -29,12 +24,15 @@ class ShoeGridItem extends React.Component {
                         <Link to={`/shoes/${this.props.shoe.id}`} >{this.props.shoe.productName}</Link>
                         <p>{this.props.shoe.colorway}</p>
                         <p>${this.props.shoe.price}</p>
-                        <ul className="thumbnail-carousel" >
+                        <div className="thumbnail-carousel" >
                             {this.getAllImages()}
-                        </ul>
+                        </div>
                     </div>
                     <div className="plp-hero-img">
                         <img src={this.props.shoe.photoUrls[6]} alt={this.props.shoe.productName}/>
+                        <div className="image-copy" >
+                            <p >Breezy Feel, Light Material</p>
+                        </div>
                     </div>
                 </div>
             </div>

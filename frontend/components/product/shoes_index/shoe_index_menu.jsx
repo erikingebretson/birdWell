@@ -10,12 +10,13 @@ class ShoeIndexMenu extends React.Component {
         return (
             <div>
                 <h3>Home /</h3>
-                <ul>
+                <ul className="menu-nav" >
+                    <li className="selected-cat"><Link to='/shoes'>New Arrivals</Link></li>
                     <li><Link to='/shoes'>Men's Shoes</Link></li>
                     <li><Link to='/shoes'>Women's Shoes</Link></li>
                 </ul>
                 <br />
-                <h3>Filter By:</h3>
+                <h3 className="filter-prod" >Filter By:</h3>
                 <ul>
                     <li>things</li>
                     <li>stuff</li>
