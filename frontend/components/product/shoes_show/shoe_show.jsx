@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ReviewElement from './review_element';
 
 class ShoeShow extends React.Component {
     constructor(props) {
@@ -141,12 +142,7 @@ class ShoeShow extends React.Component {
                         </div>
                     </div>
                 </div>
-                <ProductReviewElement shoe={this.props.shoe} />
-                <div className="review-content">
-                    <div className="review-content-header">
-                        <h4>{this.props.shoe.gender}'s {this.props.shoe.productName} Reviews</h4>
-                    </div>
-                </div>
+                <ReviewElement shoe={this.props.shoe} />
             </div>
                 
         )   
