@@ -32,9 +32,14 @@
     flex-direction: row;
     text-transform: uppercase;
     justify-content: flex-end;
-    align-items: center;
-
+    align-content: center;
     width: 43%;
+}
+
+.product-nav div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .product-nav a {
@@ -42,10 +47,6 @@
     min-width: 42px;
     min-height: 42px;
     margin-left: 18px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    vertical-align: middle;
 }
 
 .account-nav a {
@@ -56,4 +57,9 @@
     display: flex;
     justify-content: center;
     align-content: center;
+}
+
+.homepage-root {
+    max-width: 1380px;
+	margin:0 auto;
 }
