@@ -38,6 +38,33 @@ class ShoeShow extends React.Component {
             }
     }
 
+    setStars() {
+        return (
+            <div className="prod-review-stars-container">
+                <div className="prod-review-stars"  >
+                    <div className="star-img" >
+                        <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
+                    </div>
+                    <div className="star-img" >
+                        <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
+                    </div>
+                    <div className="star-img" >
+                        <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
+                    </div>
+                    <div className="star-img" >
+                        <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
+                    </div>
+                    <div className="star-img" >
+                        <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
+                    </div>
+                </div>
+                <div>
+                    <p><Link to="" >(000)</Link></p>
+                </div>
+            </div>
+        )
+    }
+
     shoeColorTiles() {
         return this.props.allShoes.map( (tempshoe, idx) => {
             if (tempshoe.productName === this.props.shoe.productName) { 
@@ -47,8 +74,7 @@ class ShoeShow extends React.Component {
                         </a>
                     </div>
                     
-            }
-    })
+            } })
     }
 
     setSize(size) {
@@ -84,9 +110,7 @@ class ShoeShow extends React.Component {
                     <div className="product-desc" >
                         <h3>{this.props.shoe.productName}</h3>
                         <p className="price" >${this.props.shoe.price}</p>
-                        <div className="prod-review-widget" >
-                            <p>tempreview</p>
-                        </div>
+                        {this.setStars()}
                         <p className="colorway">CLASSICS: {this.props.shoe.colorway}</p>
                         <div className="shoe-colors">
                             {this.shoeColorTiles()}
@@ -117,6 +141,7 @@ class ShoeShow extends React.Component {
                         </div>
                     </div>
                 </div>
+                <ProductReviewElement shoe={this.props.shoe} />
                 <div className="review-content">
                     <div className="review-content-header">
                         <h4>{this.props.shoe.gender}'s {this.props.shoe.productName} Reviews</h4>
