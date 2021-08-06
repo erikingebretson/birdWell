@@ -82,6 +82,10 @@
     margin-right: 15px;
 }
 
+.color-tile a, .color-tile img {
+    width: 100%;
+}
+
 .size-chart {
     margin-bottom: 18px;
 }

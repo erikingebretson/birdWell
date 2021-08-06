@@ -8,11 +8,11 @@ class ShoeIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchAllProduct()
-        // this.props.fetchProduct(34)
-        // this.props.fetchProduct(35)
-        // this.props.fetchProduct(36)
-        // this.props.fetchProduct(37)
+        // this.props.fetchAllProduct()
+        this.props.fetchProduct(34)
+        this.props.fetchProduct(35)
+        this.props.fetchProduct(36)
+        this.props.fetchProduct(37)
     }
 
     buildGrid() {

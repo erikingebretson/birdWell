@@ -1,52 +1,64 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class ShoeShow extends React.Component {
     constructor(props) {
         super(props)
+        this.state = this.props.shoe
     }
     
     componentDidMount() {
-        this.props.fetchProduct()
+        this.props.fetchProduct(34)
+        this.props.fetchProduct(35)
+        this.props.fetchProduct(36)
+        this.props.fetchProduct(37)
+        // this.props.fetchAllProduct()
     }
 
     productImages() {
-        return (
-            <ul >
-                {this.props.shoe.photoUrls.map( (imgUrl, idx) => (
-                    idx < 6 ? <p key={idx} ><img src={imgUrl} alt="" /></p> : ''
-                ))
+                console.log(this.state)
+                if (this.state === null) {
+                    return  <ul >
+                        {this.props.shoe.photoUrls.map( (imgUrl, idx) => (
+                            idx < 6 ? <p key={idx} ><img src={imgUrl} alt="" /></p> : ''
+                        ))
+                        }
+                    </ul>
+                } else {
+                    return <ul>
+                        {this.state.photoUrls.map((imgUrl, idx) => (
+                            idx < 6 ? <p key={idx} ><img src={imgUrl} alt="" /></p> : ''
+                        ))
+                    }
+                    </ul>
                 }
-            </ul>
-        )
     }
 
-    shoeColorTiles() {
+    // setNewState(tshoe) {
+    //     console.log(tshoe)
+    //     return this.setState({ id: tshoe.id, colorway: tshoe.colorway, photoUrls: tshoe.photoUrls })
+    // }
 
-        return (
-            <div className="shoe-colors">
-                <div >
-                    <button className="color-tile"></button>
-                </div>
-                <div >
-                    <button className="color-tile"></button>
-                </div>
-                <div >
-                    <button className="color-tile"></button>
-                </div>
-                <div >
-                    <button className="color-tile"></button>
-                </div>
-            </div>
-        )
+    shoeColorTiles() {
+        return this.props.allShoes.map( (tempshoe, idx) => {
+            if (tempshoe.productName === this.props.shoe.productName) { 
+                return <div key={idx} className="color-tile" >
+                        <a onClick={ () => this.setState({ id: tempshoe.id, photoUrls: tempshoe.photoUrls }) } >
+                            <img src={tempshoe.photoUrls[0]} alt={this.props.productName} />
+                        </a>
+                    </div>
+                    
+            }
+    })
     }
 
     render() {
         if (this.props.shoe === undefined) return null;
-        console.log(this.props.shoe)
+
         return (
             <div className="root">
                 <div className="pathway">
-                    <p>Home / {this.props.shoe.gender}'s Shoes </p>
+                    <p>Home / <Link to='/shoes' >{this.props.shoe.gender}'s Shoes</Link> </p>
                 </div>
                 <div className="shoe-show-main" >
                     <div className="shoe-grid">
@@ -59,7 +71,11 @@ class ShoeShow extends React.Component {
                             <p>tempreview</p>
                         </div>
                         <p className="colorway">CLASSICS: {this.props.shoe.colorway}</p>
-                        {this.shoeColorTiles()}
+                        <div className="shoe-colors">
+                            {console.log(this.state)}
+                            {this.shoeColorTiles()}
+                            {console.log(this.state)}
+                        </div>
                         <div className="size-chart" >
                             <p>Select Size:</p>
                             <ul>
