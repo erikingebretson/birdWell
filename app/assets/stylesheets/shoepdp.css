@@ -1,20 +1,35 @@
+.root {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.pathway {
+    padding-top: 24px;
+    padding-bottom: 18px;
+    padding-left: 9px;
+}
+
 .shoe-show-main {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    padding-bottom: 100px;
 }
 
 .shoe-grid {
-    width: 42.5vw;
+    width: 100%;
+    height: auto;
 }
 .shoe-grid ul {
     display: flex;
     justify-content: flex-start;
+    position: relative;
+    width: 100%;
     align-content: center;
     flex-flow: row wrap;
 }
 .shoe-grid p {
-    /* width: 40%; */
-    width: 20vw;
+    width: 45.5%;
+    /* width: 35%; */
     margin: 5px;
 }
 
@@ -23,6 +38,134 @@
 }
 
 .product-desc {
-width: 30vw;
-padding-left: 36px;
+    position: relative;
+    width: 40vw;
+    margin-left: 36px;
+}
+
+.product-desc h3 {
+    font-size: 32px;
+    line-height: 1.31;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-size: 16px;
+    line-height: 1.31;
+    margin-bottom: 12px;
+}
+
+.colorway {
+    font-size: 12px;
+    line-height: 1.31;
+    padding-bottom: 12px;
+}
+
+.prod-review-widget {
+    margin-bottom: 24px;
+}
+
+.shoe-colors {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.color-tile {
+    height: 42px;
+    width: 42px;
+    border: 1px solid rgba(211, 212, 213);
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.size-chart {
+    margin-bottom: 18px;
+}
+
+.size-chart p {
+    margin-bottom: 12px;
+}
+
+.size-chart ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    height: 39px;
+
+}
+
+.size-chart li {
+    height: 100%;
+    width: 39px;
+    align-self: center;
+    vertical-align: center;
+    align-content: center;
+    margin-right: 3px;
+    border: 1px solid rgb(33, 42, 47);
+    border-radius: 2px;
+}
+
+.size-chart button {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.size-chart button:hover {
+    background-color: rgba(0,0,0,.2);
+}
+
+.sizing-detail {
+    font-size: 12px;
+    margin-bottom: 18px;
+} 
+
+.cart-button {
+    align-self: center;
+    width: 100%;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: #000;
+    padding: 13px 18px;
+    border-radius: 2px;
+    color: #fff;
+    border: 2px solid transparent;
+    transition: .01s ease-in-out;
+}
+
+.cart-button:hover {
+    background-color: rgba(0,0,0, .0);
+    color: #000;
+    border: 2px solid #000;
+}
+
+.guarantee-detail {
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    padding-top: 12px;
+    align-self: center;
+}
+
+.review-content {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.review-content-header {
+    background-color: #F5F5F5;
+    padding: 84px 0px 60px 0px;
+}
+
+.review-content-header h4 {
+    font-size: 34px;
+    margin-bottom: 18px;
+    text-align: center;
 }
