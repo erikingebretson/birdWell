@@ -7,5 +7,6 @@
         json.username review.username
         json.product_id review.product_id
         json.user_id review.user_id
+        json.created_at review.created_at
     end
 end

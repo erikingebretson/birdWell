@@ -12,22 +12,28 @@ class ReviewElement extends React.Component {
                 username: ''
             }
         }
+        this.total = 0;
+        this.numReviews = 0;
+        this.avg = this.total / this.numReviews;
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    // componentDidMount() {
-    //     //fetch existing prod reviews
-    //     this.props.fetchAllReviews()
-    // }
-
+    handleSubmit(e) {
+        e.preventDefault()
+    }
 
     readReviews() {
-        console.log(this.props.reviews)
+        // console.log(this.props.reviews)
         return this.props.reviews.map( (review,idx) => {
             if (review.productId === this.props.shoe.id) {
-             return <div>
+            this.total += review.stars
+            this.numReviews += 1
+             return <div key={idx} className="review-element" >
                         <p></p>
-                        <p>{review.title}</p>
+                        <p className="user-stars" >{review.stars}</p>
+                        <p className="review-title" >{review.title}</p>
+                        <p className="review-body" >{review.body}</p>
+                        <p className="review-date" >{review.createdAt}</p>
                     </div>
             }
         })
@@ -60,11 +66,6 @@ class ReviewElement extends React.Component {
         )
     }
 
-    handleSubmit(e) {
-        e.preventDefault() 
-    }
-
-
     render() {
         return (
             <div className="review-content">
@@ -72,7 +73,9 @@ class ReviewElement extends React.Component {
                     <h4>{this.props.shoe.gender}'s {this.props.shoe.productName} Reviews</h4>
                     {this.setStars()}
                 </div>
-                {this.readReviews()}
+                <div className="reviews-container" >
+                    {this.readReviews()}
+                </div>
                 <div className="review-form-root" >
                     <form className="review-form" onSubmit={(e) => this.handleSubmit(e) }>
 
