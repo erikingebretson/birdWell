@@ -25,35 +25,18 @@ class loginForm extends React.Component {
         ))
     }
 
-    // demoUser() {
-
-    // // const demoUser = {
-    // //         user: {
-    // //         first_name: '',
-    // //         last_name: '',
-    // //         email: 'test123',
-    // //         password: 'test123'
-    // // },
-    // //     // errors: this.props.errors.sessionErrors,
-    // //     // class: 'login-form',
-    // //     // formHeader: 'LOGIN',
-    // //     // formEvent: 'Sign In'
-    // // }
-    //     // this.setState( )
-    //     console.log(this.state)
-    //     this.props.formAction({ user: { email: 'test123', password: 'test123' } })
-    // }
+    demoUser(e) {
+        e.preventDefault(e);
+        // console.log(this.state)
+        // this.props.formAction({ user: { email: 'test123', password: 'test123' } })
+        this.props.formAction({ first_name: "Demo", last_name: "User", email: "DemoUser@demo.com", password: "test123" })
+    }
 
     render() {
-        // console.log(this.props)
-        
-        // console.log(this.props.errors[0])
-        // console.log(this.props.errors[0] === "Incorrect email or password.")
 
         return (
             <div className={this.props.class}>
                 <h3>{this.props.formHeader}</h3>
-                {/* {this.props.errors.length > 0 && this.props.class === 'login-form' ? this.readErrors() : ''} */}
                 {this.props.errors[0] === "Incorrect email or password." ? this.readErrors() : ''}
 
                 <form className="account-form" onSubmit={e => this.handleSubmit(e)}>
@@ -66,7 +49,7 @@ class loginForm extends React.Component {
                     <button type="submit">{this.props.formEvent}</button>
                     <br />
                     <br />
-                    {/* <button onClick={() => this.demoUser()}>DEMO LOGIN</button> */}
+                    <button onClick={(e) => this.demoUser(e)}>DEMO LOGIN</button>
                 </form>
             </div>
         )
