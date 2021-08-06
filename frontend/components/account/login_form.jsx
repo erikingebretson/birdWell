@@ -21,7 +21,6 @@ class loginForm extends React.Component {
         return this.props.errors.map((error, i) => (
             <div>
                 <p key={i}>{error}</p>
-                <br />
             </div>
         ))
     }
