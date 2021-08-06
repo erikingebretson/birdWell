@@ -8,7 +8,7 @@ const mSTP = (state, ownProps) => ({
 })
 
 const mDTP = (dispatch, ownProps) => ({
-    fetchProduct: (shoe) => dispatch(fetchProduct(shoe)),
+    fetchProduct: () => dispatch(fetchProduct(ownProps.match.params.shoeId)),
     fetchAllProduct: () => dispatch(fetchAllProduct())
 })
 

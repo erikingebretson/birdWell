@@ -4,46 +4,45 @@ import { Link } from 'react-router-dom';
 class ShoeShow extends React.Component {
     constructor(props) {
         super(props)
-        this.state = this.props.shoe
+        this.state = {
+            id: '',
+            product_name: '',
+            size: '',
+            colorway: '',
+            price: 0,
+            cart_id: null,
+            review_id: null,
+            gender: '',
+            detail1: '',
+            detail2: ''
+        }
     }
     
     componentDidMount() {
-        this.props.fetchProduct(34)
-        this.props.fetchProduct(35)
-        this.props.fetchProduct(36)
-        this.props.fetchProduct(37)
-        // this.props.fetchAllProduct()
+        this.props.fetchAllProduct() 
     }
 
     productImages() {
-                console.log(this.state)
-                if (this.state === null) {
-                    return  <ul >
-                        {this.props.shoe.photoUrls.map( (imgUrl, idx) => (
-                            idx < 6 ? <p key={idx} ><img src={imgUrl} alt="" /></p> : ''
-                        ))
-                        }
-                    </ul>
-                } else {
-                    return <ul>
-                        {this.state.photoUrls.map((imgUrl, idx) => (
-                            idx < 6 ? <p key={idx} ><img src={imgUrl} alt="" /></p> : ''
-                        ))
-                    }
-                    </ul>
-                }
+        if (this.state.photoUrls === undefined) {
+                return <ul>
+                    {this.props.shoe.photoUrls.map( (imgUrl, idx) => (
+                        idx < 6 ? <p key={idx} ><img src={imgUrl} alt="" /></p> : ''
+                    ))}
+                </ul>
+            } else {
+                return <ul>
+                    {this.state.photoUrls.map((imgUrl, idx) => (
+                        idx < 6 ? <p key={idx} ><img src={imgUrl} alt="" /></p> : ''
+                    ))}
+                </ul>
+            }
     }
-
-    // setNewState(tshoe) {
-    //     console.log(tshoe)
-    //     return this.setState({ id: tshoe.id, colorway: tshoe.colorway, photoUrls: tshoe.photoUrls })
-    // }
 
     shoeColorTiles() {
         return this.props.allShoes.map( (tempshoe, idx) => {
             if (tempshoe.productName === this.props.shoe.productName) { 
                 return <div key={idx} className="color-tile" >
-                        <a onClick={ () => this.setState({ id: tempshoe.id, photoUrls: tempshoe.photoUrls }) } >
+                        <a onClick={ () => this.setState({ photoUrls: tempshoe.photoUrls, colorway: tempshoe.colorway, productName: tempshoe.productName }) } >
                             <img src={tempshoe.photoUrls[0]} alt={this.props.productName} />
                         </a>
                     </div>
@@ -52,9 +51,27 @@ class ShoeShow extends React.Component {
     })
     }
 
+    setSize(size) {
+        if (this.state.price === 0) {
+            return { 
+                product_name: this.props.shoe.productName, 
+                size: size,
+                colorway: this.props.shoe.colorway,
+                price: this.props.shoe.price,
+                cart_id: this.props.shoe.cart_id,
+                review_id: this.props.shoe.review_id,
+                gender: this.props.shoe.gender,
+                detail1: this.props.shoe.detail1,
+                detail2: this.props.shoe.detail2
+
+              }
+        } else {
+            return { size: size }
+        }
+    }
+
     render() {
         if (this.props.shoe === undefined) return null;
-
         return (
             <div className="root">
                 <div className="pathway">
@@ -72,20 +89,18 @@ class ShoeShow extends React.Component {
                         </div>
                         <p className="colorway">CLASSICS: {this.props.shoe.colorway}</p>
                         <div className="shoe-colors">
-                            {console.log(this.state)}
                             {this.shoeColorTiles()}
-                            {console.log(this.state)}
                         </div>
                         <div className="size-chart" >
                             <p>Select Size:</p>
                             <ul>
-                                <li><button>8</button></li>
-                                <li><button>9</button></li>
-                                <li><button>10</button></li>
-                                <li><button>11</button></li>
-                                <li><button>12</button></li>
-                                <li><button>13</button></li>
-                                <li><button>14</button></li>
+                                <li><button onClick={() => this.setState(this.setSize(8))} >8</button></li>
+                                <li><button onClick={() => this.setState(this.setSize(9))} >9</button></li>
+                                <li><button onClick={() => this.setState(this.setSize(10))} >10</button></li>
+                                <li><button onClick={() => this.setState(this.setSize(11))} >11</button></li>
+                                <li><button onClick={() => this.setState(this.setSize(12))} >12</button></li>
+                                <li><button onClick={() => this.setState(this.setSize(13))} >13</button></li>
+                                <li><button onClick={() => this.setState(this.setSize(14))} >14</button></li>
                                 
                             </ul>
                         </div>
