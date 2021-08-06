@@ -5,6 +5,8 @@
     /* display: block; */
     /* padding-top: 60px; */
     width: 100%;
+    max-width: 1380px;
+	margin:0 auto;
 }
 
 .plp-menu {
