@@ -15,13 +15,22 @@ class ReviewElement extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    componentDidMount() {
-        //fetch existing prod reviews
-    }
+    // componentDidMount() {
+    //     //fetch existing prod reviews
+    //     this.props.fetchAllReviews()
+    // }
 
 
     readReviews() {
-        // generate html for each prod review
+        console.log(this.props.reviews)
+        return this.props.reviews.map( (review,idx) => {
+            if (review.productId === this.props.shoe.id) {
+             return <div>
+                        <p></p>
+                        <p>{review.title}</p>
+                    </div>
+            }
+        })
     }
 
     setStars() {
@@ -63,7 +72,7 @@ class ReviewElement extends React.Component {
                     <h4>{this.props.shoe.gender}'s {this.props.shoe.productName} Reviews</h4>
                     {this.setStars()}
                 </div>
-
+                {this.readReviews()}
                 <div className="review-form-root" >
                     <form className="review-form" onSubmit={(e) => this.handleSubmit(e) }>
 

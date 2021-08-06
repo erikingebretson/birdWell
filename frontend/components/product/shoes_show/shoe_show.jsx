@@ -21,6 +21,7 @@ class ShoeShow extends React.Component {
     
     componentDidMount() {
         this.props.fetchAllProduct() 
+        this.props.fetchAllReviews()
     }
 
     productImages() {
@@ -142,7 +143,7 @@ class ShoeShow extends React.Component {
                         </div>
                     </div>
                 </div>
-                <ReviewElement shoe={this.props.shoe} fetchReviews={this.props.fetchReviews} />
+                <ReviewElement shoe={this.props.shoe} reviews={this.props.reviews} />
             </div>
                 
         )   
