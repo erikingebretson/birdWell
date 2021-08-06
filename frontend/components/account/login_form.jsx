@@ -25,6 +25,25 @@ class loginForm extends React.Component {
         ))
     }
 
+    // demoUser() {
+
+    // // const demoUser = {
+    // //         user: {
+    // //         first_name: '',
+    // //         last_name: '',
+    // //         email: 'test123',
+    // //         password: 'test123'
+    // // },
+    // //     // errors: this.props.errors.sessionErrors,
+    // //     // class: 'login-form',
+    // //     // formHeader: 'LOGIN',
+    // //     // formEvent: 'Sign In'
+    // // }
+    //     // this.setState( )
+    //     console.log(this.state)
+    //     this.props.formAction({ user: { email: 'test123', password: 'test123' } })
+    // }
+
     render() {
         // console.log(this.props)
         
@@ -45,6 +64,9 @@ class loginForm extends React.Component {
                     <label htmlFor={`${this.props.class}password`}>Password</label>
                     <input id={`${this.props.class}password`} type="password" onChange={this.update('password')} value={this.state.password} />
                     <button type="submit">{this.props.formEvent}</button>
+                    <br />
+                    <br />
+                    {/* <button onClick={() => this.demoUser()}>DEMO LOGIN</button> */}
                 </form>
             </div>
         )
