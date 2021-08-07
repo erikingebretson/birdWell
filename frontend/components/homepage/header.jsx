@@ -11,8 +11,8 @@ class Header extends React.Component {
             return (
                 <div className='nav-greeting'>
                     <div className="product-nav">
-                        <div><Link to='/shoes'>Men</Link></div>
-                        <div><Link to='/shoes'>Women</Link></div>
+                        <div><Link to='/shoes/mens'>Men</Link></div>
+                        <div><Link to='/shoes/womens'>Women</Link></div>
                         <div><Link to='/shoes'>New Arrivals</Link></div>
                     </div>
                     <Link to='/'><h1 className="logo" >BirdWell</h1></Link>
