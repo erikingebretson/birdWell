@@ -17,11 +17,14 @@ class ShoeShow extends React.Component {
             detail1: '',
             detail2: ''
         }
+        this.starKeyId = 0;
+        this.totalReviews = 0;
+        this.totalStars = 0;
+        this.starAvg = 0;
     }
     
     componentDidMount() {
         this.props.fetchAllProduct() 
-        this.props.fetchAllReviews()
     }
 
     productImages() {
@@ -40,31 +43,41 @@ class ShoeShow extends React.Component {
             }
     }
 
-    setStars() {
-        return (
-            <div className="prod-review-stars-container">
-                <div className="prod-review-stars"  >
-                    <div className="star-img" >
-                        <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
+    avgStars() {
+        this.totalReviews = 0;
+        this.totalStars = 0;
+        this.starAvg = 0;
+
+        this.props.shoe.reviews.forEach( review => {
+            this.totalStars += review.stars
+            this.totalReviews ++
+        })
+        this.starAvg = this.totalStars / this.totalReviews
+    }
+
+    stars(num) {
+        let floorNum = Math.floor(num)
+        let i = 0;
+        let arr = []
+        for (let e = 0; e < 5; e++) {
+            if (i < floorNum) {
+                i++
+                arr.push(
+                    <div key={this.starKeyId} className="star-img" >
+                        <img src="images/star_blk.png" alt="" />
                     </div>
-                    <div className="star-img" >
-                        <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
+                )
+                this.starKeyId++
+            } else {
+                arr.push(
+                    <div key={this.starKeyId} className="star-img" >
+                        <img src="images/star_clear.png" alt="" />
                     </div>
-                    <div className="star-img" >
-                        <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
-                    </div>
-                    <div className="star-img" >
-                        <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
-                    </div>
-                    <div className="star-img" >
-                        <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
-                    </div>
-                </div>
-                <div>
-                    <p><Link to="" >(000)</Link></p>
-                </div>
-            </div>
-        )
+                )
+                this.starKeyId++
+            }
+        }
+        return arr
     }
 
     shoeColorTiles() {
@@ -100,6 +113,7 @@ class ShoeShow extends React.Component {
 
     render() {
         if (this.props.shoe === undefined) return null;
+        this.avgStars()
         return (
             <div className="root">
                 <div className="pathway">
@@ -110,9 +124,16 @@ class ShoeShow extends React.Component {
                         {this.productImages()}
                     </div>
                     <div className="product-desc" >
-                        <h3>{this.props.shoe.productName}</h3>
+                        <h3>{this.props.shoe.gender[0].toUpperCase() + this.props.shoe.gender.slice(1)}'s {this.props.shoe.productName}</h3>
                         <p className="price" >${this.props.shoe.price}</p>
-                        {this.setStars()}
+                        <div className="prod-review-stars-container">
+                            <div className="prod-review-stars">
+                                {this.stars(this.starAvg)}
+                            </div>
+                            <div>
+                                <p>({this.props.shoe.reviews.length})</p>
+                            </div>
+                        </div>
                         <p className="colorway">CLASSICS: {this.props.shoe.colorway}</p>
                         <div className="shoe-colors">
                             {this.shoeColorTiles()}
@@ -143,7 +164,7 @@ class ShoeShow extends React.Component {
                         </div>
                     </div>
                 </div>
-                <ReviewElement shoe={this.props.shoe} reviews={this.props.reviews} currentUser={this.props.currentUser} createReview={this.props.createReview} fetchAllReviews={this.props.fetchAllReviews}/>
+                <ReviewElement shoe={this.props.shoe} reviews={this.props.shoe.reviews} currentUser={this.props.currentUser} createReview={this.props.createReview} numStars={this.totalStars} numReviews={this.totalReviews} starAvg={this.starAvg}/>
             </div>
                 
         )   

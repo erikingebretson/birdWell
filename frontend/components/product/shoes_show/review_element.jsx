@@ -12,14 +12,10 @@ class ReviewElement extends React.Component {
                 user_id: this.props.currentUser ? this.props.currentUser.id : '',
                 product_id: this.props.shoe.id
             }
-        this.total = 0;
-        this.numReviews = 0;
-        this.avg = this.total / this.numReviews;
         this.handleSubmit = this.handleSubmit.bind(this)
-    }
+        this.starKeyId = 0;
+        this.headerStarKeyId = 0;
 
-    componentDidMount() {
-        this.props.fetchAllReviews()
     }
 
     handleSubmit(e) {
@@ -32,32 +28,59 @@ class ReviewElement extends React.Component {
     }
 
     stars(num) {
+        let floorNum = Math.floor(num)
         let i = 0;
         let arr = []
-        for ( let e = 0; e<5; e++) {
-            if (i < num ) {
+        for (let e = 0; e < 5; e++) {
+            if (i < floorNum) {
             i++
             arr.push(   
-                <div className="star-img" >
-                    <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star_blk.png" alt="" />
+                <div key={this.starKeyId} className="star-img" >
+                    <img src="images/star_blk.png" alt="" />
                 </div>
             )
+            this.starKeyId ++
             } else {
             arr.push(
-                <div className="star-img" >
-                    <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
+                <div key={this.starKeyId} className="star-img" >
+                    <img src="images/star_clear.png" alt="" />
                 </div>
             )
+            this.starKeyId ++
             }
         }
-        console.log(arr)
+        return arr
+    }
+
+    headerStars(num) {
+        let floorNum = Math.floor(num)
+        let i = 0;
+        let arr = []
+        for (let e = 0; e < 5; e++) {
+            if (i < floorNum) {
+                i++
+                arr.push(
+                    <div key={this.headerStarKeyId} className="star-img" >
+                        <img src="images/star_blk.png" alt="" />
+                    </div>
+                )
+                this.headerStarKeyId++
+            } else {
+                arr.push(
+                    <div key={this.headerStarKeyId} className="star-img" >
+                        <img src="images/star_clear.png" alt="" />
+                    </div>
+                )
+                this.headerStarKeyId++
+            }
+        }
         return arr
     }
 
     readReviews() {
         return this.props.reviews.map( (review,idx) => {
             if (review === undefined) {
-                return console.log('FAILED' + review);
+                return null;
             } else if (review.productId === this.props.shoe.id || review.product_id === this.props.shoe.id ) {
             this.total += review.stars
             this.numReviews += 1
@@ -71,54 +94,10 @@ class ReviewElement extends React.Component {
                         <p className="review-body" >{review.body}</p>
                         <p className="review-date" >{review.createdAt}</p>
                     </div>
-                    }
-                    {/* <div className="review-stars-container"> */}
-                        {/* <div className="prod-review-stars"  >
-                            <div className="star-img" >
-                                <img className="star-img-blk" src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
-                            </div>
-                            <div className="star-img" >
-                                <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
-                            </div>
-                            <div className="star-img" >
-                                <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
-                            </div>
-                            <div className="star-img" >
-                                <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
-                            </div>
-                            <div className="star-img" >
-                                <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
-                            </div> */}
-                        {/* </div> */}
+            }         
         })
     }
 
-    setStars() {
-        return (
-            <div className="review-stars-container">
-                <div className="prod-review-stars"  >
-                    <div className="star-img" >
-                        <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
-                    </div>
-                    <div className="star-img" >
-                        <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
-                    </div>
-                    <div className="star-img" >
-                        <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
-                    </div>
-                    <div className="star-img" >
-                        <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
-                    </div>
-                    <div className="star-img" >
-                        <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
-                    </div>
-                </div>
-                <div>
-                    <p>5.0</p>
-                </div>
-            </div>
-        )
-    }
 
     reviewForm() {
 
@@ -149,8 +128,15 @@ class ReviewElement extends React.Component {
         return (
             <div className="review-content">
                 <div className="review-content-header">
-                    <h4>{this.props.shoe.gender}'s {this.props.shoe.productName} Reviews</h4>
-                    {this.setStars()}
+                    <h4>{this.props.shoe.gender[0].toUpperCase() + this.props.shoe.gender.slice(1)}'s {this.props.shoe.productName} Reviews</h4>
+                    <div >
+                        <div className="review-stars-container">
+                            <p>{this.props.starAvg.toFixed(1)}</p>
+                            {this.headerStars(this.props.starAvg)}
+                        </div>
+                        <p>{this.props.numReviews} Reviews</p>
+                    </div>
+
                 </div>
                 <div className="reviews-container" >
                     {this.readReviews()}

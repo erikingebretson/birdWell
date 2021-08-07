@@ -8,4 +8,5 @@ json.review_id product.review_id
 json.gender product.gender
 json.detail1 product.detail1
 json.detail2 product.detail2
+json.reviews product.reviews
 json.photo_urls product.photos.map { |url| url_for(url) }
