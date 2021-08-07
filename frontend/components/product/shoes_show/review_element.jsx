@@ -31,6 +31,29 @@ class ReviewElement extends React.Component {
         return e => this.setState({ [field]: e.target.value })
     }
 
+    stars(num) {
+        let i = 0;
+        let arr = []
+        for ( let e = 0; e<5; e++) {
+            if (i < num ) {
+            i++
+            arr.push(   
+                <div className="star-img" >
+                    <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star_blk.png" alt="" />
+                </div>
+            )
+            } else {
+            arr.push(
+                <div className="star-img" >
+                    <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
+                </div>
+            )
+            }
+        }
+        console.log(arr)
+        return arr
+    }
+
     readReviews() {
         return this.props.reviews.map( (review,idx) => {
             if (review === undefined) {
@@ -39,13 +62,34 @@ class ReviewElement extends React.Component {
             this.total += review.stars
             this.numReviews += 1
              return <div key={idx} className="review-element" >
-                        <p></p>
-                        <p className="user-stars" >{review.stars}</p>
+                        <div >
+                            <div className="prod-review-stars"  >
+                                {this.stars(review.stars)}
+                            </div>
+                        </div>
                         <p className="review-title" >{review.title}</p>
                         <p className="review-body" >{review.body}</p>
                         <p className="review-date" >{review.createdAt}</p>
                     </div>
-            }
+                    }
+                    {/* <div className="review-stars-container"> */}
+                        {/* <div className="prod-review-stars"  >
+                            <div className="star-img" >
+                                <img className="star-img-blk" src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
+                            </div>
+                            <div className="star-img" >
+                                <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
+                            </div>
+                            <div className="star-img" >
+                                <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
+                            </div>
+                            <div className="star-img" >
+                                <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
+                            </div>
+                            <div className="star-img" >
+                                <img src="https://birdwell-dev.s3.us-west-1.amazonaws.com/star.png" alt="" />
+                            </div> */}
+                        {/* </div> */}
         })
     }
 
