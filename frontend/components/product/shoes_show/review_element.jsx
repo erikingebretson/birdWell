@@ -28,7 +28,7 @@ class ReviewElement extends React.Component {
     }
 
     stars(num) {
-        let floorNum = Math.floor(num)
+        let floorNum = Math.round(num)
         let i = 0;
         let arr = []
         for (let e = 0; e < 5; e++) {
@@ -53,7 +53,7 @@ class ReviewElement extends React.Component {
     }
 
     headerStars(num) {
-        let floorNum = Math.floor(num)
+        let floorNum = Math.round(num)
         let i = 0;
         let arr = []
         for (let e = 0; e < 5; e++) {
@@ -79,20 +79,29 @@ class ReviewElement extends React.Component {
 
     readReviews() {
         return this.props.reviews.map( (review,idx) => {
-            if (review === undefined) {
-                return null;
-            } else if (review.productId === this.props.shoe.id || review.product_id === this.props.shoe.id ) {
-            this.total += review.stars
-            this.numReviews += 1
-             return <div key={idx} className="review-element" >
-                        <div >
+            // console.log(review)
+            if (review.productId === this.props.shoe.id || review.product_id === this.props.shoe.id ) {
+            let dateStr = Date.parse(review.createdAt)
+            let date = new Date(dateStr)
+
+            return <div key={idx} className="review-element">
+                        <div className="review-content" >
                             <div className="prod-review-stars"  >
                                 {this.stars(review.stars)}
                             </div>
+                            <p className="review-title" >{review.title}</p>
+                            <p className="review-body" >{review.body}</p>
+                            <p className="review-date" >{date.toDateString().slice(4)}</p>
                         </div>
-                        <p className="review-title" >{review.title}</p>
-                        <p className="review-body" >{review.body}</p>
-                        <p className="review-date" >{review.createdAt}</p>
+                        <div className="user-detail">
+                            <div className="user-firstname" >
+                                <p>{review.userFirstName}</p>
+                                <p>Verified User</p>
+                            </div>
+                            <div>
+                                <p>{this.props.shoe.gender[0].toUpperCase() + this.props.shoe.gender.slice(1)}'s {this.props.shoe.productName}</p>
+                            </div>
+                        </div>
                     </div>
             }         
         })
@@ -129,9 +138,9 @@ class ReviewElement extends React.Component {
             <div className="review-content">
                 <div className="review-content-header">
                     <h4>{this.props.shoe.gender[0].toUpperCase() + this.props.shoe.gender.slice(1)}'s {this.props.shoe.productName} Reviews</h4>
-                    <div >
+                    <div  >
                         <div className="review-stars-container">
-                            <p>{this.props.starAvg.toFixed(1)}</p>
+                            <p className="review-rating-avg" >{this.props.starAvg.toFixed(1)}</p>
                             {this.headerStars(this.props.starAvg)}
                         </div>
                         <p>{this.props.numReviews} Reviews</p>

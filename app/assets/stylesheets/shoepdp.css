@@ -11,6 +11,18 @@
     padding-left: 9px;
 }
 
+.pathway a, .pathway p{
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.pathway a:hover {
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
 .shoe-show-main {
     display: flex;
     justify-content: flex-end;
@@ -46,6 +58,7 @@
 }
 
 .product-desc h3 {
+    font-weight: 700;
     font-size: 32px;
     line-height: 1.31;
     margin-bottom: 8px;
@@ -59,9 +72,27 @@
 
 .colorway {
     font-size: 12px;
+    font-weight: 700;
     line-height: 1.31;
     padding-bottom: 12px;
 }
+
+.colorway-name {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.31;
+    padding-bottom: 12px;
+    margin-right: 5px;
+    text-transform: uppercase;
+}
+
+.colorway-value {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.31;
+    padding-bottom: 12px;
+}
+
 .prod-review-stars-container {
     display: flex;
     flex-direction: row;
@@ -78,13 +109,16 @@
     margin-bottom: 24px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    
 }
 
 .star-img, .star-img img {
     height: 13px;
     width: 13px;
     background-color: #fff;
+    vertical-align: center;
+    margin-right: 4px;
 }
 
 .star-img-blk {
@@ -92,6 +126,7 @@
     background-color: #000;
     height: 13px;
     width: 13px;
+    margin-right: 4px;
 }
 
 .prod-review-stars .star-img img {
@@ -109,8 +144,6 @@
 .color-tile {
     height: 42px;
     width: 42px;
-    /* border: 1px solid rgba(211, 212, 213);
-    border-radius: 50%; */
     margin-right: 15px;
 }
 
@@ -135,7 +168,12 @@
 }
 
 .size-chart p {
-    margin-bottom: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.31;
+    padding-bottom: 12px;
+    margin-right: 5px;
+    text-transform: uppercase;
 }
 
 .size-chart ul {
@@ -203,19 +241,18 @@
     align-self: center;
 }
 
-.review-content {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-}
-
 .review-content-header {
     background-color: #F5F5F5;
     padding: 84px 0px 60px 0px;
+    /* display: flex;
+    flex-direction: column;
+    align-content: center; */
+    /* justify-content: center; */
 }
 
 .review-content-header h4 {
-    font-size: 34px;
+    font-weight: 700;
+    font-size: 32px;
     margin-bottom: 18px;
     text-align: center;
 }
@@ -224,7 +261,40 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     background-color: #F5F5F5;
+    height: 50px;
+    /* font-size: 48px; */
+    vertical-align: center;
+    margin-bottom: 6px;
+}
+
+.review-stars-container .review-rating-avg {
+    font-size: 42px;
+    vertical-align: center;
+    text-align: center;
+    
+}
+
+.review-stars-container .star-img {
+    margin-left: 12px;
+    vertical-align: center;
+    height: 22px;
+    width: 22px;
+    margin-right: 0px;
+}
+
+.review-stars-container .star-img img {
+    vertical-align: center;
+    height: 22px;
+    width: 22px;
+    background-color: #F5F5F5;
+    margin-right: 0px;
+}
+
+.review-content-header p {
+    text-align: center;
+    font-size: 14px;
 }
 
 .review-form-root {
@@ -273,8 +343,61 @@
     padding-top: 48px;
     padding-bottom: 48px;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.review-content {
+    display: flex;
     flex-direction: column;
-    align-content: flex-start;
+    /* align-content: flex-start; */
+}
+
+.stars-user-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* align-self: flex-end; */
+    background-color: #f5f5f5;
+    width: 25%;
+}
+
+.user-detail .user-firstname {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+    /* margin: 0px 15px; */
+    /* padding: 0px 5px; */
+    border-bottom: 1px solid rgba(211, 212, 213);
+}
+
+.user-detail p:nth-child(1) {
+    font-size: 16px;
+
+    /* margin-bottom: 12px; */
+    margin: 5px 15px;
+}
+
+.user-detail p:nth-child(2) {
+    font-size: 12px;
+    font-style: italic;
+    /* margin-bottom: 12px; */
+}
+
+.review-content {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .user-stars {  
@@ -283,16 +406,18 @@
 }
 
 .review-title {
+    font-weight: 600;
     margin-bottom: 10px;
     font-size: 22px;   
 }
 
 .review-body {
     font-size: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 }
 
 .review-date {
+
     font-size: 14px;
 }
 

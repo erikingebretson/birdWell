@@ -47,7 +47,6 @@ class ShoeShow extends React.Component {
         this.totalReviews = 0;
         this.totalStars = 0;
         this.starAvg = 0;
-
         this.props.shoe.reviews.forEach( review => {
             this.totalStars += review.stars
             this.totalReviews ++
@@ -56,7 +55,7 @@ class ShoeShow extends React.Component {
     }
 
     stars(num) {
-        let floorNum = Math.floor(num)
+        let floorNum = Math.round(num)
         let i = 0;
         let arr = []
         for (let e = 0; e < 5; e++) {
@@ -117,7 +116,7 @@ class ShoeShow extends React.Component {
         return (
             <div className="root">
                 <div className="pathway">
-                    <p>Home / <Link to='/shoes' >{this.props.shoe.gender}'s Shoes</Link> </p>
+                    <p><Link to="/" >Home</Link> / <Link to='/shoes' >{this.props.shoe.gender[0].toUpperCase() + this.props.shoe.gender.slice(1)}'s Shoes</Link> </p>
                 </div>
                 <div className="shoe-show-main" >
                     <div className="shoe-grid">
@@ -134,7 +133,8 @@ class ShoeShow extends React.Component {
                                 <p>({this.props.shoe.reviews.length})</p>
                             </div>
                         </div>
-                        <p className="colorway">CLASSICS: {this.props.shoe.colorway}</p>
+                        <span className="colorway-name" >CLASSICS:</span>
+                        <span className="colorway-value">{this.props.shoe.colorway}</span>
                         <div className="shoe-colors">
                             {this.shoeColorTiles()}
                         </div>

@@ -5,3 +5,4 @@ json.stars @review.stars
 json.username @review.username
 json.productId @review.product_id
 json.userId @review.user_id
+json.userFirstName @review.user.first_name

@@ -8,5 +8,6 @@
         json.productId review.product_id
         json.userId review.user_id
         json.created_at review.created_at
+        json.userFirstName @review.user.first_name
     end
 end
