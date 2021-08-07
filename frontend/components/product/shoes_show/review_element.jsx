@@ -8,8 +8,8 @@ class ReviewElement extends React.Component {
                 title: '',
                 body: '',
                 stars: '',
-                username: this.props.currentUser.email, //usernam === email
-                user_id: this.props.currentUser.id,
+                username: this.props.currentUser ? this.props.currentUser.email : '', //usernam === email
+                user_id: this.props.currentUser ? this.props.currentUser.id : '',
                 product_id: this.props.shoe.id
             }
         this.total = 0;
