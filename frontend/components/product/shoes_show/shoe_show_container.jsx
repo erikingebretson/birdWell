@@ -6,7 +6,8 @@ import ShoeShow from './shoe_show'
 const mSTP = (state, ownProps) => ({
     shoe: state.entities.product[ownProps.match.params.shoeId],
     allShoes: Object.values(state.entities.product),
-    reviews: Object.values(state.entities.reviews)
+    reviews: Object.values(state.entities.reviews),
+    currentUser: state.entities.users[state.session.id]
 })
 
 const mDTP = (dispatch, ownProps) => ({

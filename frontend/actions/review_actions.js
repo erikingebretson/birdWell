@@ -20,7 +20,7 @@ export const receiveReviewErrors = (errors) => ({
 })
 
 export const createReview = (review) => (dispatch) => (
-    ReviewApiUtil.fetchReview(review)
+    ReviewApiUtil.createReview(review)
     .then(res => dispatch(receiveReview(res)),
     err => dispatch(receiveReviewErrors(err))
     )

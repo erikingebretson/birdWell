@@ -7,7 +7,7 @@ const reviewReducer = (oldState={}, action) => {
         case RECEIVE_ALL_REVIEWS:
             return action.reviews
         case RECEIVE_REVIEW:
-            newState[action.review.id] = newState.action
+            newState[action.review.id] = action.review
             return newState
         default:
             return oldState

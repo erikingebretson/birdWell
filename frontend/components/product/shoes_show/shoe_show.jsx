@@ -143,7 +143,7 @@ class ShoeShow extends React.Component {
                         </div>
                     </div>
                 </div>
-                <ReviewElement shoe={this.props.shoe} reviews={this.props.reviews} />
+                <ReviewElement shoe={this.props.shoe} reviews={this.props.reviews} currentUser={this.props.currentUser} createReview={this.props.createReview} fetchAllReviews={this.props.fetchAllReviews}/>
             </div>
                 
         )   

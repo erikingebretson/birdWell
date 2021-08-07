@@ -5,27 +5,37 @@ class ReviewElement extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            review: {
                 title: '',
                 body: '',
-                stars: null,
-                username: ''
+                stars: '',
+                username: this.props.currentUser.email, //usernam === email
+                user_id: this.props.currentUser.id,
+                product_id: this.props.shoe.id
             }
-        }
         this.total = 0;
         this.numReviews = 0;
         this.avg = this.total / this.numReviews;
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+    componentDidMount() {
+        this.props.fetchAllReviews()
+    }
+
     handleSubmit(e) {
         e.preventDefault()
+        this.props.createReview(this.state)
+    }
+
+    update(field) {
+        return e => this.setState({ [field]: e.target.value })
     }
 
     readReviews() {
-        // console.log(this.props.reviews)
         return this.props.reviews.map( (review,idx) => {
-            if (review.productId === this.props.shoe.id) {
+            if (review === undefined) {
+                return console.log('FAILED' + review);
+            } else if (review.productId === this.props.shoe.id || review.product_id === this.props.shoe.id ) {
             this.total += review.stars
             this.numReviews += 1
              return <div key={idx} className="review-element" >
@@ -66,6 +76,31 @@ class ReviewElement extends React.Component {
         )
     }
 
+    reviewForm() {
+
+        if (this.props.currentUser) {
+        return    <div className="review-form-root" >
+                    <form className="review-form" onSubmit={(e) => this.handleSubmit(e)}>
+                        <label >Title
+                            <input type="text" onChange={this.update('title')} value={this.state.title}/>
+                        </label>
+                        <label >Body
+                            <textarea name="" id="" cols="30" rows="5" onChange={this.update('body')} value={this.state.body}></textarea>
+                        </label>
+                        <label >Stars
+                            <input type="text" onChange={this.update('stars')} value={this.state.stars}/>
+                        </label>
+                        <button className='cart-button'>Add Review</button>
+                    </form>
+                </div>
+        } else {
+            return  <div className="review-login" >
+                        <p>Want to leave a review?</p>
+                        <Link to="/account/login"><button className='cart-button'>LOGIN</button></Link>
+                    </div>
+        }
+    }
+
     render() {
         return (
             <div className="review-content">
@@ -76,25 +111,7 @@ class ReviewElement extends React.Component {
                 <div className="reviews-container" >
                     {this.readReviews()}
                 </div>
-                <div className="review-form-root" >
-                    <form className="review-form" onSubmit={(e) => this.handleSubmit(e) }>
-
-                        <label >Title
-                            <input type="text" />
-                        </label>
-                        <label >Body
-                            <textarea name="" id="" cols="30" rows="5"></textarea>
-                        </label>
-                        <label >Stars
-                            <input type="text" />
-                        </label>
-                        <label >Username
-                            <input type="text" />
-                        </label>
-                        <button className='cart-button'>Add Review</button>
-                    </form>
-                </div>
-
+                {this.reviewForm()}
             </div>
         )
     }
