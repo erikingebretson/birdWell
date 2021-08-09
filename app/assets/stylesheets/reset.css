@@ -49,3 +49,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+a {
+	cursor: default;
+}
+
+a:hover {
+	cursor: default;
+	text-decoration: underline;
+}

@@ -16,12 +16,12 @@ class Api::ReviewsController < ApplicationController
     end
 
     def index
-        @reviews = Reviews.all
+        @reviews = Review.all
         render :index
     end
 
     def review_params
-        params.require(review).permit(:title, :body, :stars, :user_id, :product_id)
+        params.require(:review).permit(:title, :body, :stars, :username, :user_id, :product_id)
     end
 
 end

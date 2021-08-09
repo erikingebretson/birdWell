@@ -1,4 +1,4 @@
-import ShoeIndex from './shoe_index'
+import WomenShoeIndex from './women_shoe_index'
 import { connect } from 'react-redux'
 import { fetchAllProduct, fetchProduct } from '../../../actions/product_actions'
 
@@ -12,4 +12,4 @@ const mDTP = (dispatch) => ({
     fetchProduct: (id) => dispatch(fetchProduct(id))
 })
 
-export default connect(mSTP,mDTP)(ShoeIndex)
+export default connect(mSTP, mDTP)(WomenShoeIndex)

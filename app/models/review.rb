@@ -13,13 +13,13 @@
 #  updated_at :datetime         not null
 #
 class Review < ApplicationRecord
-    validates :title, :body, :stars, :product_id, :user_id, presence: true
+    validates :title, :body, :stars, :product_id, :username, :user_id, presence: true
 
-    has_one :user,
+    belongs_to :user,
         foreign_key: :user_id,
-        class: :User
+        class_name: :User
 
-    has_one :product,
+    belongs_to :product,
         foreign_key: :product_id,
         class_name: :Product
 end
