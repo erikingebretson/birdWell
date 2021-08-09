@@ -92,7 +92,8 @@ class ReviewElement extends React.Component {
                             </div>
                             <p className="review-title" >{review.title}</p>
                             <p className="review-body" >{review.body}</p>
-                            <p className="review-date" >{date.toDateString().slice(4)}</p>
+                            {console.log(date.toDateString())}
+                            { date.toDateString() !== 'Invalid Date' ?  <p className="review-date" >{date.toDateString().slice(4)}</p> : <p></p> }
                         </div>
                         <div className="user-detail">
                             <div className="user-firstname" >
@@ -134,7 +135,8 @@ class ReviewElement extends React.Component {
                         </label>
                         <label className="stars-dropdown" >Stars
                         <select onChange={this.update('stars')} >
-                            <option defaultValue disabled hidden>Select Star Rating</option>
+                            <option defaultValue={null} >Select Star Rating</option>
+                            <option type="radio" onChange={this.update('stars')} value='0'>0</option>
                             <option type="radio" onChange={this.update('stars')} value='1'>1</option>
                             <option type="radio" onChange={this.update('stars')} value='2'>2</option>
                             <option type="radio" onChange={this.update('stars')} value='3'>3</option>
@@ -160,7 +162,7 @@ class ReviewElement extends React.Component {
                     <h4>{this.props.shoe.gender[0].toUpperCase() + this.props.shoe.gender.slice(1)}'s {this.props.shoe.productName} Reviews</h4>
                     <div  >
                         <div className="review-stars-container">
-                            <p className="review-rating-avg" >{this.props.starAvg.toFixed(1)}</p>
+                            { this.props.starAvg >= 0 ? <p className="review-rating-avg" >{this.props.starAvg.toFixed(1)}</p> : <p></p> }
                             {this.headerStars(this.props.starAvg)}
                         </div>
                         <p>{this.props.numReviews} Reviews</p>
