@@ -164,7 +164,7 @@ class ShoeShow extends React.Component {
                         </div>
                     </div>
                 </div>
-                <ReviewElement shoe={this.props.shoe} reviews={this.props.shoe.reviews} currentUser={this.props.currentUser} createReview={this.props.createReview} numStars={this.totalStars} numReviews={this.totalReviews} starAvg={this.starAvg}/>
+                <ReviewElement shoe={this.props.shoe} reviews={this.props.shoe.reviews} errors={this.props.errors} currentUser={this.props.currentUser} createReview={this.props.createReview} numStars={this.totalStars} numReviews={this.totalReviews} starAvg={this.starAvg}/>
             </div>
                 
         )   

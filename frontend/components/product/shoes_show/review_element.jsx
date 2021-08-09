@@ -108,11 +108,23 @@ class ReviewElement extends React.Component {
         })
     }
 
+    readErrors() {
+        console.log(this.props.errors)
+        return this.props.errors.map((error, i) => (
+            <div className="errors" key={i}>
+                <p >{error}</p>
+            </div>
+        ))
+    }
+
 
     reviewForm() {
 
         if (this.props.currentUser) {
         return    <div className="review-form-root" >
+                    <div className="errors-container" >
+                        {this.props.errors === undefined ? <div></div> : this.readErrors()}
+                    </div>
                     <form className="review-form" onSubmit={(e) => this.handleSubmit(e)}>
                         <label >Title
                             <input type="text" onChange={this.update('title')} value={this.state.title}/>
@@ -121,7 +133,8 @@ class ReviewElement extends React.Component {
                             <textarea name="" id="" cols="30" rows="5" onChange={this.update('body')} value={this.state.body}></textarea>
                         </label>
                         <label className="stars-dropdown" >Stars
-                        <select onChange={this.update('stars')}>
+                        <select onChange={this.update('stars')} >
+                            <option defaultValue disabled hidden>Select Star Rating</option>
                             <option type="radio" onChange={this.update('stars')} value='1'>1</option>
                             <option type="radio" onChange={this.update('stars')} value='2'>2</option>
                             <option type="radio" onChange={this.update('stars')} value='3'>3</option>

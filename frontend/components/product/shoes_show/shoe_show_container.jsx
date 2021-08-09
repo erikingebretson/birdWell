@@ -7,7 +7,8 @@ const mSTP = (state, ownProps) => ({
     shoe: state.entities.product[ownProps.match.params.shoeId],
     allShoes: Object.values(state.entities.product),
     reviews: Object.values(state.entities.reviews),
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    errors: state.errors.uiErrors.responseJSON
 })
 
 const mDTP = (dispatch, ownProps) => ({

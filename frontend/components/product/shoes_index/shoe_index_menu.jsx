@@ -7,7 +7,7 @@ class ShoeIndexMenu extends React.Component {
     }
     
     render() {
-        console.log(this.props.path)
+        
         return (
             <div>
                 <h3 className="home"><Link to='/'>Home</Link> /</h3>
