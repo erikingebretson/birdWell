@@ -156,13 +156,13 @@
 
 .color-tile img:hover {
     padding: 2px;
-    border: 1px solid rgba(211, 212, 213); 
+    border: 1px solid rgb(211, 212, 213); 
 }
 
 .color-tile img {
     transition: .15s ease;
     width: 100%;
-    border: 1px solid rgba(211, 212, 213);
+    border: 1px solid rgb(211, 212, 213);
     border-radius: 50%;
     z-index: -1;
 }
@@ -364,7 +364,7 @@
 }
 
 .review-element {
-    border-top: 1px solid rgba(211, 212, 213);
+    border-top: 1px solid rgb(211, 212, 213);
     padding-top: 48px;
     padding-bottom: 48px;
     display: flex;
@@ -402,7 +402,7 @@
     width: 90%;
     /* margin: 0px 15px; */
     /* padding: 0px 5px; */
-    border-bottom: 1px solid rgba(211, 212, 213);
+    border-bottom: 1px solid rgb(211, 212, 213);
 }
 
 .user-detail p:nth-child(1) {
@@ -447,7 +447,7 @@
 }
 
 .review-login {
-    border-top: 1px solid rgba(211, 212, 213);
+    border-top: 1px solid rgb(211, 212, 213);
     padding-top: 48px;
     padding-bottom: 48px;
     display: flex;
