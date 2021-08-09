@@ -26,6 +26,7 @@ class ShoeShow extends React.Component {
     
     componentDidMount() {
         this.props.fetchAllProduct() 
+
     }
 
     productImages() {
@@ -100,7 +101,6 @@ class ShoeShow extends React.Component {
                 size: size,
                 colorway: this.props.shoe.colorway,
                 price: this.props.shoe.price,
-                cart_id: this.props.shoe.cart_id,
                 review_id: this.props.shoe.review_id,
                 gender: this.props.shoe.gender,
                 detail1: this.props.shoe.detail1,
@@ -114,21 +114,22 @@ class ShoeShow extends React.Component {
 
     submitState(e) {
         e.preventDefault()
-        console.log(
-            {
-                product_name: this.state.product_name,
-                colorway: this.state.colorway,
-                price: this.state.price,
-                cart_id: this.state.cart_id === undefined ? null : this.state.cart_id,
-                gender: this.state.gender,
-                size: this.state.size
-            }
-        )
+        // console.log(this.props.currentUserCartId)
+        // console.log(
+        //     {
+        //         product_name: this.state.product_name,
+        //         colorway: this.state.colorway,
+        //         price: this.state.price,
+        //         cart_id: this.state.cart_id,
+        //         gender: this.state.gender,
+        //         size: this.state.size
+        //     }
+        // )
         this.props.createProduct({
             product_name: this.state.product_name,
             colorway: this.state.colorway,
             price: this.state.price,
-            cart_id: this.state.cart_id === undefined ? null : this.state.cart_id,
+            cart_id: this.props.currentUserCartId,
             gender: this.state.gender,
             size: this.state.size
         })
