@@ -7,6 +7,11 @@ class Header extends React.Component {
         super(props)
     }
 
+    turnCartOn() {
+        let cart = document.querySelector(".cart-root")
+        cart.classList.add("cart-on")
+    }
+
     sessionGreeting() {
             return (
                 <div className='nav-greeting'>
@@ -18,7 +23,7 @@ class Header extends React.Component {
                     <Link to='/'><h1 className="logo" >BirdWell</h1></Link>
                     <div className="account-nav" >
                         <Link to='/account'>Account</Link>
-                        <Link to='/'>Cart</Link>
+                        <a onClick={() => this.turnCartOn()} >Cart</a>
                     </div>
                 </div>
             )

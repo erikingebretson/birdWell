@@ -9,6 +9,7 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import ShoeIndex from './product/shoes_index/shoe_index_container';
 import MenShoeIndex from './product/shoes_index/men_shoe_index_container';
 import WomenShoeIndex from './product/shoes_index/women_shoe_index_container';
+import Cart from './cart/cart_container'
 
 
 class App extends React.Component {
@@ -20,6 +21,7 @@ class App extends React.Component {
         return (
             <div>
                 <Header />
+                <Cart />
                 <Switch>
                     <ProtectedRoute exact path='/account' component={AccountPage} />
                     <AuthRoute exact path='/account/login' component={AccountForms} />

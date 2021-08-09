@@ -1,0 +1,15 @@
+.cart-root {
+    display: none;
+    position: fixed;
+    width: 40vw;
+    height: 100vh;
+    right: 0px;
+    top: 0px;
+    background: #fff;
+}
+
+.cart-on {
+    display: block;
+    z-index: 1;
+    box-shadow: -10px 0px 1000px 1000px  rgba(33, 42, 47, 0.85);
+}
