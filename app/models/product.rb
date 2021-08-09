@@ -17,7 +17,7 @@
 #  display      :boolean
 #
 class Product < ApplicationRecord
-    validates :product_name, :size, :colorway, :price, :detail1, :detail2, presence: true
+    validates :product_name, :size, :colorway, :price, presence: true
 
     has_many_attached :photos
 
@@ -26,6 +26,6 @@ class Product < ApplicationRecord
         class_name: :Review
 
     belongs_to :cart,
-        foreign_key: :product_id,
+        foreign_key: :cart_id,
         class_name: :Cart
 end

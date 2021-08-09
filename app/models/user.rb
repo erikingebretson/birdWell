@@ -6,7 +6,6 @@
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
-#  cart_id         :integer
 #  review_id       :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -27,7 +26,7 @@ class User < ApplicationRecord
         primary_key: :id,
         class_name: :Review
 
-    belongs_to :cart,
+    has_one :cart,
         foreign_key: :user_id,
         class_name: :Cart
 

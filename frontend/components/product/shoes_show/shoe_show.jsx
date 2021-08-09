@@ -15,7 +15,8 @@ class ShoeShow extends React.Component {
             review_id: null,
             gender: '',
             detail1: '',
-            detail2: ''
+            detail2: '',
+            display: false
         }
         this.starKeyId = 0;
         this.totalReviews = 0;
@@ -81,7 +82,7 @@ class ShoeShow extends React.Component {
 
     shoeColorTiles() {
         return this.props.allShoes.map( (tempshoe, idx) => {
-            if (tempshoe.productName === this.props.shoe.productName) { 
+            if (tempshoe.productName === this.props.shoe.productName && tempshoe.detail1 !== null) { 
                 return <div key={idx} className="color-tile" >
                         <a onClick={ () => this.setState({ photoUrls: tempshoe.photoUrls, colorway: tempshoe.colorway, productName: tempshoe.productName }) } >
                             <img src={tempshoe.photoUrls[0]} alt={this.props.productName} />
@@ -92,6 +93,7 @@ class ShoeShow extends React.Component {
     }
 
     setSize(size) {
+        this.state.colorway === '' ? this.state.colorway = this.props.shoe.colorway : '';
         if (this.state.price === 0) {
             return { 
                 product_name: this.props.shoe.productName, 
@@ -108,6 +110,28 @@ class ShoeShow extends React.Component {
         } else {
             return { size: size }
         }
+    }
+
+    submitState(e) {
+        e.preventDefault()
+        console.log(
+            {
+                product_name: this.state.product_name,
+                colorway: this.state.colorway,
+                price: this.state.price,
+                cart_id: this.state.cart_id === undefined ? null : this.state.cart_id,
+                gender: this.state.gender,
+                size: this.state.size
+            }
+        )
+        this.props.createProduct({
+            product_name: this.state.product_name,
+            colorway: this.state.colorway,
+            price: this.state.price,
+            cart_id: this.state.cart_id === undefined ? null : this.state.cart_id,
+            gender: this.state.gender,
+            size: this.state.size
+        })
     }
 
     render() {
@@ -134,20 +158,20 @@ class ShoeShow extends React.Component {
                             </div>
                         </div>
                         <span className="colorway-name" >CLASSICS:</span>
-                        <span className="colorway-value">{this.props.shoe.colorway}</span>
+                        <span className="colorway-value">{this.state.colorway === '' ? this.props.shoe.colorway : this.state.colorway}</span>
                         <div className="shoe-colors">
                             {this.shoeColorTiles()}
                         </div>
                         <div className="size-chart" >
                             <p>Select Size:</p>
                             <ul>
-                                <li><button onClick={() => this.setState(this.setSize(8))} >8</button></li>
-                                <li><button onClick={() => this.setState(this.setSize(9))} >9</button></li>
-                                <li><button onClick={() => this.setState(this.setSize(10))} >10</button></li>
-                                <li><button onClick={() => this.setState(this.setSize(11))} >11</button></li>
-                                <li><button onClick={() => this.setState(this.setSize(12))} >12</button></li>
-                                <li><button onClick={() => this.setState(this.setSize(13))} >13</button></li>
-                                <li><button onClick={() => this.setState(this.setSize(14))} >14</button></li>
+                                <li><button className={this.state.size === 8 ? "selected" : ''} onClick={  () => this.setState(this.setSize(8))  }>8</button></li>
+                                <li><button className={this.state.size === 9 ? "selected" : ''} onClick={  () => this.setState(this.setSize(9))  } >9</button></li>
+                                <li><button className={this.state.size === 10 ? "selected" : ''} onClick={  () => this.setState(this.setSize(10))  } >10</button></li>
+                                <li><button className={this.state.size === 11 ? "selected" : ''} onClick={  () => this.setState(this.setSize(11))  } >11</button></li>
+                                <li><button className={this.state.size === 12 ? "selected" : ''} onClick={  () => this.setState(this.setSize(12))  } >12</button></li>
+                                <li><button className={this.state.size === 13 ? "selected" : ''} onClick={  () => this.setState(this.setSize(13))  } >13</button></li>
+                                <li><button className={this.state.size === 14 ? "selected" : ''} onClick={  () => this.setState(this.setSize(14))  } >14</button></li>
                                 
                             </ul>
                         </div>
@@ -155,7 +179,7 @@ class ShoeShow extends React.Component {
                             <p>This style is available in whole sizes only. In between sizes? We recommend you size down.</p>
                         </div>
                         <div>
-                            <button className="cart-button" >
+                            <button className="cart-button" onClick={(e) => this.submitState(e)}>
                                 Add to Cart - ${this.props.shoe.price}
                             </button>
                         </div>

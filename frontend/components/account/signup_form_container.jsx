@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signup } from '../../actions/session_actions'
+import { createCart } from '../../actions/cart_actions';
 import sessionForm from './session_form';
 
 const mSTP = (state) => ({
@@ -18,7 +19,8 @@ const mSTP = (state) => ({
 })
 
 const mDTP = (dispatch) => ({
-    formAction: user => dispatch(signup(user))
+    formAction: user => dispatch(signup(user)),
+    createCart: userId => dispatch(createCart(userId))
 })
 
 export default connect(mSTP, mDTP)(sessionForm)

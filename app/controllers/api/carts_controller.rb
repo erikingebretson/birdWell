@@ -9,7 +9,7 @@ class Api::CartsController < ApplicationController
     end
 
     def show
-        @cart = Cart.find_by(user_id: params[:user_id])
+        @cart = Cart.find_by(id: params[:id])
 
         if @cart
             render :show
@@ -19,7 +19,7 @@ class Api::CartsController < ApplicationController
     end
 
     def update
-        @cart = Cart.find_by(user_id: params[:user_id])
+        @cart = Cart.find_by(id: params[:id])
         if @cart 
             @cart.update(cart_params)
         else
@@ -28,12 +28,12 @@ class Api::CartsController < ApplicationController
     end
 
     def destroy
-        @cart = Cart.find_by(user_id: params[:user_id])
+        @cart = Cart.find_by(id: params[:id])
         @cart.delete
     end
 
     private
     def cart_params
-        params.require(:cart).permit(:product_id, :user_id)
+        params.require(:cart).permit(:id, :product_id, :user_id)
     end
 end

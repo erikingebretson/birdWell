@@ -92,7 +92,6 @@ class ReviewElement extends React.Component {
                             </div>
                             <p className="review-title" >{review.title}</p>
                             <p className="review-body" >{review.body}</p>
-                            {console.log(date.toDateString())}
                             { date.toDateString() !== 'Invalid Date' ?  <p className="review-date" >{date.toDateString().slice(4)}</p> : <p></p> }
                         </div>
                         <div className="user-detail">

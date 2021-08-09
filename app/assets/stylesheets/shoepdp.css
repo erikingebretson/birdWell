@@ -171,6 +171,8 @@
     margin-bottom: 18px;
 }
 
+
+
 .size-chart p {
     font-size: 12px;
     font-weight: 700;
@@ -209,6 +211,11 @@
 
 .size-chart button:hover {
     background-color: rgba(0,0,0,.2);
+}
+
+.size-chart .selected {
+    background-color: #000;
+    color: #fff;
 }
 
 .sizing-detail {
