@@ -24,17 +24,19 @@ class ShoeIndex extends React.Component {
     }
 
     indexMenu() {
+        
         return (
-            <ShoeIndexMenu props={this.props} />
+            <ShoeIndexMenu path={this.props.path} />
         )
     }
 
     render() {
         if (Object.keys(this.props.shoes).length === 0) return null;
-
+        
         return (
             <div className="plp-page-root" >
                 <div className="plp-menu" >
+                    {console.log(this.props)}
                     {this.indexMenu()}
                 </div>
                 <div className="plp-product-root">

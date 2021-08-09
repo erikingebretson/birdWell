@@ -21,7 +21,7 @@ class WomenShoeIndex extends React.Component {
 
     indexMenu() {
         return (
-            <ShoeIndexMenu props={this.props} />
+            <ShoeIndexMenu path={this.props.path} />
         )
     }
 

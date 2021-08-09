@@ -2,8 +2,9 @@ import ShoeIndex from './shoe_index'
 import { connect } from 'react-redux'
 import { fetchAllProduct, fetchProduct } from '../../../actions/product_actions'
 
-const mSTP = (state) => ({
-    shoes: Object.values(state.entities.product)
+const mSTP = (state, ownProps) => ({
+    shoes: Object.values(state.entities.product),
+    path: ownProps.match.path
 })
 
 const mDTP = (dispatch) => ({

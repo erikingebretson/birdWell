@@ -20,6 +20,7 @@ class ReviewElement extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
+        // console.log(this.state)
         this.props.createReview(this.state)
     }
 
@@ -119,8 +120,14 @@ class ReviewElement extends React.Component {
                         <label >Body
                             <textarea name="" id="" cols="30" rows="5" onChange={this.update('body')} value={this.state.body}></textarea>
                         </label>
-                        <label >Stars
-                            <input type="text" onChange={this.update('stars')} value={this.state.stars}/>
+                        <label className="stars-dropdown" >Stars
+                        <select onChange={this.update('stars')}>
+                            <option type="radio" onChange={this.update('stars')} value='1'>1</option>
+                            <option type="radio" onChange={this.update('stars')} value='2'>2</option>
+                            <option type="radio" onChange={this.update('stars')} value='3'>3</option>
+                            <option type="radio" onChange={this.update('stars')} value='4'>4</option>
+                            <option type="radio" onChange={this.update('stars')} value='5'>5</option>
+                        </select>
                         </label>
                         <button className='cart-button'>Add Review</button>
                     </form>
