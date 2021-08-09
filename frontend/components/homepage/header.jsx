@@ -18,7 +18,6 @@ class Header extends React.Component {
                     <Link to='/'><h1 className="logo" >BirdWell</h1></Link>
                     <div className="account-nav" >
                         <Link to='/account'>Account</Link>
-                        <Link to='/account/login'>Help</Link>
                         <Link to='/'>Cart</Link>
                     </div>
                 </div>
