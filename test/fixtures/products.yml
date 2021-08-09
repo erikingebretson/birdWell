@@ -4,7 +4,6 @@
 #
 #  id           :bigint           not null, primary key
 #  product_name :string           not null
-#  size         :integer          not null
 #  colorway     :string           not null
 #  price        :integer          not null
 #  cart_id      :integer
@@ -14,6 +13,8 @@
 #  gender       :string
 #  detail1      :text
 #  detail2      :text
+#  size         :integer
+#  display      :boolean
 #
 
 # This model initially had no columns defined. If you add columns to the

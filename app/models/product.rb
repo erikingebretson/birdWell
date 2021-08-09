@@ -4,7 +4,6 @@
 #
 #  id           :bigint           not null, primary key
 #  product_name :string           not null
-#  size         :integer          not null
 #  colorway     :string           not null
 #  price        :integer          not null
 #  cart_id      :integer
@@ -14,6 +13,8 @@
 #  gender       :string
 #  detail1      :text
 #  detail2      :text
+#  size         :integer
+#  display      :boolean
 #
 class Product < ApplicationRecord
     validates :product_name, :size, :colorway, :price, :detail1, :detail2, presence: true
@@ -23,4 +24,8 @@ class Product < ApplicationRecord
     has_many :reviews,
         foreign_key: :product_id,
         class_name: :Review
+
+    belongs_to :cart,
+        foreign_key: :product_id,
+        class_name: :Cart
 end
