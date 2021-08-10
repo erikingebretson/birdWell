@@ -15,7 +15,7 @@
 #  detail2        :text
 #  size           :integer
 #  display        :boolean
-#  cart_photo_url :string
+#  cart_photo_url :text
 #
 class Product < ApplicationRecord
     validates :product_name, :size, :colorway, :price, presence: true

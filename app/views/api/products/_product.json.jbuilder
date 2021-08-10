@@ -22,3 +22,4 @@ json.reviews product.reviews.each do |review|
 
         end
 json.photo_urls product.photos.map { |url| url_for(url) }
+json.cart_photo_url product.cart_photo_url

@@ -7,7 +7,7 @@ class Cart extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchCart(this.props.currentUser.cart.id)
+        // this.props.currentUser ? this.props.fetchCart(this.props.currentUser.cart.id) : ''
     }
 
     turnCartOff() {
@@ -16,12 +16,12 @@ class Cart extends React.Component {
     }
 
     readCartedProduct() {
+        console.log(this.props.products)
         let arr = Object.values(this.props.products)
-        console.log(arr)
         return arr.map( (product, i) => (
             <div key={i} className="tile" >
                 <div  className="cart-item" >
-                    <img src={product.photoUrl} alt="" />
+                    <img src={product.cartPhotoUrl} alt="" />
                 </div>
                 <div>
                     <p>{product.productName}</p>
