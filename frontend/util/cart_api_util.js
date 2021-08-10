@@ -1,4 +1,4 @@
-export const createCart = (userId) => {
+export const createCart = (userId) => { 
     return $.ajax({
         method: "POST",
         url: '/api/carts',

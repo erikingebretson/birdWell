@@ -11,7 +11,7 @@ class ShoeShow extends React.Component {
             size: '',
             colorway: '',
             price: 0,
-            cart_id: null,
+            cart_id: '',
             review_id: null,
             gender: '',
             detail1: '',
@@ -27,7 +27,8 @@ class ShoeShow extends React.Component {
     
     componentDidMount() {
         this.props.fetchAllProduct() 
-        this.props.fetchCart(this.props.currentUserCartId)
+        // console.log(this.props.currentUser)
+        this.props.currentUser ? this.props.fetchCart(this.props.currentUser.cart.id) : this.props.createCart(null)
     }
 
     productImages() {
@@ -107,6 +108,7 @@ class ShoeShow extends React.Component {
                 gender: this.props.shoe.gender,
                 detail1: this.props.shoe.detail1,
                 detail2: this.props.shoe.detail2,
+                cart_id: this.props.cart.id
               }
         } else {
             return { size: size }
@@ -116,15 +118,16 @@ class ShoeShow extends React.Component {
     submitState(e) {
         e.preventDefault()
         console.log(this.state)
-        this.props.createProduct({
-            product_name: this.state.product_name,
-            colorway: this.state.colorway,
-            price: this.state.price,
-            cart_id: this.props.currentUserCartId,
-            gender: this.state.gender,
-            size: this.state.size,
-            cart_photo_url: this.state.cart_photo_url
-        })
+            this.props.createProduct({
+                product_name: this.state.product_name,
+                colorway: this.state.colorway,
+                price: this.state.price,
+                cart_id: this.state.cart_id,
+                gender: this.state.gender,
+                size: this.state.size,
+                cart_photo_url: this.state.cart_photo_url
+            })
+
     }
 
     render() {

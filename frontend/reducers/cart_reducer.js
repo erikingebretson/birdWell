@@ -12,7 +12,7 @@ const cartReducer = (oldState={ products: {} }, action) => {
         //     newState.products = {}
         //     return newState;
         case REMOVE_CURRENT_USER:
-            return {};
+            return { products: {} };
         case RECEIVE_CART:
             newState = action.cart
             let temp = action.cart.products

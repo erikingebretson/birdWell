@@ -1,7 +1,9 @@
 class Api::CartsController < ApplicationController
     def create
-        @cart = Cart.new(cart_params)
-        if @cart.save
+        # cart_params ||= cart_params[:cart]
+        cart_params[:user_id] != "" ? @cart = Cart.new(cart_params) : @cart = Cart.new()
+
+        if @cart.save!
             render :show
         else
             render json: @cart.errors.full_messages, status: 401
@@ -34,6 +36,6 @@ class Api::CartsController < ApplicationController
 
     private
     def cart_params
-        params.require(:cart).permit(:id, :product_id, :user_id)
+        params.require(:cart).permit(:id, :product_id, :user_id )
     end
 end
