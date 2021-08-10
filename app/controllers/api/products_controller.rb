@@ -24,13 +24,13 @@ class Api::ProductsController < ApplicationController
     end
 
     def destroy
-        @product.find_by(id: params[:id])
+        @product = Product.find_by(id: params[:id])
         @product.destroy
     end
 
 
     private 
     def product_params
-        params.require(:product).permit(:id, :product_name, :colorway, :price, :cart_id, :gender, :size)
+        params.require(:product).permit(:id, :product_name, :colorway, :price, :cart_id, :gender, :size, :cart_photo_url)
     end
 end

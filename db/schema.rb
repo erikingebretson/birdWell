@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_09_210818) do
+ActiveRecord::Schema.define(version: 2021_08_10_000554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2021_08_09_210818) do
     t.text "detail2"
     t.integer "size"
     t.boolean "display"
+    t.string "cart_photo_url"
     t.index ["cart_id"], name: "index_products_on_cart_id"
     t.index ["review_id"], name: "index_products_on_review_id"
   end

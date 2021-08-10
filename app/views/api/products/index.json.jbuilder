@@ -11,7 +11,6 @@
         json.detail1 product.detail1
         json.detail2 product.detail2
         json.reviews product.reviews.each do |review|
-        
             json.id review.id
             json.body review.body
             json.createdAt review.created_at
@@ -21,7 +20,6 @@
             json.userId review.user_id
             json.username review.username
             json.userFirstName review.user.first_name
-
         end
         json.photo_urls product.photos.map { |url| url_for(url) }
     end
