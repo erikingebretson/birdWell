@@ -4,10 +4,7 @@ import { Link } from 'react-router-dom';
 class Cart extends React.Component {
     constructor(props) {
         super(props)
-    }
-
-    componentDidMount() {
-        // this.props.currentUser ? this.props.fetchCart(this.props.currentUser.cart.id) : ''
+        this.total = 0;
     }
 
     turnCartOff() {
@@ -15,22 +12,29 @@ class Cart extends React.Component {
         cart.classList.remove("cart-on")
     }
 
+    checkoutMessage() {
+        let msg = document.querySelector(".hidden-message")
+        msg.classList.add("checkout-button-message")
+    }
+
     readCartedProduct() {
-        console.log(this.props.products)
         let arr = Object.values(this.props.products)
         return arr.map( (product, i) => (
             <div key={i} className="tile" >
                 <div  className="cart-item" >
                     <img src={product.cartPhotoUrl} alt="" />
                 </div>
-                <div>
-                    <p>{product.productName}</p>
-                    <p>{product.colorway}</p>
-                    <p>{product.size}</p>
+                <div className="cart-prod-details" >
+                    <div>
+                        <p>{product.gender[0].toUpperCase() + product.gender.slice(1)}'s {product.productName}</p>
+                        <p>{product.colorway}</p>
+                        <p>Size: {product.size}</p>
+                    </div>
                 </div>
-                <div>
+                <div className="cart-prod-buttons" >
                     <button onClick={ () => this.props.deleteProduct(product.id)}>X</button>
                     <p>${product.price}</p>
+                    <p className="hidden-total" >{this.total += product.price}</p>
                 </div>
             </div>
         ))
@@ -46,7 +50,7 @@ class Cart extends React.Component {
                         <div className='header-icons'>
                             <a onClick={() => this.turnCartOff()} ><img className="arrow-img" src="right-arrow.png" alt="" /></a>
                             <img className="cart-img" src="shopping-cart.png" alt="" />
-                            <p className="count" >{this.props.cart.products.length}</p>
+                            <p className="count" >{Object.values(this.props.cart.products).length}</p>
                         </div>
                         <div className='header-text' >
                             <p>Thanks for making it this far!</p>
@@ -60,11 +64,13 @@ class Cart extends React.Component {
                         </div>
                     </div>
                     <div className="cart-footer" >
-                        <div>
-
+                        <div className="subtotal" >
+                            <p>Subtotal</p>
+                            <p>${this.total} USD</p>
                         </div>
-                        <div>
-                            
+                        <div className="checkout-button" >
+                            <button onClick={() => this.checkoutMessage() } >Thanks for Browsing!</button>
+                            <p className="hidden-message" >Nothing for sale here!</p>
                         </div>
                     </div>
                 </div>

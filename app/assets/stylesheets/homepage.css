@@ -78,6 +78,20 @@ a {
     align-items: center;
 }
 
+.header-cart-img {
+    align-self: center;
+    height: 50%;
+}
+
+.header-count {
+    position: absolute;
+    align-content: center;
+    padding-bottom: 11px;
+    padding-left: 2px;
+    font-weight: 700;
+    font-size: 12px;
+}
+
 .homepage-root {
     max-width: 1380px;
 	margin:0 auto;

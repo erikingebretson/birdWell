@@ -23,7 +23,12 @@ class Header extends React.Component {
                     <Link to='/'><h1 className="logo" >BirdWell</h1></Link>
                     <div className="account-nav" >
                         <Link to='/account'>Account</Link>
-                        <a onClick={() => this.turnCartOn()} >Cart</a>
+                        <a onClick={() => this.turnCartOn()} >
+                            <div className='header-icons'>
+                                <img className="header-cart-img" src="shopping-cart.png" alt="" />
+                                <p className="header-count" >{Object.values(this.props.cart.products).length}</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
             )

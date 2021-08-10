@@ -8,6 +8,7 @@ json.products @cart.products.each do |product|
         json.colorway product.colorway
         json.size product.size
         json.price product.price
+        json.gender product.gender
     # json.origin_prod product.origin_prod
     end
 end

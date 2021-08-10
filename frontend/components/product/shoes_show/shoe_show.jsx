@@ -107,9 +107,6 @@ class ShoeShow extends React.Component {
                 gender: this.props.shoe.gender,
                 detail1: this.props.shoe.detail1,
                 detail2: this.props.shoe.detail2,
-                // cart_photo_url: this.props.shoe.photoUrls[0]
-                // photo_urls: this.props.shoe.photoUrls
-                
               }
         } else {
             return { size: size }
@@ -127,8 +124,6 @@ class ShoeShow extends React.Component {
             gender: this.state.gender,
             size: this.state.size,
             cart_photo_url: this.state.cart_photo_url
-            // cart_photo_url: this.state.photoUrls[0] === undefined ? this.props.photoUrls[0] : this.state.photoUrls[0]
-            // photo_urls: this.state.photoUrls
         })
     }
 
