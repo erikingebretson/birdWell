@@ -9,7 +9,8 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = (dispatch) => ({
     fetchAllProduct: () => dispatch(fetchAllProduct()),
-    fetchProduct: (id) => dispatch(fetchProduct(id))
+    fetchProduct: (id) => dispatch(fetchProduct(id)),
+    fetchCart: (userId) => dispatch(fetchCart(userId))
 })
 
 export default connect(mSTP,mDTP)(ShoeIndex)

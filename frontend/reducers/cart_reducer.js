@@ -32,6 +32,14 @@ const cartReducer = (oldState={ products: {} }, action) => {
             } else {
                 newState = action.cart
                 newState.products = oldState.products
+
+                //test logic
+                let temp = Object.values(action.cart.products)
+                temp.forEach(prod => {
+                    newState.products[prod.id] = prod
+                })
+                //test logic
+
                 return newState
             }
         case REMOVE_PRODUCT: 
@@ -39,7 +47,6 @@ const cartReducer = (oldState={ products: {} }, action) => {
             return newState
         case RECEIVE_PRODUCT:
             newState.products[action.product.id] = action.product
-            // debugger
             return newState
         case REMOVE_CART:
             delete newState[action.cartId]

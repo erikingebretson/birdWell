@@ -20,6 +20,7 @@ class Cart extends React.Component {
     readCartedProduct() {
         let arr = Object.values(this.props.products)
         this.total = 0;
+        // console.log(arr)
         return arr.map( (product, i) => (
             <div key={i} className="tile" >
                 <div  className="cart-item" >

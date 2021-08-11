@@ -1,26 +1,55 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Header from '../homepage/header_container'
 class accountPage extends React.Component {
+
+    UNSAFE_componentWillMount() {
+        if (Object.values(this.props.cart.products).length === 0) {
+        } else {
+            console.log('hi')
+            Object.values(this.props.cart.products).forEach(prod => {
+                let t = {
+                    id: prod.id,
+                    product_name: prod.prouctName,
+                    colorway: prod.colorway,
+                    price: prod.price,
+                    cart_id: this.props.currentUser.cart.id,
+                    review_id: prod.review_id,
+                    gender: prod.gender,
+                    detail1: prod.detail1,
+                    detail2: prod.detail2,
+                    size: prod.size,
+                    display: prod.display,
+                    cart_photo_url: prod.cartPhotoUrl
+                }
+                this.props.updateProduct(t)
+            })
+            // this.props.fetchCart(this.props.currentUser.cart.id)
+        }
+    }
 
     componentDidMount() {
         if ( Object.values(this.props.cart.products).length === 0 ) {
             this.props.fetchCart(this.props.currentUser.cart.id)
         } else {
-            // update the cart's user id
-            console.log(this.props.cart)
-            let cart = {
-                user_id: this.props.currentUser.id,
-                products: Object.keys(this.props.cart.products),
-                id: this.props.currentUser.cart.id
-            }
-            // this.props.products.forEach( prod => {
+            // console.log('hi')
+            // Object.values(this.props.cart.products).forEach( prod => {
             //     let t = {
-            //         prod.cart_id
+            //         id: prod.id,
+            //         product_name: prod.prouctName,
+            //         colorway: prod.colorway,
+            //         price: prod.price,
+            //         cart_id: this.props.currentUser.cart.id,
+            //         review_id: prod.review_id,
+            //         gender: prod.gender,
+            //         detail1: prod.detail1,
+            //         detail2: prod.detail2,
+            //         size: prod.size,
+            //         display: prod.display,
+            //         cart_photo_url: prod.cartPhotoUrl
             //     }
             //     this.props.updateProduct(t)
             // })
-            // this.props.deleteCart(this.props.currentUser.cart.id)
+            // this.props.fetchCart(this.props.currentUser.cart.id)
         }
     }
 
@@ -28,7 +57,7 @@ class accountPage extends React.Component {
         return (
                 <div className='account-page'>
                     <h3>My Account</h3>
-                    <button onClick={() => this.props.logout(this.props.currentUser.id)}><Link to="/">Logout</Link></button>
+                    <button onClick={() => this.props.logout(this.props.currentUser.id)}><Link to="/account/login">Logout</Link></button>
                     <div className='account-details'>
                         <ul>
                             <li>You haven't placed any orders yet.</li>
