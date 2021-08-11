@@ -281,22 +281,46 @@ a {
     padding-right: 18px;
     padding-bottom: 30px;
 }
-.secondary button {
+/* .secondary button {
     z-index: 1;
-}
+} */
 
 .left-carousel {
     position: absolute;
+    margin: 10px 10px;
     left: 15px;
     bottom: 50%;
-
+    background: transparent;
+    border: none;
+    transition: .2s ease;
+    background: rgba(255, 255, 255, .8);
+    border-radius: 5px;
 }
 
-.right-carousel {
+.left-carousel:hover {
+    left: 5px;
+}
+
+.right-carousel  {
     position: absolute;
+    margin: 10px 10px;
     right: 15px;
     bottom: 50%;
+    background: transparent;
+    border: none;
+    transition: .2s ease;
+    background: rgba(255, 255, 255, .8);
+    border-radius: 5px;
+}
 
+.right-carousel:hover {
+    margin-left: 10px;
+    right: 5px;
+}
+
+.left-carousel img, .right-carousel img {
+    width: 40px;
+    height: auto;
 }
 
 .tertiary {

@@ -104,8 +104,8 @@ class Homepage extends React.Component {
                     </div>
                     <div className="carousel">
                         {this.buildCarousel()}
-                        <button className="right-carousel" onClick={ () => this.incrementCarousel() } > Right </button>
-                        <button className="left-carousel" onClick={ () => this.decrementCarousel() } > Left </button>
+                        <a className="right-carousel" onClick={() => this.incrementCarousel()} ><img src="images/right-arrow.png" alt="" /></a>
+                        <a className="left-carousel" onClick={() => this.decrementCarousel()} ><img src="images/left-arrow.png" alt="" /></a>
                     </div>
                 </div>
                 <div className="tertiary">
