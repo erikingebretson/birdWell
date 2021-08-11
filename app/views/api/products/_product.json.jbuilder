@@ -8,8 +8,8 @@ json.review_id product.review_id
 json.gender product.gender
 json.detail1 product.detail1
 json.detail2 product.detail2
-
-json.set! review.id do
+json.reviews product.reviews.each do |review|
+        
             json.id review.id
             json.body review.body
             json.createdAt review.created_at
@@ -19,6 +19,7 @@ json.set! review.id do
             json.userId review.user_id
             json.username review.username
             json.userFirstName review.user.first_name
-            end
+
         end
 json.photo_urls product.photos.map { |url| url_for(url) }
+json.cart_photo_url product.cart_photo_url

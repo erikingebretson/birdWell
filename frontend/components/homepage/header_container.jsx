@@ -5,11 +5,12 @@ import { logout } from '../../actions/session_actions'
 import { fetchAllProduct } from '../../actions/product_actions';
 
 const mSTP = (state) => ({
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    cart: state.entities.cart
 })
 
 const mDTP = (dispatch) => ({
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
 })
 
 export default connect(mSTP, mDTP)(Header)

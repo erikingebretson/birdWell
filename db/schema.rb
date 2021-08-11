@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_06_201437) do
+ActiveRecord::Schema.define(version: 2021_08_10_160548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,9 +36,14 @@ ActiveRecord::Schema.define(version: 2021_08_06_201437) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "product_name", null: false
-    t.integer "size", null: false
     t.string "colorway", null: false
     t.integer "price", null: false
     t.integer "cart_id"
@@ -48,6 +53,9 @@ ActiveRecord::Schema.define(version: 2021_08_06_201437) do
     t.string "gender"
     t.text "detail1"
     t.text "detail2"
+    t.integer "size"
+    t.boolean "display"
+    t.text "cart_photo_url"
     t.index ["cart_id"], name: "index_products_on_cart_id"
     t.index ["review_id"], name: "index_products_on_review_id"
   end
@@ -69,13 +77,11 @@ ActiveRecord::Schema.define(version: 2021_08_06_201437) do
     t.string "email", null: false
     t.string "password_digest", null: false
     t.string "session_token", null: false
-    t.integer "cart_id"
     t.integer "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.index ["cart_id"], name: "index_users_on_cart_id"
     t.index ["review_id"], name: "index_users_on_review_id"
     t.index ["session_token"], name: "index_users_on_session_token"
   end

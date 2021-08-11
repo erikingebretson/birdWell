@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 import Header from '../homepage/header_container'
 class accountPage extends React.Component {
 
+    componentDidMount() {
+        this.props.fetchCart(this.props.currentUser.cart.id)
+    }
+
     render () {
         return (
                 <div className='account-page'>

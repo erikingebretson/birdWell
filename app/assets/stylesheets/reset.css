@@ -51,7 +51,7 @@ table {
 }
 
 a {
-	cursor: default;
+	cursor: pointer;
 }
 
 a:hover {

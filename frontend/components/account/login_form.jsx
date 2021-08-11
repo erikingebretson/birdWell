@@ -6,12 +6,14 @@ class loginForm extends React.Component {
         this.state = this.props.user
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-
+    
     handleSubmit(e) {
         e.preventDefault()
         this.props.formAction(this.state)
 
     }
+
+
 
     update(field) {
         return e => this.setState({ [field]: e.target.value })

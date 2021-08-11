@@ -9,15 +9,11 @@ class ShoeIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllProduct()
-        // this.props.fetchProduct(34)
-        // this.props.fetchProduct(35)
-        // this.props.fetchProduct(36)
-        // this.props.fetchProduct(37)
     }
 
     buildGrid() {
         return this.props.shoes.map( (shoe, idx) => {
-           if ( idx % 4 === 0 ) {
+            if (idx % 4 === 0 && shoe.detail1 !== null) {
                 return <ShoeGridItem key={idx} shoe={shoe} allShoes={this.props.shoes} />
            }
         })
@@ -36,7 +32,7 @@ class ShoeIndex extends React.Component {
         return (
             <div className="plp-page-root" >
                 <div className="plp-menu" >
-                    {console.log(this.props)}
+                    
                     {this.indexMenu()}
                 </div>
                 <div className="plp-product-root">

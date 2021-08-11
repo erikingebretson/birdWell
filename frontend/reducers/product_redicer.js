@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_PRODUCT, RECEIVE_PRODUCT } from '../actions/product_actions'
+import { RECEIVE_ALL_PRODUCT, RECEIVE_PRODUCT, REMOVE_PRODUCT } from '../actions/product_actions'
 import { RECEIVE_REVIEW } from '../actions/review_actions'
 
 const productReducer = (oldState={}, action) => {
@@ -10,6 +10,9 @@ const productReducer = (oldState={}, action) => {
             return newState
         case RECEIVE_ALL_PRODUCT:
             return action.products
+        case REMOVE_PRODUCT:
+            delete newState[action.productId]
+            return newState
         case RECEIVE_REVIEW:
             newState[action.review.productId].reviews.push(action.review)
             return newState

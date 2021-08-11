@@ -6,7 +6,6 @@
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
-#  cart_id         :integer
 #  review_id       :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -26,6 +25,10 @@ class User < ApplicationRecord
         foreign_key: :user_id,
         primary_key: :id,
         class_name: :Review
+
+    has_one :cart,
+        foreign_key: :user_id,
+        class_name: :Cart
 
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)

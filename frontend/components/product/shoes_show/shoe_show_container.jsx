@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import { fetchAllProduct, fetchProduct } from '../../../actions/product_actions'
+import { fetchCart, createCart } from '../../../actions/cart_actions'
+import { fetchAllProduct, fetchProduct, createProduct } from '../../../actions/product_actions'
 import { fetchAllReviews, createReview } from '../../../actions/review_actions'
 import ShoeShow from './shoe_show'
 
@@ -8,14 +9,20 @@ const mSTP = (state, ownProps) => ({
     allShoes: Object.values(state.entities.product),
     reviews: Object.values(state.entities.reviews),
     currentUser: state.entities.users[state.session.id],
-    errors: state.errors.uiErrors.responseJSON
+    // currentUserCartId: state.entities.users[state.session.id].cart.id,
+    errors: state.errors.uiErrors.responseJSON,
+    cart: state.entities.cart
 })
 
 const mDTP = (dispatch, ownProps) => ({
     fetchProduct: () => dispatch(fetchProduct(ownProps.match.params.shoeId)),
     fetchAllProduct: () => dispatch(fetchAllProduct()),
     fetchAllReviews: () => dispatch(fetchAllReviews()),
-    createReview: (review) => dispatch(createReview(review))
+    createProduct: (product) => dispatch(createProduct(product)),
+    createReview: (review) => dispatch(createReview(review)),
+    fetchCart: (userId) => dispatch(fetchCart(userId)),
+    createCart: (id) => dispatch(createCart(id))
+
 })
 
 export default connect(mSTP,mDTP)(ShoeShow)

@@ -6,7 +6,6 @@
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
-#  cart_id         :integer
 #  review_id       :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null

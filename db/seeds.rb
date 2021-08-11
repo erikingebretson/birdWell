@@ -18,7 +18,7 @@ user2 = User.create!(first_name: 'Demo', last_name: 'User', email: 'DemoUser@dem
 
 #MENS SHOE SEEDS
 ## Men's Tree Dasher ##
-mTreeDasherqrt = Product.create!(product_name: 'Tree Dashers', size: 8, colorway: 'Quartz', gender: 'men', price: 125, cart_id: [], review_id: [], detail1: "Our running shoe designed with breathable Tree material.", detail2: "Supportive Design, Daily Run")
+mTreeDasherqrt = Product.create!(display: true, product_name: 'Tree Dashers', size: 8, colorway: 'Quartz', gender: 'men', price: 125, cart_id: [], review_id: [], detail1: "Our running shoe designed with breathable Tree material.", detail2: "Supportive Design, Daily Run")
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_dasher/1-mtree-dasher-qrt.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_dasher/2-mtree-dasher.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_dasher/3-mtree-dasher-qrt.jpeg')
@@ -34,7 +34,7 @@ mTreeDasherqrt.photos.attach(io: file5, filename: '5-mtree-dasher-qrt.jpeg')
 mTreeDasherqrt.photos.attach(io: file6, filename: '6-mtree-dasher-qrt.jpeg')
 mTreeDasherqrt.photos.attach(io: file7, filename: '00-mtree-dasher-qrt.jpeg')
 
-mTreeDasherobsid = Product.create!(product_name: 'Tree Dashers', size: 8, colorway: 'Obsidian', gender: 'men', price: 125, cart_id: [], review_id: [], detail1: "Our running shoe designed with breathable Tree material.", detail2: "Supportive Design, Daily Run")
+mTreeDasherobsid = Product.create!(display: true, product_name: 'Tree Dashers', size: 8, colorway: 'Obsidian', gender: 'men', price: 125, cart_id: [], review_id: [], detail1: "Our running shoe designed with breathable Tree material.", detail2: "Supportive Design, Daily Run")
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_dasher/1-mtree-dasher-obsid.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_dasher/2-mtree-dasher-obsid.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_dasher/3-mtree-dasher-obsid.jpeg')
@@ -50,7 +50,7 @@ mTreeDasherobsid.photos.attach(io: file5, filename: '5-tree-dasher-obsid.jpeg')
 mTreeDasherobsid.photos.attach(io: file6, filename: '6-tree-dasher-obsid.jpeg')
 mTreeDasherobsid.photos.attach(io: file7, filename: '00-tree-dasher-qrt.jpeg')
 
-mTreeDasherthundr = Product.create!(product_name: 'Tree Dashers', size: 8, colorway: 'Thunder', gender: 'men', price: 125, cart_id: [], review_id: [], detail1: "Our running shoe designed with breathable Tree material.", detail2: "Supportive Design, Daily Run")
+mTreeDasherthundr = Product.create!(display: true, product_name: 'Tree Dashers', size: 8, colorway: 'Thunder', gender: 'men', price: 125, cart_id: [], review_id: [], detail1: "Our running shoe designed with breathable Tree material.", detail2: "Supportive Design, Daily Run")
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_dasher/1-mtree-dasher-thndr.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_dasher/2-mtree-dasher-thndr.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_dasher/3-mtree-dasher-thndr.jpeg')
@@ -66,7 +66,7 @@ mTreeDasherthundr.photos.attach(io: file5, filename: '5-tree-dasher-thndr.jpeg')
 mTreeDasherthundr.photos.attach(io: file6, filename: '6-tree-dasher-thndr.jpeg')
 mTreeDasherthundr.photos.attach(io: file7, filename: '00-tree-dasher-qrt.jpeg')
 
-mTreeDasherdiable = Product.create!(product_name: 'Tree Dashers', size: 8, colorway: 'Diablo', gender: 'men', price: 125, cart_id: [], review_id: [], detail1: "Our running shoe designed with breathable Tree material.", detail2: "Supportive Design, Daily Run")
+mTreeDasherdiable = Product.create!(display: true, product_name: 'Tree Dashers', size: 8, colorway: 'Diablo', gender: 'men', price: 125, cart_id: [], review_id: [], detail1: "Our running shoe designed with breathable Tree material.", detail2: "Supportive Design, Daily Run")
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_dasher/1-mtree-dasher-diablo.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_dasher/2-mtree-dasher-diablo.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_dasher/3-mtree-dasher-diablo.jpeg')
@@ -84,7 +84,7 @@ mTreeDasherdiable.photos.attach(io: file7, filename: '00-tree-dasher-qrt.jpeg')
 
 
 ## Men's Tree Runner ##
-mTreeRunnerblk = Product.create!(product_name: 'Tree Runners', size: 8, colorway: 'Jet Black', gender: 'men', price: 95, cart_id: [], review_id: [], detail1: "Our everyday sneaker made with breezy eucalyptus tree.", detail2: "Breezy Feel, Light Material")
+mTreeRunnerblk = Product.create!(display: true, product_name: 'Tree Runners', size: 8, colorway: 'Jet Black', gender: 'men', price: 95, cart_id: [], review_id: [], detail1: "Our everyday sneaker made with breezy eucalyptus tree.", detail2: "Breezy Feel, Light Material")
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/1-tree-runner-blk.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/2-tree-runner-blk.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/3-tree-runner-blk.jpeg')
@@ -100,7 +100,7 @@ mTreeRunnerblk.photos.attach(io: file5, filename: '5-tree-runner-blk.jpeg')
 mTreeRunnerblk.photos.attach(io: file6, filename: '6-tree-runner-blk.jpeg')
 mTreeRunnerblk.photos.attach(io: file7, filename: '00-tree-runner-nvy.jpeg')
 
-mTreeRunnermist = Product.create!(product_name: 'Tree Runners', size: 8, colorway: 'Mist', gender: 'men', price: 95, cart_id: [], review_id: [], detail1: "Our everyday sneaker made with breezy eucalyptus tree.", detail2: "Breezy Feel, Light Material")
+mTreeRunnermist = Product.create!(display: true, product_name: 'Tree Runners', size: 8, colorway: 'Mist', gender: 'men', price: 95, cart_id: [], review_id: [], detail1: "Our everyday sneaker made with breezy eucalyptus tree.", detail2: "Breezy Feel, Light Material")
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/1-tree-runner-mist.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/2-tree-runner-mist.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/3-tree-runner-mist.jpeg')
@@ -116,7 +116,7 @@ mTreeRunnermist.photos.attach(io: file5, filename: '5-tree-runner-mist.jpeg')
 mTreeRunnermist.photos.attach(io: file6, filename: '6-tree-runner-mist.jpeg')
 mTreeRunnermist.photos.attach(io: file7, filename: '00-tree-runner-nvy.jpeg')
 
-mTreeRunnerkwhite = Product.create!(product_name: 'Tree Runners', size: 8, colorway: 'Kaikoura White', gender: 'men', price: 95, cart_id: [], review_id: [], detail1: "Our everyday sneaker made with breezy eucalyptus tree.", detail2: "Breezy Feel, Light Material")
+mTreeRunnerkwhite = Product.create!(display: true, product_name: 'Tree Runners', size: 8, colorway: 'Kaikoura White', gender: 'men', price: 95, cart_id: [], review_id: [], detail1: "Our everyday sneaker made with breezy eucalyptus tree.", detail2: "Breezy Feel, Light Material")
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/1-tree-runner-kwhite.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/2-tree-runner-kwhite.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/3-tree-runner-kwhite.jpeg')
@@ -132,7 +132,7 @@ mTreeRunnerkwhite.photos.attach(io: file5, filename: '5-tree-runner-kwhite.jpeg'
 mTreeRunnerkwhite.photos.attach(io: file6, filename: '6-tree-runner-kwhite.jpeg')
 mTreeRunnerkwhite.photos.attach(io: file7, filename: '00-tree-runner-nvy.jpeg')
 
-mTreeRunnernavyn = Product.create!(product_name: 'Tree Runners', size: 8, colorway: 'Navy Night', gender: 'men', price: 95, cart_id: [], review_id: [], detail1: "Our everyday sneaker made with breezy eucalyptus tree.", detail2: "Breezy Feel, Light Material")
+mTreeRunnernavyn = Product.create!(display: true, product_name: 'Tree Runners', size: 8, colorway: 'Navy Night', gender: 'men', price: 95, cart_id: [], review_id: [], detail1: "Our everyday sneaker made with breezy eucalyptus tree.", detail2: "Breezy Feel, Light Material")
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/1-tree-runner-navyn.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/2-tree-runner-navyn.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_runner/3-tree-runner-navyn.jpeg')
@@ -150,7 +150,7 @@ mTreeRunnernavyn.photos.attach(io: file7, filename: '00-tree-runner-nvy.jpeg')
 
 
 ## Men's Tree Topper ##
-mTreeTopperchrc = Product.create!(product_name: 'Tree Toppers', size: 8, colorway: 'Charcoal', gender: 'men', price: 115, cart_id: [], review_id: [], detail1: "Our classic high top made with breezy eucalyptus tree.", detail2: "Breezy Feel, Light Material")
+mTreeTopperchrc = Product.create!(display: true, product_name: 'Tree Toppers', size: 8, colorway: 'Charcoal', gender: 'men', price: 115, cart_id: [], review_id: [], detail1: "Our classic high top made with breezy eucalyptus tree.", detail2: "Breezy Feel, Light Material")
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_topper/1-tree-topper-chrc.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_topper/2-tree-topper-chrc.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_topper/3-tree-topper-chrc.jpeg')
@@ -166,7 +166,7 @@ mTreeTopperchrc.photos.attach(io: file5, filename: '5-tree-topper-chrc.jpeg')
 mTreeTopperchrc.photos.attach(io: file6, filename: '6-tree-topper-chrc.jpeg')
 mTreeTopperchrc.photos.attach(io: file7, filename: '00-tree-topper-chrc.jpeg')
 
-mTreeTopperchalk = Product.create!(product_name: 'Tree Toppers', size: 8, colorway: 'Chalk', gender: 'men', price: 115, cart_id: [], review_id: [], detail1: "Our classic high top made with breezy eucalyptus tree.", detail2: "Breezy Feel, Light Material")
+mTreeTopperchalk = Product.create!(display: true, product_name: 'Tree Toppers', size: 8, colorway: 'Chalk', gender: 'men', price: 115, cart_id: [], review_id: [], detail1: "Our classic high top made with breezy eucalyptus tree.", detail2: "Breezy Feel, Light Material")
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_topper/1-tree-topper-chalk.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_topper/2-tree-topper-chalk.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_topper/3-tree-topper-chalk.jpeg')
@@ -182,7 +182,7 @@ mTreeTopperchalk.photos.attach(io: file5, filename: '5-tree-topper-chalk.jpeg')
 mTreeTopperchalk.photos.attach(io: file6, filename: '6-tree-topper-chalk.jpeg')
 mTreeTopperchalk.photos.attach(io: file7, filename: '00-tree-topper-chrc.jpeg')
 
-mTreeTopperkjo = Product.create!(product_name: 'Tree Toppers', size: 8, colorway: 'Kauri Jo', gender: 'men', price: 115, cart_id: [], review_id: [], detail1: "Our classic high top made with breezy eucalyptus tree.", detail2: "Breezy Feel, Light Material")
+mTreeTopperkjo = Product.create!(display: true, product_name: 'Tree Toppers', size: 8, colorway: 'Kauri Jo', gender: 'men', price: 115, cart_id: [], review_id: [], detail1: "Our classic high top made with breezy eucalyptus tree.", detail2: "Breezy Feel, Light Material")
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_topper/1-tree-topper-kjo.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_topper/2-tree-topper-kjo.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_topper/3-tree-topper-kjo.jpeg')
@@ -198,7 +198,7 @@ mTreeTopperkjo.photos.attach(io: file5, filename: '5-tree-topper-kjo.jpeg')
 mTreeTopperkjo.photos.attach(io: file6, filename: '6-tree-topper-kjo.jpeg')
 mTreeTopperkjo.photos.attach(io: file7, filename: '00-tree-topper-chrc.jpeg')
 
-mTreeToppermarine = Product.create!(product_name: 'Tree Toppers', size: 8, colorway: 'Marine', gender: 'men', price: 115, cart_id: [], review_id: [], detail1: "Our classic high top made with breezy eucalyptus tree.", detail2: "Breezy Feel, Light Material")
+mTreeToppermarine = Product.create!(display: true, product_name: 'Tree Toppers', size: 8, colorway: 'Marine', gender: 'men', price: 115, cart_id: [], review_id: [], detail1: "Our classic high top made with breezy eucalyptus tree.", detail2: "Breezy Feel, Light Material")
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_topper/1-tree-topper-marine.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_topper/2-tree-topper-marine.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mtree_topper/3-tree-topper-marine.jpeg')
@@ -216,7 +216,7 @@ mTreeToppermarine.photos.attach(io: file7, filename: '00-tree-topper-chrc.jpeg')
 
 
 ## Men's Wool Runners ##
-mWoolRunnernatgrey = Product.create!(product_name: 'Wool Runners', size: 8, colorway: 'Natural Grey', gender: 'men', price: 95, cart_id: [], review_id: [], detail1: "Our original everyday sneaker made with cozy merino wool.", detail2: "Soft Feel, Cozy Material")
+mWoolRunnernatgrey = Product.create!(display: true, product_name: 'Wool Runners', size: 8, colorway: 'Natural Grey', gender: 'men', price: 95, cart_id: [], review_id: [], detail1: "Our original everyday sneaker made with cozy merino wool.", detail2: "Soft Feel, Cozy Material")
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mwool_runner/1-wool-runner-natgrey.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mwool_runner/2-wool-runner-natgrey.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mwool_runner/3-wool-runner-natgrey.jpeg')
@@ -232,7 +232,7 @@ mWoolRunnernatgrey.photos.attach(io: file5, filename: '5-wool-runner-natgrey.jpe
 mWoolRunnernatgrey.photos.attach(io: file6, filename: '6-wool-runner-natgrey.jpeg')
 mWoolRunnernatgrey.photos.attach(io: file7, filename: '00-wool-runner-natgrey.jpeg')
 
-mWoolRunnernatblack = Product.create!(product_name: 'Wool Runners', size: 8, colorway: 'Natural Black', gender: 'men', price: 95, cart_id: [], review_id: [], detail1: "Our original everyday sneaker made with cozy merino wool.", detail2: "Soft Feel, Cozy Material")
+mWoolRunnernatblack = Product.create!(display: true, product_name: 'Wool Runners', size: 8, colorway: 'Natural Black', gender: 'men', price: 95, cart_id: [], review_id: [], detail1: "Our original everyday sneaker made with cozy merino wool.", detail2: "Soft Feel, Cozy Material")
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mwool_runner/1-wool-runner-natblk.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mwool_runner/2-wool-runner-natblk.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mwool_runner/3-wool-runner-natblk.jpeg')
@@ -248,7 +248,7 @@ mWoolRunnernatblack.photos.attach(io: file5, filename: '5-wool-runner-natblk')
 mWoolRunnernatblack.photos.attach(io: file6, filename: '6-wool-runner-natblk')
 mWoolRunnernatblack.photos.attach(io: file7, filename: '00-wool-runner-natgrey.jpeg')
 
-mWoolRunnertukejo = Product.create!(product_name: 'Wool Runners', size: 8, colorway: 'Tuke Jo', gender: 'men', price: 95, cart_id: [], review_id: [], detail1: "Our original everyday sneaker made with cozy merino wool.", detail2: "Soft Feel, Cozy Material")
+mWoolRunnertukejo = Product.create!(display: true, product_name: 'Wool Runners', size: 8, colorway: 'Tuke Jo', gender: 'men', price: 95, cart_id: [], review_id: [], detail1: "Our original everyday sneaker made with cozy merino wool.", detail2: "Soft Feel, Cozy Material")
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mwool_runner/1-wool-runner-tukjo.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mwool_runner/2-wool-runner-tukjo.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mwool_runner/3-wool-runner-tukjo.jpeg')
@@ -264,7 +264,7 @@ mWoolRunnertukejo.photos.attach(io: file5, filename: '5-wool-runner-tukjo.jpeg')
 mWoolRunnertukejo.photos.attach(io: file6, filename: '6-wool-runner-tukjo.jpeg')
 mWoolRunnertukejo.photos.attach(io: file7, filename: '00-wool-runner-natgrey.jpeg')
 
-mWoolRunnermist = Product.create!(product_name: 'Wool Runners', size: 8, colorway: 'Mist', gender: 'men', price: 95, cart_id: [], review_id: [], detail1: "Our original everyday sneaker made with cozy merino wool.", detail2: "Soft Feel, Cozy Material")
+mWoolRunnermist = Product.create!(display: true, product_name: 'Wool Runners', size: 8, colorway: 'Mist', gender: 'men', price: 95, cart_id: [], review_id: [], detail1: "Our original everyday sneaker made with cozy merino wool.", detail2: "Soft Feel, Cozy Material")
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mwool_runner/1-wool-runner-mist.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mwool_runner/2-wool-runner-mist.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/mwool_runner/3-wool-runner-mist.jpeg')
@@ -286,7 +286,7 @@ mWoolRunnermist.photos.attach(io: file7, filename: '00-wool-runner-natgrey.jpeg'
 # WOMENS SHOE SEEDS
 
 ## Women's Tree Piper ##
-wTreePiper = Product.create!(product_name: 'Tree Piper', size: 5, colorway: 'Luna', gender: 'women', price: 95, cart_id: [], review_id: [], detail1: "Our low top sneaker, made with light and breezy eucalyptus tree fiber.", detail2: "All-Day Comfort. Everyday Style")
+wTreePiper = Product.create!(display: true, product_name: 'Tree Piper', size: 5, colorway: 'Luna', gender: 'women', price: 95, cart_id: [], review_id: [], detail1: "Our low top sneaker, made with light and breezy eucalyptus tree fiber.", detail2: "All-Day Comfort. Everyday Style")
 file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/wtree_piper/1-tree-piper-lna.jpeg')
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/wtree_piper/2-tree-piper-lna.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/wtree_piper/3-tree-piper-lna.jpeg')

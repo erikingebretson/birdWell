@@ -171,6 +171,8 @@
     margin-bottom: 18px;
 }
 
+
+
 .size-chart p {
     font-size: 12px;
     font-weight: 700;
@@ -211,6 +213,11 @@
     background-color: rgba(0,0,0,.2);
 }
 
+.size-chart .selected {
+    background-color: #000;
+    color: #fff;
+}
+
 .sizing-detail {
     font-size: 12px;
     margin-bottom: 18px;
@@ -235,6 +242,20 @@
     background-color: rgba(0,0,0, .0);
     color: #000;
     border: 2px solid #000;
+}
+
+.pre-cart-button {
+    align-self: center;
+    width: 100%;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: rgb(211, 212, 213);
+    padding: 13px 18px;
+    border-radius: 2px;
+    color: #fff;
+    border: 2px solid rgb(211, 212, 213);
 }
 
 .guarantee-detail {

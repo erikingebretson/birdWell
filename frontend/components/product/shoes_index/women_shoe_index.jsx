@@ -13,7 +13,7 @@ class WomenShoeIndex extends React.Component {
 
     buildGrid() {
         return this.props.shoes.map((shoe, idx) => {
-            if (idx % 4 === 0 && shoe.gender === "women") {
+            if (idx % 4 === 0 && shoe.gender === "women" && shoe.detail1 !== null) {
                 return <ShoeGridItem key={idx} shoe={shoe} allShoes={this.props.shoes} />
             }
         })
