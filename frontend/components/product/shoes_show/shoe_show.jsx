@@ -27,8 +27,14 @@ class ShoeShow extends React.Component {
     
     componentDidMount() {
         this.props.fetchAllProduct() 
-        // console.log(this.props.currentUser)
-        this.props.currentUser ? this.props.fetchCart(this.props.currentUser.cart.id) : this.props.createCart(null)
+        console.log(this.props.cart.id)
+        if (this.props.currentUser ) {
+            this.props.fetchCart(this.props.currentUser.cart.id)
+        } else if ( this.props.cart.id === undefined ) {
+            this.props.createCart(null)
+        } else {
+
+        }
     }
 
     productImages() {
@@ -115,18 +121,34 @@ class ShoeShow extends React.Component {
         }
     }
 
+    submitButton() {
+        if (this.state.size === '') {
+            return  <button className="pre-cart-button" >
+                        Select A Size
+                    </button>
+        } else {
+            return  <button className="cart-button" onClick={(e) => this.submitState(e)}>
+                        Add to Cart - ${this.props.shoe.price}
+                    </button>
+        }
+    }
+
     submitState(e) {
         e.preventDefault()
-        console.log(this.state)
-            this.props.createProduct({
-                product_name: this.state.product_name,
-                colorway: this.state.colorway,
-                price: this.state.price,
-                cart_id: this.state.cart_id,
-                gender: this.state.gender,
-                size: this.state.size,
-                cart_photo_url: this.state.cart_photo_url
-            })
+        // console.log(this.state)
+        if ( this.state.size === '' ) {
+        } else {
+            
+        }
+        this.props.createProduct({
+            product_name: this.state.product_name,
+            colorway: this.state.colorway,
+            price: this.state.price,
+            cart_id: this.state.cart_id,
+            gender: this.state.gender,
+            size: this.state.size,
+            cart_photo_url: this.state.cart_photo_url
+        })
 
     }
 
@@ -176,9 +198,7 @@ class ShoeShow extends React.Component {
                             <p>This style is available in whole sizes only. In between sizes? We recommend you size down.</p>
                         </div>
                         <div>
-                            <button className="cart-button" onClick={(e) => this.submitState(e)}>
-                                Add to Cart - ${this.props.shoe.price}
-                            </button>
+                            {this.submitButton()}
                         </div>
                         <div className="guarantee-detail" >
                             <p >Free shipping and 30 day returns</p>

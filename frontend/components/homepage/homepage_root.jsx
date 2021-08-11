@@ -5,7 +5,7 @@ class Homepage extends React.Component {
 
 
     componentDidMount() {
-        this.props.fetchAllProduct()
+        // this.props.fetchAllProduct()
     }
 
     render() {    
