@@ -13,6 +13,14 @@ class Api::ProductsController < ApplicationController
         end
     end
 
+    def update 
+        @product = Product.find_by(id: params[:id])
+        if @product
+            @product.update(product_params)
+            render :show
+        end
+    end
+
     def create 
         @product = Product.new(product_params)
         

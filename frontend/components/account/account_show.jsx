@@ -4,7 +4,24 @@ import Header from '../homepage/header_container'
 class accountPage extends React.Component {
 
     componentDidMount() {
-        this.props.fetchCart(this.props.currentUser.cart.id)
+        if ( Object.values(this.props.cart.products).length === 0 ) {
+            this.props.fetchCart(this.props.currentUser.cart.id)
+        } else {
+            // update the cart's user id
+            console.log(this.props.cart)
+            let cart = {
+                user_id: this.props.currentUser.id,
+                products: Object.keys(this.props.cart.products),
+                id: this.props.currentUser.cart.id
+            }
+            // this.props.products.forEach( prod => {
+            //     let t = {
+            //         prod.cart_id
+            //     }
+            //     this.props.updateProduct(t)
+            // })
+            // this.props.deleteCart(this.props.currentUser.cart.id)
+        }
     }
 
     render () {

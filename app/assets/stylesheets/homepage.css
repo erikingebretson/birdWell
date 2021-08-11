@@ -214,47 +214,56 @@ a {
 
 .secondary {
     position: relative;
-    height: 70vh;
-    max-height: 600px;
-    min-height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 40px;
+    max-width: 1380px;
+    overflow: hidden;
+    transition: .2s ease;
+}
+
+.secondary-header {
+    width: 100%;
+    margin: 0px 15px;
+    margin-bottom: 15px;
+    
 }
 
 .secondary-header h2 {
     font-size: 32px;
     font-weight: 700px;
-    /* align-content: center; */
     text-align: center;
+    padding-bottom: 42px;
+    margin: 0px 15px;
+    border-bottom: 2px solid rgb(211, 212, 213);
 }
 
 .carousel {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    /* justify-content: space-evenly; */
     position: relative;
-    max-width: 1380px;
-    width: 100%;
-    /* height: 90%; */
-    padding-top: 36px;
-    /* padding-left: 35px;
-    padding-right: 35px; */
+    max-width: none;
+    /* margin: 0;
+    padding: 0; */
+    overflow: scroll;
+    transition: .2s ease;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    /* border-right: 40px solid #FFF; */
 }
 
 .show-carousel-card {
     display: flex;
     flex-direction: column;
-    /* min-height: 513px; */
-    height: auto;
-    /* width: 30%;
-    height: 90%; */
-    box-shadow: 10px 10px 10px 15px rgba(0, 0, 0, .09);
-    margin-right: 10px;
-    margin-left: 10px;
+    width: 30vw;
+    max-width: 430px;
+    box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, .12);
+    margin: 15px 15px;
     transition: .2s ease;
-    /* box-shadow: rgb(33, 42, 47); */
 }
 
 .carousel-img {
@@ -263,11 +272,27 @@ a {
 
 .carousel-img img {
     width: 100%;
-    max-height: 396px;
-    max-width: 396px;
     height: auto;
-    /* height: auto; */
 }
+
+/* .carousel-img img:hover {
+    
+}
+.card-img-hover {
+display: block;
+} */
+
+
+.card-img-hover {
+    display: none;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+    position: absolute;
+    z-index: 1;
+}
+
 
 .hover-button {
     position: absolute;
@@ -285,7 +310,8 @@ a {
     font-weight: 700;
     text-transform: uppercase;
     text-align: center;
-    /* display: none; */
+    display: inherit;
+    z-index: 1;
 }
 
 .hover-button:hover {
@@ -325,35 +351,28 @@ a {
 
 .left-carousel {
     position: absolute;
-    margin: 10px 10px;
-    left: 15px;
+    padding: 5px 7px;
+    left: 3%;
+    z-index: 1;
     bottom: 50%;
     background: transparent;
     border: none;
     transition: .2s ease;
-    background: rgba(255, 255, 255, .8);
+    background: rgb(255, 255, 255);
     border-radius: 5px;
-}
-
-.left-carousel:hover {
-    left: 5px;
 }
 
 .right-carousel  {
     position: absolute;
-    margin: 10px 10px;
-    right: 15px;
+    padding: 5px 7px;
+    right: 3%;
+    z-index: 1;
     bottom: 50%;
     background: transparent;
     border: none;
     transition: .2s ease;
-    background: rgba(255, 255, 255, .8);
+    background: rgb(255, 255, 255);
     border-radius: 5px;
-}
-
-.right-carousel:hover {
-    /* margin-left: 10px; */
-    right: 5px;
 }
 
 .left-carousel img, .right-carousel img {

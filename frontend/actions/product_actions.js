@@ -34,6 +34,11 @@ export const createProduct = (product) => (dispatch) => (
     .then( res => dispatch(receiveProduct(res)) )
 )
 
+export const updateProduct = (product) => (dispatch) => (
+    ProductApiUtil.updateProduct(product)
+    .then( res => dispatch(receiveProduct(res)))
+)
+
 export const deleteProduct = (productId) => (dispatch) => (
     ProductApiUtil.deleteProduct(productId)
     .then(() => dispatch(removeProduct(productId)))

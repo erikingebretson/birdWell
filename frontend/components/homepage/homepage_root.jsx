@@ -16,7 +16,7 @@ class Homepage extends React.Component {
         this.props.fetchAllProduct()
     }
 
-    buildCarousel(arg=[0,1,2]) {
+    buildCarousel() {
         let shoes = Object.values(this.props.shoes)
         let carouselData = []
         shoes.forEach( (shoe, idx) => {
@@ -24,9 +24,11 @@ class Homepage extends React.Component {
                 carouselData.push(shoe)
         }})
 
+        // optional logic to choose length of carousel cards
+
         this.length = carouselData.length
         let num1 = this.state.inc
-        let num2 = this.state.inc + 3
+        let num2 = this.state.inc + this.length
         let cards = []
         
         if (this.dir === 'inc') {
@@ -47,7 +49,11 @@ class Homepage extends React.Component {
             <div key={shoe.id} className="show-carousel-card">
                 <div className="carousel-img">
                     <img src={shoe.photoUrls[1]} alt="" />
-                    <Link className='hover-button' to={`/shoes/${shoe.id}`}>Shop Now</Link>
+                    <div className="card-img-hover" >
+                        <div>
+                            <Link className='hover-button' to={`/shoes/${shoe.id}`}>Shop Now</Link>
+                        </div>
+                    </div>
                 </div>
                 <div className="carousel-product-detail">
                     <a>{shoe.productName}</a>
@@ -105,9 +111,9 @@ class Homepage extends React.Component {
                     </div>
                     <div className="carousel">
                         {this.buildCarousel()}
-                        <a className="right-carousel" onClick={() => this.incrementCarousel()} ><img src="images/right-arrow.png" alt="" /></a>
-                        <a className="left-carousel" onClick={() => this.decrementCarousel()} ><img src="images/left-arrow.png" alt="" /></a>
                     </div>
+                    <a className="right-carousel" onClick={() => this.incrementCarousel()} ><img src="images/right-arrow.png" alt="" /></a>
+                    <a className="left-carousel" onClick={() => this.decrementCarousel()} ><img src="images/left-arrow.png" alt="" /></a>
                 </div>
                 <div className="tertiary">
                     <div>

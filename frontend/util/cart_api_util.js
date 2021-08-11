@@ -23,7 +23,7 @@ export const fetchCart = (cartId) => {
     })
 }
 
-export const deleteCart = () => {
+export const deleteCart = (cartId) => {
     return $.ajax({
         method: "DELETE",
         url: `/api/carts/${cartId}`

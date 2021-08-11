@@ -14,13 +14,26 @@ const cartReducer = (oldState={ products: {} }, action) => {
         case REMOVE_CURRENT_USER:
             return { products: {} };
         case RECEIVE_CART:
-            newState = action.cart
-            let temp = action.cart.products
-            newState.products = {}
-            temp.forEach( prod => {
-                newState.products[Object.values(prod)[0].id] = Object.values(prod)[0]
-            })
-            return newState
+            // newState = action.cart
+            // let temp = action.cart.products
+            // newState.products = {}
+            // temp.forEach( prod => {
+            //     newState.products[Object.values(prod)[0].id] = Object.values(prod)[0]
+            // })
+            // return newState
+            if ( Object.values(oldState.products).length === 0 ) {
+                newState = action.cart
+                let temp = action.cart.products
+                newState.products = {}
+                temp.forEach(prod => {
+                    newState.products[Object.values(prod)[0].id] = Object.values(prod)[0]
+                })
+                return newState
+            } else {
+                newState = action.cart
+                newState.products = oldState.products
+                return newState
+            }
         case REMOVE_PRODUCT: 
             delete newState.products[action.productId]
             return newState

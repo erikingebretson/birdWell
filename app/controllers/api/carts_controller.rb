@@ -24,14 +24,15 @@ class Api::CartsController < ApplicationController
         @cart = Cart.find_by(id: params[:id])
         if @cart 
             @cart.update(cart_params)
+            render :show
         else
             render json: @cart.errors.full_messages, status: 422
         end
     end
 
     def destroy
-        @cart = Cart.find_by(id: params[:id])
-        @cart.delete
+        @cart = Cart.find(params[:id])
+        @cart.destroy
     end
 
     private
