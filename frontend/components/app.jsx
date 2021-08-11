@@ -3,7 +3,7 @@ import AccountForms from './account/account_forms';
 import AccountPage from './account/account_show_container'
 import ShoeShow from './product/shoes_show/shoe_show_container'
 import Header from './homepage/header_container'
-import HomePage from './homepage/homepage_root';
+import HomePage from './homepage/homepage_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import ShoeIndex from './product/shoes_index/shoe_index_container';
