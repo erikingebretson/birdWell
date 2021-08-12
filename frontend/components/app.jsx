@@ -10,6 +10,7 @@ import ShoeIndex from './product/shoes_index/shoe_index_container';
 import MenShoeIndex from './product/shoes_index/men_shoe_index_container';
 import WomenShoeIndex from './product/shoes_index/women_shoe_index_container';
 import Cart from './cart/cart_container'
+import Footer from './homepage/footer';
 
 
 class App extends React.Component {
@@ -32,6 +33,7 @@ class App extends React.Component {
                     <Route exact path='/' component={HomePage} />
                     <Redirect to='/' />
                 </Switch>
+                <Footer />
             </div>
         )
     }
