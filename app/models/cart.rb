@@ -9,10 +9,10 @@
 #
 class Cart < ApplicationRecord
 
-    # has_many :products,
-    #     foreign_key: :cart_id,
-    #     class_name: :Product,
-    #     dependent: :destroy
+    has_many :products,
+        foreign_key: :cart_id,
+        class_name: :Product,
+        dependent: :destroy
 
     # belongs_to :user
         # foreign_key: :user_id,

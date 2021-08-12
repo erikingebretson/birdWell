@@ -26,7 +26,7 @@ class Product < ApplicationRecord
         foreign_key: :product_id,
         class_name: :Review
 
-    # belongs_to :cart,
-    #     foreign_key: :cart_id,
-    #     class_name: :Cart
+    belongs_to :cart,
+        foreign_key: :cart_id,
+        class_name: :Cart
 end
