@@ -7,11 +7,12 @@
 }
 
 .logo {
-    font-family: 'Pattaya', sans-serif;
+    font-family: 'Lobster Two', cursive;
     align-content: center;
     align-items: center;
-    font-size: 32px;
+    font-size: 34px;
     text-decoration: none;
+
 }
 
 a {
@@ -23,6 +24,10 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.logo-box > h1 > a {
+    text-decoration: none;
 }
 
 .product-nav {
@@ -79,16 +84,23 @@ a {
     align-items: center;
 }
 
+.header-account-img {
+    align-self: center;
+    height: 30px;
+    width: auto;
+}
+
 .header-cart-img {
     align-self: center;
     height: 50%;
+    margin-right: 15px;
 }
 
 .header-count {
     position: absolute;
     align-content: center;
-    padding-bottom: 11px;
-    padding-left: 2px;
+    padding-bottom: 7px;
+    padding-right: 11px;
     font-weight: 700;
     font-size: 12px;
 }

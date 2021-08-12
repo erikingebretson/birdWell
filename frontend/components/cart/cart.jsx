@@ -51,7 +51,7 @@ class Cart extends React.Component {
                     <div className="cart-title" >
                         <div className='header-icons'>
                             <a onClick={() => this.turnCartOff()} ><img className="arrow-img" src="images/right-arrow.png" alt="" /></a>
-                            <img className="cart-img" src="shopping-cart.png" alt="" />
+                            <img className="cart-img" src="images/shopping-cart.png" alt="" />
                             <p className="count" >{Object.values(this.props.cart.products).length}</p>
                         </div>
                         <div className='header-text' >
