@@ -116,11 +116,11 @@ class Homepage extends React.Component {
                     <a className="right-carousel" onClick={() => this.incrementCarousel()} ><img src="images/right-arrow.png" alt="" /></a>
                     <a className="left-carousel" onClick={() => this.decrementCarousel()} ><img src="images/left-arrow.png" alt="" /></a>
                 </div>
-                <div className="tertiary">
+                {/* <div className="tertiary">
                     <div>
                         <p>I'm last :(</p>
                     </div>
-                </div>
+                </div> */}
             </div>
         )
     }
