@@ -10,9 +10,8 @@
     font-family: 'Lobster Two', cursive;
     align-content: center;
     align-items: center;
-    font-size: 34px;
+    font-size: 36px;
     text-decoration: none;
-
 }
 
 a {
@@ -26,7 +25,7 @@ a {
     align-items: center;
 }
 
-.logo-box > h1 > a {
+.logo-box > h1 > a  {
     text-decoration: none;
 }
 
@@ -86,7 +85,7 @@ a {
 
 .header-account-img {
     align-self: center;
-    height: 30px;
+    height: 38px;
     width: auto;
 }
 
