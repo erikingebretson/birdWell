@@ -20,8 +20,12 @@ class ReviewElement extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        // console.log(this.state)
         this.props.createReview(this.state)
+        this.setState({
+            title: '',
+            body: '',
+            stars: ''
+        })
     }
 
     update(field) {
@@ -80,7 +84,6 @@ class ReviewElement extends React.Component {
 
     readReviews() {
         return this.props.reviews.map( (review,idx) => {
-            // console.log(review)
             if (review.productId === this.props.shoe.id || review.product_id === this.props.shoe.id ) {
             let dateStr = Date.parse(review.createdAt)
             let date = new Date(dateStr)
@@ -109,7 +112,6 @@ class ReviewElement extends React.Component {
     }
 
     readErrors() {
-        console.log(this.props.errors)
         return this.props.errors.map((error, i) => (
             <div className="errors" key={i}>
                 <p >{error}</p>

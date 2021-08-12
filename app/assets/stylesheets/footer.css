@@ -28,6 +28,10 @@
     margin-bottom: 12px;
 }
 
+.footer-shop a:hover {
+    cursor: pointer;
+}
+
 .accredidations {
     display: flex;
     flex-direction: column;

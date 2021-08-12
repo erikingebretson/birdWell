@@ -27,7 +27,6 @@ class ShoeShow extends React.Component {
     
     componentDidMount() {
         this.props.fetchAllProduct() 
-        console.log(this.props.cart.id)
         if (this.props.currentUser ) {
             this.props.fetchCart(this.props.currentUser.cart.id)
         } else if ( this.props.cart.id === undefined ) {
@@ -160,7 +159,6 @@ class ShoeShow extends React.Component {
 
     submitState(e) {
         e.preventDefault()
-        // console.log(this.state)
         if ( this.state.size === '' ) {
         } else {
             
@@ -175,13 +173,16 @@ class ShoeShow extends React.Component {
             cart_photo_url: this.state.cart_photo_url
         })
 
-    }
+    }   
 
     render() {
         if (this.props.shoe === undefined) return null;
         this.avgStars()
+
         return (
-            <div className="root">
+           <div className="main-root" >
+
+           <div className="root" className="main-root">
                 <div className="pathway">
                     <p>
                         <Link to="/" >Home</Link> / <Link to='/shoes' >{this.props.shoe.gender[0].toUpperCase() + this.props.shoe.gender.slice(1)}'s Shoes</Link> 
@@ -234,6 +235,7 @@ class ShoeShow extends React.Component {
                 <ReviewElement shoe={this.props.shoe} reviews={this.props.shoe.reviews} errors={this.props.errors} currentUser={this.props.currentUser} createReview={this.props.createReview} numStars={this.totalStars} numReviews={this.totalReviews} starAvg={this.starAvg}/>
             </div>
                 
+            </div>
         )   
     }
 }

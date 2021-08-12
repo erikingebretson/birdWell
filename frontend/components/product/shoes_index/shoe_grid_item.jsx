@@ -9,7 +9,6 @@ class ShoeGridItem extends React.Component {
 
     getAllImages() {
         // filter logic to see one product grid of each shoe
-        // console.log(this.state)
 
          return this.props.allShoes.map( (tempshoe, idx) => {
              if ( tempshoe.detail1 !== null && tempshoe.productName === this.props.shoe.productName && tempshoe.gender === this.props.shoe.gender) {

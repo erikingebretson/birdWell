@@ -29,6 +29,8 @@ class MenShoeIndex extends React.Component {
         if (Object.keys(this.props.shoes).length === 0) return null;
 
         return (
+            <div className="main-root">
+
             <div className="plp-page-root" >
                 <div className="plp-menu" >
                     {this.indexMenu()}
@@ -36,6 +38,8 @@ class MenShoeIndex extends React.Component {
                 <div className="plp-product-root">
                     {this.buildGrid()}
                 </div>
+            </div>
+
             </div>
         )
     }

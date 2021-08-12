@@ -49,8 +49,7 @@ class Homepage extends React.Component {
             <div key={shoe.id} className="show-carousel-card">
                 <div className="carousel-img">
                     <img className="carousel-hero-img" src={shoe.photoUrls[1]} alt="" />
-                    {/* <img className="hidden-img" src={shoe.photoUrls[1]} alt="" /> */}
-                    <div className="card-img-hover" >
+                    <div className="carousel-overlay" >
                         <div>
                             <Link className='hover-button' to={`/shoes/${shoe.id}`}>Shop Now</Link>
                         </div>
@@ -84,8 +83,11 @@ class Homepage extends React.Component {
     }
 
     render() {    
+
         return (
-            <div className="homepage-root">
+            <div className="main-root" >
+
+            <div className="homepage-root" >
                 <div className="hero-root">
                     <div className="hero">
                         <img src="images/hero.jpeg" alt="BirdWell" />
@@ -121,6 +123,8 @@ class Homepage extends React.Component {
                         <p>I'm last :(</p>
                     </div>
                 </div> */}
+            </div>
+
             </div>
         )
     }
