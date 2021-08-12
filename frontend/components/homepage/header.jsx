@@ -8,7 +8,9 @@ class Header extends React.Component {
     }
 
     componentDidMount() {
-        // this.props.fetchCart()
+        if (this.props.currentUser !== undefined ) {
+            this.props.fetchCart(this.props.currentUser.cart.id)
+        }
     }
 
     turnCartOn() {

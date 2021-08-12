@@ -4,7 +4,8 @@ import { fetchAllProduct, fetchProduct } from '../../../actions/product_actions'
 
 const mSTP = (state, ownProps) => ({
     shoes: Object.values(state.entities.product),
-    path: ownProps.match.path
+    path: ownProps.match.path,
+    cart: state.entities.cart
 })
 
 const mDTP = (dispatch) => ({

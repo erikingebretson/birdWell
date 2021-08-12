@@ -16,7 +16,7 @@ class Api::CartsController < ApplicationController
         if @cart
             render :show
         else
-            render json: @cart.errors.full_messages, status: 404
+            render json: ['cart not found'], status: 404
         end
     end
 
