@@ -86,6 +86,10 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: space-between;
+    height: auto;
+    max-height: 50vh;
+    width: auto;
+    overflow: auto;
 }
 
 .tile {
