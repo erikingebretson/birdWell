@@ -1,7 +1,6 @@
 import { RECEIVE_CART, REMOVE_CART } from "../actions/cart_actions";
 import { RECEIVE_CURRENT_USER, REMOVE_CURRENT_USER } from "../actions/session_actions";
 import { RECEIVE_PRODUCT, REMOVE_PRODUCT } from "../actions/product_actions";
-import { isPlainObject } from "lodash";
 
 const cartReducer = (oldState={ products: {} }, action) => {
     Object.freeze(oldState)
