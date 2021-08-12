@@ -57,7 +57,7 @@ class Homepage extends React.Component {
                     </div>
                 </div>
                 <div className="carousel-product-detail">
-                    <a>{shoe.productName}</a>
+                    <Link to={`/shoes/${shoe.id}`}>{shoe.productName}</Link>
                     <p>{shoe.detail2}</p>
                 </div>
             </div>

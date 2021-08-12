@@ -89,7 +89,7 @@
     flex: 1 1 0%;
     flex-direction: column;
     width: 50%;
-    padding-right: 24px;
+    margin-right: 24px;
 }
 
 .plp-details-box:hover {

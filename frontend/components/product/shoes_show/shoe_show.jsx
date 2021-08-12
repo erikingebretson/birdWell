@@ -102,6 +102,31 @@ class ShoeShow extends React.Component {
             } })
     }
 
+    productSizes() {
+        if (this.props.shoe.gender === 'women') {
+            return <ul>
+                <li><button className={this.state.size === 5 ? "selected" : ''} onClick={() => this.setState(this.setSize(5))}>5</button></li>
+                <li><button className={this.state.size === 6 ? "selected" : ''} onClick={() => this.setState(this.setSize(6))} >6</button></li>
+                <li><button className={this.state.size === 7 ? "selected" : ''} onClick={() => this.setState(this.setSize(7))} >7</button></li>
+                <li><button className={this.state.size === 8 ? "selected" : ''} onClick={() => this.setState(this.setSize(8))} >8</button></li>
+                <li><button className={this.state.size === 9 ? "selected" : ''} onClick={() => this.setState(this.setSize(9))} >9</button></li>
+                <li><button className={this.state.size === 10 ? "selected" : ''} onClick={() => this.setState(this.setSize(10))} >10</button></li>
+                <li><button className={this.state.size === 11 ? "selected" : ''} onClick={() => this.setState(this.setSize(11))} >11</button></li>
+            </ul>
+        } else {
+            return <ul>
+                <li><button className={this.state.size === 8 ? "selected" : ''} onClick={() => this.setState(this.setSize(8))}>8</button></li>
+                <li><button className={this.state.size === 9 ? "selected" : ''} onClick={() => this.setState(this.setSize(9))} >9</button></li>
+                <li><button className={this.state.size === 10 ? "selected" : ''} onClick={() => this.setState(this.setSize(10))} >10</button></li>
+                <li><button className={this.state.size === 11 ? "selected" : ''} onClick={() => this.setState(this.setSize(11))} >11</button></li>
+                <li><button className={this.state.size === 12 ? "selected" : ''} onClick={() => this.setState(this.setSize(12))} >12</button></li>
+                <li><button className={this.state.size === 13 ? "selected" : ''} onClick={() => this.setState(this.setSize(13))} >13</button></li>
+                <li><button className={this.state.size === 14 ? "selected" : ''} onClick={() => this.setState(this.setSize(14))} >14</button></li>
+            </ul>
+        }
+    }
+    
+
     setSize(size) {
         this.state.colorway === '' ? this.state.colorway = this.props.shoe.colorway : this.state.colorway ;
         this.state.cart_photo_url === '' ? this.state.cart_photo_url = this.props.shoe.photoUrls[0] : this.state.cart_photo_url ;
@@ -184,7 +209,8 @@ class ShoeShow extends React.Component {
                         </div>
                         <div className="size-chart" >
                             <p>Select Size:</p>
-                            <ul>
+                            {this.productSizes()}
+                            {/* <ul>
                                 <li><button className={this.state.size === 8 ? "selected" : ''} onClick={  () => this.setState(this.setSize(8))  }>8</button></li>
                                 <li><button className={this.state.size === 9 ? "selected" : ''} onClick={  () => this.setState(this.setSize(9))  } >9</button></li>
                                 <li><button className={this.state.size === 10 ? "selected" : ''} onClick={  () => this.setState(this.setSize(10))  } >10</button></li>
@@ -192,7 +218,7 @@ class ShoeShow extends React.Component {
                                 <li><button className={this.state.size === 12 ? "selected" : ''} onClick={  () => this.setState(this.setSize(12))  } >12</button></li>
                                 <li><button className={this.state.size === 13 ? "selected" : ''} onClick={  () => this.setState(this.setSize(13))  } >13</button></li>
                                 <li><button className={this.state.size === 14 ? "selected" : ''} onClick={  () => this.setState(this.setSize(14))  } >14</button></li>
-                            </ul>
+                            </ul> */}
                         </div>
                         <div className="sizing-detail" >
                             <p>This style is available in whole sizes only. In between sizes? We recommend you size down.</p>
