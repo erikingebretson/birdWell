@@ -120,7 +120,7 @@ a {
     align-self: center;
     position: absolute;
     width: 100vw;
-
+    /* max-width: 1380px; */
     top: 60px;
     bottom: 0px;
     right: 0px;

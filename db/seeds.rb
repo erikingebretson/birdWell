@@ -476,7 +476,7 @@ file1 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/wtree_lounger/
 file2 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/wtree_lounger/2-tree-lounger-luna.jpeg')
 file3 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/wtree_lounger/3-tree-lounger-luna.jpeg')
 file4 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/wtree_lounger/4-tree-lounger-luna.jpeg')
-file5 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/wtree_lounger/5-tree-lounger-luna.jpeg')
+file5 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/wtree_lounger/5-tree-lounger-luna+copy.jpeg')
 file6 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/wtree_lounger/6-tree-lounger-luna.jpeg')
 file7 = URI.open('https://birdwell-dev.s3.us-west-1.amazonaws.com/wtree_lounger/00-tree-lounger.webp')
 wTreeLoungerluna.photos.attach(io: file1, filename: '1-tree-lounger-luna.jpeg')

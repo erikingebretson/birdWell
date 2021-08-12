@@ -92,7 +92,7 @@ class ShoeShow extends React.Component {
 
     shoeColorTiles() {
         return this.props.allShoes.map( (tempshoe, idx) => {
-            if (tempshoe.productName === this.props.shoe.productName && tempshoe.detail1 !== null) { 
+            if (tempshoe.productName === this.props.shoe.productName && tempshoe.detail1 !== null && tempshoe.gender === this.props.shoe.gender) {
                 return <div key={idx} className="color-tile" >
                         <a onClick={ () => this.setState({ photoUrls: tempshoe.photoUrls, colorway: tempshoe.colorway, productName: tempshoe.productName, cart_photo_url: tempshoe.photoUrls[0] }) } >
                             <img src={tempshoe.photoUrls[0]} alt={this.props.productName} />
