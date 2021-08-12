@@ -48,7 +48,8 @@ class Homepage extends React.Component {
         return cards.map( shoe => (
             <div key={shoe.id} className="show-carousel-card">
                 <div className="carousel-img">
-                    <img src={shoe.photoUrls[1]} alt="" />
+                    <img className="carousel-hero-img" src={shoe.photoUrls[1]} alt="" />
+                    {/* <img className="hidden-img" src={shoe.photoUrls[1]} alt="" /> */}
                     <div className="card-img-hover" >
                         <div>
                             <Link className='hover-button' to={`/shoes/${shoe.id}`}>Shop Now</Link>

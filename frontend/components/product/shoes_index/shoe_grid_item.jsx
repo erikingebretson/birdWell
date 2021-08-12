@@ -12,7 +12,7 @@ class ShoeGridItem extends React.Component {
         // console.log(this.state)
 
          return this.props.allShoes.map( (tempshoe, idx) => {
-             if (tempshoe.productName === this.props.shoe.productName) {
+             if ( tempshoe.detail1 !== null && tempshoe.productName === this.props.shoe.productName) {
                  return <div key={idx} >
                      <a onClick={ () => this.setState({ photoUrls: tempshoe.photoUrls, id: tempshoe.id }) } >
                          <img className="thumbnail" src={tempshoe.photoUrls[2]} alt="" />
