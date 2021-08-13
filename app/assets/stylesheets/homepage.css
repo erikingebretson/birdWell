@@ -322,7 +322,7 @@ a {
     position: absolute;
     top: 40%;
     left: 25%;
-    width: 45%;
+    width: 50%;
     padding: 13px 0px;
     background-color: #FFF;
     border: 2px solid rgb(255, 255, 255);
@@ -336,7 +336,6 @@ a {
 }
 
 .hover-button:hover {
-    
     background-color: rgb(33, 42, 47);
     border: 2px solid rgb(33, 42, 47);
     color: #FFF;

@@ -18,13 +18,11 @@ class Homepage extends React.Component {
 
     toggleOn(id) {
         let el = document.getElementsByClassName(id)
-        console.log(el)
         Object.values(el)[0].style.display = 'block'
     }
 
     toggleOff(id) {
         let el = document.getElementsByClassName(id)
-        console.log(el)
         Object.values(el)[0].style.display = 'none'
     }
 
@@ -59,12 +57,11 @@ class Homepage extends React.Component {
 
         return cards.map(shoe => (
             <div key={shoe.id} className="show-carousel-card"
-                 onMouseLeave={() => this.toggleOff(shoe.productName.replace(/' '/g, '-'))} >
+                 onMouseLeave={() => this.toggleOff(shoe.productName.concat(shoe.gender).replace(/' '/g, '-'))} >
                 <div className="carousel-img">
-                    <img onMouseEnter={() => this.toggleOn(shoe.productName.replace(/' '/g, '-'))} 
-                         
+                    <img onMouseEnter={() => this.toggleOn(shoe.productName.concat(shoe.gender).replace(/' '/g, '-'))} 
                          className="carousel-hero-img" src={shoe.photoUrls[1]} alt="" />
-                    <div className="" className={`${shoe.productName.replace(/' '/g, '-')} carousel-overlay card-no-show`}>
+                    <div className="" className={`${shoe.productName.concat(shoe.gender).replace(/' '/g, '-')} carousel-overlay card-no-show`}>
                         <Link className='hover-button' to={`/shoes/${shoe.id}`}>Shop <br />{shoe.productName}</Link>
                     </div>
                 </div>
