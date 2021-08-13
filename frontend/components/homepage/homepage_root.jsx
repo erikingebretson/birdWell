@@ -50,9 +50,7 @@ class Homepage extends React.Component {
                 <div className="carousel-img">
                     <img className="carousel-hero-img" src={shoe.photoUrls[1]} alt="" />
                     <div className="carousel-overlay" >
-                        <div>
                             <Link className='hover-button' to={`/shoes/${shoe.id}`}>Shop Now</Link>
-                        </div>
                     </div>
                 </div>
                 <div className="carousel-product-detail">
