@@ -182,7 +182,7 @@ class ShoeShow extends React.Component {
         return (
            <div className="main-root" >
 
-           <div className="root" className="main-root">
+           <div className="root" >
                 <div className="pathway">
                     <p>
                         <Link to="/" >Home</Link> / <Link to='/shoes' >{this.props.shoe.gender[0].toUpperCase() + this.props.shoe.gender.slice(1)}'s Shoes</Link> 
