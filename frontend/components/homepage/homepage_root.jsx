@@ -16,6 +16,18 @@ class Homepage extends React.Component {
         this.props.fetchAllProduct()
     }
 
+    toggleOn(id) {
+        let el = document.getElementsByClassName(id)
+        console.log(el)
+        Object.values(el)[0].style.display = 'block'
+    }
+
+    toggleOff(id) {
+        let el = document.getElementsByClassName(id)
+        console.log(el)
+        Object.values(el)[0].style.display = 'none'
+    }
+
     buildCarousel() {
         let shoes = Object.values(this.props.shoes)
         let carouselData = []
@@ -45,12 +57,15 @@ class Homepage extends React.Component {
             }
         }
 
-        return cards.map( shoe => (
-            <div key={shoe.id} className="show-carousel-card">
+        return cards.map(shoe => (
+            <div key={shoe.id} className="show-carousel-card"
+                 onMouseLeave={() => this.toggleOff(shoe.productName.replace(/' '/g, '-'))} >
                 <div className="carousel-img">
-                    <img className="carousel-hero-img" src={shoe.photoUrls[1]} alt="" />
-                    <div className="carousel-overlay" >
-                            <Link className='hover-button' to={`/shoes/${shoe.id}`}>Shop Now</Link>
+                    <img onMouseEnter={() => this.toggleOn(shoe.productName.replace(/' '/g, '-'))} 
+                         
+                         className="carousel-hero-img" src={shoe.photoUrls[1]} alt="" />
+                    <div className="" className={`${shoe.productName.replace(/' '/g, '-')} carousel-overlay card-no-show`}>
+                        <Link className='hover-button' to={`/shoes/${shoe.id}`}>Shop <br />{shoe.productName}</Link>
                     </div>
                 </div>
                 <div className="carousel-product-detail">
@@ -59,6 +74,21 @@ class Homepage extends React.Component {
                 </div>
             </div>
         ))
+        
+        // return cards.map( shoe => (
+        //     <div key={shoe.id} className="show-carousel-card">
+        //         <div className="carousel-img">
+        //             <img className="carousel-hero-img" src={shoe.photoUrls[1]} alt="" />
+        //             <div className="carousel-overlay card-no-show" >
+        //                     <Link className='hover-button' to={`/shoes/${shoe.id}`}>Shop Now</Link>
+        //             </div>
+        //         </div>
+        //         <div className="carousel-product-detail">
+        //             <Link to={`/shoes/${shoe.id}`}>{shoe.productName}</Link>
+        //             <p>{shoe.detail2}</p>
+        //         </div>
+        //     </div>
+        // ))
     }
 
     incrementCarousel() {
