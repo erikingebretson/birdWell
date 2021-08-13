@@ -18,12 +18,15 @@ class Homepage extends React.Component {
 
     toggleOn(id) {
         let el = document.getElementsByClassName(id)
-        Object.values(el)[0].style.display = 'block'
+        Object.values(el)[0].style.opacity = '1';
+        Object.values(el)[0].style.visibility = 'visible';
     }
 
     toggleOff(id) {
         let el = document.getElementsByClassName(id)
-        Object.values(el)[0].style.display = 'none'
+        // Object.values(el)[0].style.display = 'none'
+        Object.values(el)[0].style.visibility = 'hidden'
+        Object.values(el)[0].style.opacity = '0';
     }
 
     buildCarousel() {
@@ -61,7 +64,7 @@ class Homepage extends React.Component {
                 <div className="carousel-img">
                     <img onMouseEnter={() => this.toggleOn(shoe.productName.concat(shoe.gender).replace(/' '/g, '-'))} 
                          className="carousel-hero-img" src={shoe.photoUrls[1]} alt="" />
-                    <div className="" className={`${shoe.productName.concat(shoe.gender).replace(/' '/g, '-')} carousel-overlay card-no-show`}>
+                    <div className={`${shoe.productName.concat(shoe.gender).replace(/' '/g, '-')} carousel-overlay card-no-show`}>
                         <Link className='hover-button' to={`/shoes/${shoe.id}`}>Shop <br />{shoe.productName}</Link>
                     </div>
                 </div>
