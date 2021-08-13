@@ -14,7 +14,9 @@ Welcome to birdwell and the production repo for the site. This site is an app cl
 * Cart functionality
     * A key feature I want to highlight here is the cart's relevant functionality to an ecommerce site. User's on birdwell can cart product while logged in or logged out. If a user has carted product and then logs in, the carted item will persist and be added to the cart that is associated with their account. A simple effect in the larger UI of a site, but highly relevant for site conversion and a seamless experience.
     * The integral piece in achieving this functionality came from reducer logic and manipulating state in tandem with database queries. 
-    * // add code refence
+
+    
 * Product List / Product Detail pages
-    * birdwell's product implementation and functionality was achieved by leaning into React libraries and the power that this technology offers. Utilizing succinct React components allowed for a modular approach to the product list and product detial pages done so with a high level of detail that was achieved in a short period of time. 
-    * 
+    * birdwell's product implementation and functionality was achieved by leaning into React libraries. 
+    * Succinct React components allowed for a modular approach to the product list and product detial pages done so with a high level of detail that was achieved in a short period of time.
+    * Efficient state managament along with asynchronous methods powered all the required data for each component .
