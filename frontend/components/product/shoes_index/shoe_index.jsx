@@ -6,7 +6,7 @@ class ShoeIndex extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            allShoes: this.props.shoes
+            allShoes: []
         }
     }
 
@@ -14,21 +14,29 @@ class ShoeIndex extends React.Component {
         this.props.fetchAllProduct()
     }
 
-    buildGrid() {
-        // let filtered = [];
-        // this.state.shoes.forEach( (shoe, idx) => {
+    shoeFilter() {
+        let filtered = [];
+        this.props.shoes.forEach((shoe, idx) => {
+            if (idx % 4 === 0 && shoe.detail1 !== null) {
+                filtered.push(shoe)
+            }
+        })
+        
+        return this.buildGrid(filtered)
+    }
+
+    buildGrid(product) {
+        return product.map( (shoe, idx) => (
+            <ShoeGridItem key={idx} shoe={shoe} allShoes={this.props.shoes} />
+        ))
+
+        // return this.props.shoes.map( (shoe, idx) => {
         //     if (idx % 4 === 0 && shoe.detail1 !== null) {
-        //         filtered.push(<ShoeGridItem key={idx} shoe={shoe} allShoes={this.props.shoes} />)
+        //         return <ShoeGridItem key={idx} shoe={shoe} allShoes={this.props.shoes} />
         //    }
         // })
-
-        return this.props.shoes.map( (shoe, idx) => {
-            if (idx % 4 === 0 && shoe.detail1 !== null) {
-                return <ShoeGridItem key={idx} shoe={shoe} allShoes={this.props.shoes} />
-           }
-        })
-        // console.log('hello')
-        // return filtered
+        // console.log(filtered)
+        
     }
 
     indexMenu() {
@@ -48,7 +56,8 @@ class ShoeIndex extends React.Component {
                         {this.indexMenu()}
                     </div>
                     <div className="plp-product-root">
-                        {this.buildGrid()}
+                        {/* {this.buildGrid()} */}
+                        {this.shoeFilter()}
                     </div>
                 </div>
             </div>
