@@ -8,7 +8,8 @@ class ShoeIndex extends React.Component {
         super(props)
         this.state = {
             allShoes: this.props.shoes,
-            shoeFilter: 'all'
+            shoeFilter: 'All',
+            filtered: 'n'
         }
     }
 
@@ -21,7 +22,7 @@ class ShoeIndex extends React.Component {
         // this.state.allShoes.forEach((shoe, idx) => {
         this.props.shoes.forEach((shoe, idx) => {
             if (idx % 4 === 0 && shoe.detail1 !== null) {
-                if (this.state.shoeFilter === 'all') {
+                if (this.state.shoeFilter === 'All') {
                     filtered.push(shoe)
                 } else if (this.state.shoeFilter === 'Runners') {
                     if (shoe.productName.includes('Runners') || shoe.productName.includes('Dashers')) {
@@ -38,7 +39,7 @@ class ShoeIndex extends React.Component {
     buildGrid(product) {
         if (product === undefined ) return null
         return product.map( (shoe, idx) => (
-            <ShoeGridItem key={idx} shoe={shoe} allShoes={this.props.shoes} />
+            <ShoeGridItem key={idx} shoe={shoe} allShoes={this.props.shoes} filtered={this.state.filtered}/>
         ))
 
         // return this.props.shoes.map( (shoe, idx) => {
@@ -100,9 +101,10 @@ class ShoeIndex extends React.Component {
                             <br />
                             <h3 className="filter-prod" >Filter By:</h3>
                             <ul>
-                                <li><button onClick={() => this.setState({ shoeFilter: 'Runners' })}>Running</button></li>
-                                <li><button onClick={() => this.setState({ shoeFilter: 'Loungers' })}>Casual</button></li>
-                                <li><button onClick={() => this.setState({ shoeFilter: 'Wool' })}>Wool</button></li>
+                                <li><button onClick={() => this.setState({ shoeFilter: 'Runners', filtered: 'y' })}>Running</button></li>
+                                <li><button onClick={() => this.setState({ shoeFilter: 'Loungers', filtered: 'y' })}>Casual</button></li>
+                                <li><button onClick={() => this.setState({ shoeFilter: 'Wool', filtered: 'y' })}>Wool</button></li>
+                                <li><button onClick={() => this.setState({ shoeFilter: 'All', filtered: 'y' })}>All</button></li>
                                 {/* <li>Coming soon...</li> */}
                             </ul>
 

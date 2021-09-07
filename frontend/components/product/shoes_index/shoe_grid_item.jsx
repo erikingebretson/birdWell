@@ -4,16 +4,34 @@ import { Link } from "react-router-dom";
 class ShoeGridItem extends React.Component {
     constructor(props) {
         super(props)
-        this.state = this.props.shoe
+        this.state = {
+            shoe: this.props.shoe,
+            changed: 'n'
+        }
+    }
+    
+    componentDidUpdate() {
+        // console.log('hi')
+        console.log(this.props)
+        console.log(this.state)
+        if ( (this.props.shoe.id !== this.state.shoe.id) && this.props.filtered === 'y' ) {
+            this.setState({
+                shoe: this.props.shoe,
+                // changed: 'n'
+            })
+        }
     }
 
     getAllImages() {
         // filter logic to see one product grid of each shoe
-
+        
          return this.props.allShoes.map( (tempshoe, idx) => {
-             if ( tempshoe.detail1 !== null && tempshoe.productName === this.props.shoe.productName && tempshoe.gender === this.props.shoe.gender) {
+             if (   tempshoe.detail1 !== null && 
+                    tempshoe.productName === this.props.shoe.productName && 
+                    tempshoe.gender === this.props.shoe.gender
+                ) {
                  return <div key={idx} >
-                     <a onClick={ () => this.setState({ photoUrls: tempshoe.photoUrls, id: tempshoe.id }) } >
+                     <a onClick={ () => this.setState({ shoe: tempshoe, changed: 'y' }) } >
                          <img className="thumbnail" src={tempshoe.photoUrls[2]} alt="" />
                     </a>
                 </div>
@@ -48,6 +66,8 @@ class ShoeGridItem extends React.Component {
     }
 
     render() {
+        // console.log(this.props)
+        // console.log(this.state)
         
     return (
         <div>
@@ -55,11 +75,11 @@ class ShoeGridItem extends React.Component {
         <p>{this.props.shoe.detail1}</p>
         <div className="plp-element-root" >
             <div className="plp-details-box" >
-                <div className="remove-left-padding" >heya</div>
+                <div className="remove-left-padding" ></div>
                     {/* <div className="plp-detail-container" onMouseEnter={() => this.setDisplay("on")} onMouseLeave={() => this.setDisplay("off")}> */}
                     <div className="plp-detail-container" >
-                    <Link to={`/shoes/${this.state.id}`} >
-                        <img src={this.state.photoUrls[2]} alt={this.props.shoe.productName} />
+                    <Link to={`/shoes/${this.state.shoe.id}`} >
+                        <img src={this.state.shoe.photoUrls[2]} alt={this.props.shoe.productName} />
                     </Link>
                     <Link to={`/shoes/${this.props.shoe.id}`} >
                         {this.props.shoe.productName}
