@@ -32,8 +32,14 @@ class ShoeIndex extends React.Component {
                     if (shoe.productName.includes('Runners') || shoe.productName.includes('Dashers')) {
                         filtered.push(shoe)
                     }
-                } else if (shoe.productName.includes(this.state.shoeFilter)) {
-                    filtered.push(shoe)
+                } else if (this.state.shoeFilter === 'Everyday') {
+                    if (shoe.productName.includes('Loungers') || shoe.productName.includes('Toppers') || shoe.productName.includes('Pipers')) {
+                        filtered.push(shoe)
+                    }
+                } else if (this.state.shoeFilter === 'Cool Weather') {
+                    if (shoe.productName.includes('Wool')) {
+                        filtered.push(shoe)
+                    }
                 }
             }
         })
@@ -45,28 +51,8 @@ class ShoeIndex extends React.Component {
         return product.map( (shoe, idx) => (
             <ShoeGridItem key={idx} shoe={shoe} allShoes={this.props.shoes} filtered={this.state.filtered}/>
         ))
-        // return this.props.shoes.map( (shoe, idx) => {
-        //     if (idx % 4 === 0 && shoe.detail1 !== null) {
-        //         return <ShoeGridItem key={idx} shoe={shoe} allShoes={this.props.shoes} />
-        //    }
-        // })
-        // console.log(filtered)
-        
     }
 
-    // buildGrid() {
-        // return this.props.shoes.map( (shoe, idx) => {
-        //     if (idx % 4 === 0 && shoe.detail1 !== null) {
-        //         return <ShoeGridItem key={idx} shoe={shoe} allShoes={this.props.shoes} />
-        //    }
-        // })
-    // }
-
-    // indexMenu() {
-    //     return (
-    //         <ShoeIndexMenu path={this.props.path} />
-    //     )
-    // }
     createNav() {
         if (this.props.path === '/shoes') {
             return <ul className="menu-nav" >
@@ -97,18 +83,28 @@ class ShoeIndex extends React.Component {
             <div className="main-root">
                 <div className="plp-page-root" >
                     <div className="plp-menu" >
-                        {/* {this.indexMenu()} */}
                         <div>
                             <h3 className="home"><Link to='/'>Home</Link> / {this.props.path === '/shoes' ? 'New Arrivals' : this.props.path === '/shoes/mens' ? "Men's Shoes" : "Women's Shoes"} </h3>
                             {this.createNav()}
                             <br />
                             <h3 className="filter-prod" >Filter By:</h3>
-                            <ul>
-                                <li><button onClick={() => this.setState({ shoeFilter: 'Runners', filtered: 'y' })}>Running</button></li>
-                                <li><button onClick={() => this.setState({ shoeFilter: 'Loungers', filtered: 'y' })}>Casual</button></li>
-                                <li><button onClick={() => this.setState({ shoeFilter: 'Wool', filtered: 'y' })}>Wool</button></li>
-                                <li><button onClick={() => this.setState({ shoeFilter: 'All', filtered: 'y' })}>All</button></li>
-                                {/* <li>Coming soon...</li> */}
+                            <ul className="filter-buttons">
+                                <li><label>
+                                    <input type="checkbox" indeterminate className="unchecked" onClick={() => this.setState({ shoeFilter: 'Everyday', filtered: 'y' })}></input>
+                                    Everyday
+                                </label></li>
+                                <li><label>
+                                    <input type="checkbox" className="unchecked" onClick={() => this.setState({ shoeFilter: 'Runners', filtered: 'y' })}></input>
+                                    Running
+                                </label></li>
+                                <li><label>
+                                    <input type="checkbox" className="unchecked" onClick={() => this.setState({ shoeFilter: 'Cool Weather', filtered: 'y' })}></input>
+                                    Cool Weather
+                                </label></li>
+                                <li><label>
+                                    <input type="checkbox" className="unchecked" onClick={() => this.setState({ shoeFilter: 'All', filtered: 'y' })}></input>
+                                    All
+                                </label></li>
                             </ul>
 
                         </div>
