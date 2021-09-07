@@ -9,8 +9,13 @@ class ShoeIndex extends React.Component {
         this.state = {
             allShoes: this.props.shoes,
             shoeFilter: 'All',
-            filtered: 'n'
+            filtered: 'n',
+            everyday: false,
+            running: false,
+            cool_weather: false,
+            all: false,
         }
+        
     }
 
     componentDidMount() {
@@ -75,6 +80,17 @@ class ShoeIndex extends React.Component {
         }
     }
 
+    checkFilter(category, selector) {
+        if (selector === 'everyday') {
+            this.setState({ filtered: 'y', shoeFilter: 'Everyday', everyday: true, runners: false, coolWeather: false, all: false })
+        } else if (selector === 'runners') {
+            this.setState({ filtered: 'y', shoeFilter: 'Runners', runners: true, everyday: false, all: false, coolWeather: false })
+        } else if (selector === 'coolWeather') {
+            this.setState({ filtered: 'y', shoeFilter: 'Cool Weather', coolWeather: true, runners: false, all: false, everyday: false })
+        } else if (selector === 'all') {
+            this.setState({ filtered: 'y', shoeFilter: 'All', all: true, everyday: false, runners: false, coolWeather: false })
+        }
+    }
 
     render() {
         if (Object.keys(this.props.shoes).length === 0) return null;
@@ -83,32 +99,31 @@ class ShoeIndex extends React.Component {
             <div className="main-root">
                 <div className="plp-page-root" >
                     <div className="plp-menu" >
-                        <div>
-                            <h3 className="home"><Link to='/'>Home</Link> / {this.props.path === '/shoes' ? 'New Arrivals' : this.props.path === '/shoes/mens' ? "Men's Shoes" : "Women's Shoes"} </h3>
-                            {this.createNav()}
-                            <br />
-                            <h3 className="filter-prod" >Filter By:</h3>
-                            <ul className="filter-buttons">
-                                <li><label>
-                                    <input type="checkbox" indeterminate className="unchecked" onClick={() => this.setState({ shoeFilter: 'Everyday', filtered: 'y' })}></input>
-                                    Everyday
-                                </label></li>
-                                <li><label>
-                                    <input type="checkbox" className="unchecked" onClick={() => this.setState({ shoeFilter: 'Runners', filtered: 'y' })}></input>
-                                    Running
-                                </label></li>
-                                <li><label>
-                                    <input type="checkbox" className="unchecked" onClick={() => this.setState({ shoeFilter: 'Cool Weather', filtered: 'y' })}></input>
-                                    Cool Weather
-                                </label></li>
-                                <li><label>
-                                    <input type="checkbox" className="unchecked" onClick={() => this.setState({ shoeFilter: 'All', filtered: 'y' })}></input>
-                                    All
-                                </label></li>
-                            </ul>
+                    <div>
+                        <h3 className="home"><Link to='/'>Home</Link> / {this.props.path === '/shoes' ? 'New Arrivals' : this.props.path === '/shoes/mens' ? "Men's Shoes" : "Women's Shoes"} </h3>
+                        {this.createNav()}
+                        <br />
+                        <h3 className="filter-prod" >Filter By:</h3>
+                        <ul className="filter-buttons">
+                            <li><label >
+                                <input type="checkbox" className="everyday" checked={this.state.everyday} onChange={() => this.checkFilter('Everyday', 'everyday')}></input>
+                                Everyday
+                            </label></li>
+                            <li><label >
+                                <input type="checkbox" className="runners" checked={this.state.runners} onChange={() => this.checkFilter('Runners', 'runners')}></input>
+                                Running
+                            </label></li>
+                            <li><label>
+                                <input type="checkbox" className="cool-weather" checked={this.state.coolWeather} onChange={() => this.checkFilter('Cool Weather', 'coolWeather')}></input>
+                                Cool Weather
+                            </label></li>
+                            <li><label>
+                                <input type="checkbox" className="all" checked={this.state.all} onChange={() => this.checkFilter('All', 'all')}></input>
+                                All
+                            </label></li>
+                        </ul>
 
-                        </div>
-
+                    </div>
                     </div>
                     <div className="plp-product-root">
                         {this.shoeFilter()}
