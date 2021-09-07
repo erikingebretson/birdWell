@@ -17,6 +17,10 @@ class ShoeIndex extends React.Component {
         this.props.fetchAllProduct()
     }
 
+    componentDidUpdate() {
+        if (this.state.filtered === 'y') this.setState({ filtered: 'n' })
+    }
+
     shoeFilter() {
         let filtered = [];
         // this.state.allShoes.forEach((shoe, idx) => {
@@ -41,7 +45,6 @@ class ShoeIndex extends React.Component {
         return product.map( (shoe, idx) => (
             <ShoeGridItem key={idx} shoe={shoe} allShoes={this.props.shoes} filtered={this.state.filtered}/>
         ))
-
         // return this.props.shoes.map( (shoe, idx) => {
         //     if (idx % 4 === 0 && shoe.detail1 !== null) {
         //         return <ShoeGridItem key={idx} shoe={shoe} allShoes={this.props.shoes} />
