@@ -1,6 +1,5 @@
 import React from 'react';
 import ShoeGridItem from './shoe_grid_item';
-import ShoeIndexMenu from './shoe_index_menu';
 import { Link } from 'react-router-dom';
 
 class ShoeIndex extends React.Component {
@@ -9,11 +8,11 @@ class ShoeIndex extends React.Component {
         this.state = {
             allShoes: this.props.shoes,
             shoeFilter: 'All',
-            filtered: 'n',
+            filtered: 'All',
             everyday: false,
             running: false,
             cool_weather: false,
-            all: false,
+            all: true,
         }
         
     }
@@ -28,7 +27,6 @@ class ShoeIndex extends React.Component {
 
     shoeFilter() {
         let filtered = [];
-        // this.state.allShoes.forEach((shoe, idx) => {
         this.props.shoes.forEach((shoe, idx) => {
             if (idx % 4 === 0 && shoe.detail1 !== null) {
                 if (this.state.shoeFilter === 'All') {
@@ -122,7 +120,6 @@ class ShoeIndex extends React.Component {
                                 All
                             </label></li>
                         </ul>
-
                     </div>
                     </div>
                     <div className="plp-product-root">
