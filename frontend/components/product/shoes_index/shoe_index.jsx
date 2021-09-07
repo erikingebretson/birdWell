@@ -104,6 +104,7 @@ class ShoeIndex extends React.Component {
                         <h3 className="filter-prod" >Filter By:</h3>
                         <ul className="filter-buttons">
                             <li><label >
+                                <span className="everyday"></span>
                                 <input type="checkbox" className="everyday" checked={this.state.everyday} onChange={() => this.checkFilter('Everyday', 'everyday')}></input>
                                 Everyday
                             </label></li>

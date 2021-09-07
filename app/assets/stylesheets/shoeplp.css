@@ -53,13 +53,36 @@
 }
 
 .filter-buttons input { 
-    /* cursor: pointer; */
-    margin-right: 15px;
-    border-radius: 1px;
+    -webkit-appearance: none;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 2px;
     height: 16px;
     width: 16px;
-    /* color: -internal-light-dark(black, white); */
-    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    margin-right: 12px;
+    vertical-align: middle;
+    display: inline-block;
+	position: relative;
+}
+
+.filter-buttons input:checked { 
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 2px; 
+    height: 16px;
+    width: 16px;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+
+.filter-buttons input:checked:after { 
+    content: "\2713";
+	font-size: 14px;
+	position: absolute;
+	left: 1px;
+	color: white;
+    height: 15px;
+    width: 15px;
 }
 
 .checked-box {

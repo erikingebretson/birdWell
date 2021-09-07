@@ -34,8 +34,7 @@ class Header extends React.Component {
                         <a onClick={() => this.turnCartOn()} >
                             <div className='header-icons'>
                                 <img className="header-cart-img" src="images/shopping-cart.png" alt="Cart" />
-                                {/* {this.props.cart === {} ? <p></p> : <p className="header-count" >{Object.values(this.props.cart.products).length}</p>} */}
-                                <p className="header-count" >{Object.values(this.props.cart.products).length > 0 ? Object.values(this.props.cart.products).length : ''}</p>
+                                <p className="header-count" >{Object.values(this.props.cart.products).length}</p>
                             </div>
                         </a>
                     </div>
