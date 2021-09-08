@@ -83,11 +83,16 @@ class ReviewElement extends React.Component {
     }
 
     readReviews() {
-        return this.props.reviews.map( (review,idx) => {
-            if (review.productId === this.props.shoe.id || review.product_id === this.props.shoe.id ) {
+        let reviews = []
+        this.props.allShoes.forEach( shoeIter => {
+            if ( shoeIter.productName === this.props.shoe.productName && shoeIter.reviews.length > 0 ) {
+                reviews.push(shoeIter.reviews)
+            }
+        })
+        return reviews[0].map( (review,idx) => {
+
             let dateStr = Date.parse(review.createdAt)
             let date = new Date(dateStr)
-
             return <div key={idx} className="review-element">
                         <div className="review-content" >
                             <div className="prod-review-stars"  >
@@ -106,8 +111,7 @@ class ReviewElement extends React.Component {
                                 <p>{this.props.shoe.gender[0].toUpperCase() + this.props.shoe.gender.slice(1)}'s {this.props.shoe.productName}</p>
                             </div>
                         </div>
-                    </div>
-            }         
+                    </div>   
         })
     }
 

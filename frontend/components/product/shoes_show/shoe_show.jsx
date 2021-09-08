@@ -57,9 +57,15 @@ class ShoeShow extends React.Component {
         this.totalReviews = 0;
         this.totalStars = 0;
         this.starAvg = 0;
-        this.props.shoe.reviews.forEach( review => {
+        let reviews = []
+        this.props.allShoes.forEach(shoeIter => {
+            if (shoeIter.productName === this.props.shoe.productName) {
+                reviews.push(shoeIter.reviews)
+            }
+        })
+        reviews[0].forEach(review => {
             this.totalStars += review.stars
-            this.totalReviews ++
+            this.totalReviews++
         })
         this.starAvg = this.totalStars / this.totalReviews
     }
@@ -206,7 +212,7 @@ class ShoeShow extends React.Component {
                                 {this.stars(this.starAvg)}
                             </div>
                             <div>
-                                <p>({this.props.shoe.reviews.length})</p>
+                                <p>({this.totalReviews})</p>
                             </div>
                         </div>
                         <span className="colorway-name" >CLASSICS:</span>
@@ -229,7 +235,7 @@ class ShoeShow extends React.Component {
                         </div>
                     </div>
                 </div>
-                <ReviewElement shoe={this.props.shoe} reviews={this.props.shoe.reviews} errors={this.props.errors} currentUser={this.props.currentUser} createReview={this.props.createReview} numStars={this.totalStars} numReviews={this.totalReviews} starAvg={this.starAvg}/>
+                <ReviewElement shoe={this.props.shoe} allShoes={this.props.allShoes} reviews={this.props.shoe.reviews} errors={this.props.errors} currentUser={this.props.currentUser} createReview={this.props.createReview} numStars={this.totalStars} numReviews={this.totalReviews} starAvg={this.starAvg}/>
             </div>
                 
             </div>
