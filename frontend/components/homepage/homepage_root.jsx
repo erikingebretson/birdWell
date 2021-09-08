@@ -13,6 +13,7 @@ class Homepage extends React.Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0)
         this.props.fetchAllProduct()
     }
 
@@ -109,11 +110,15 @@ class Homepage extends React.Component {
         }
         this.buildCarousel()
     }
+    turnCartOff() {
+        let cart = document.querySelector(".cart-root")
+        cart.classList.remove("cart-on")
+    }
 
     render() {    
 
         return (
-            <div className="main-root" >
+            <div className="main-root" onClick={() => this.turnCartOff()} >
 
             <div className="homepage-root" >
                 <div className="hero-root">
@@ -146,11 +151,6 @@ class Homepage extends React.Component {
                     <a className="right-carousel" onClick={() => this.incrementCarousel()} ><img src="images/right-arrow.png" alt="" /></a>
                     <a className="left-carousel" onClick={() => this.decrementCarousel()} ><img src="images/left-arrow.png" alt="" /></a>
                 </div>
-                {/* <div className="tertiary">
-                    <div>
-                        <p>I'm last :(</p>
-                    </div>
-                </div> */}
             </div>
 
             </div>

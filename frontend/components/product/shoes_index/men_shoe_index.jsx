@@ -17,6 +17,7 @@ class MenShoeIndex extends React.Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0)
         this.props.fetchAllProduct()
     }
 
@@ -88,12 +89,17 @@ class MenShoeIndex extends React.Component {
             this.setState({ filtered: 'y', shoeFilter: 'All', all: true, everyday: false, runners: false, coolWeather: false })
         }
     }
+    
+    turnCartOff() {
+        let cart = document.querySelector(".cart-root")
+        cart.classList.remove("cart-on")
+    }
 
     render() {
         if (Object.keys(this.props.shoes).length === 0) return null;
 
         return (
-            <div className="main-root">
+            <div className="main-root" onClick={() => this.turnCartOff()}>
 
             <div className="plp-page-root" >
                 <div className="plp-menu" >

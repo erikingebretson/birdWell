@@ -26,6 +26,7 @@ class ShoeShow extends React.Component {
     }
     
     componentDidMount() {
+        window.scrollTo(0,0)
         this.props.fetchAllProduct() 
         if (this.props.currentUser ) {
             this.props.fetchCart(this.props.currentUser.cart.id)
@@ -37,7 +38,6 @@ class ShoeShow extends React.Component {
     }
 
     productImages() {
-        
         if (this.state.photoUrls === undefined) {
                 return <ul>
                     {this.props.shoe.photoUrls.map( (imgUrl, idx) => (
@@ -148,21 +148,26 @@ class ShoeShow extends React.Component {
     submitButton() {
         if (this.state.size === '') {
             return  <button className="pre-cart-button" >
-                        Select A Size
-                    </button>
+                Select A Size
+            </button>
         } else {
             return  <button className="cart-button" onClick={(e) => this.submitState(e)}>
-                        Add to Cart - ${this.props.shoe.price}
-                    </button>
+                Add to Cart - ${this.props.shoe.price}
+            </button>
+        }
+    }
+    turnCartOff() {
+        if (this.state.size === '') {
+            let cart = document.querySelector(".cart-root")
+            cart.classList.remove("cart-on")
         }
     }
 
     submitState(e) {
         e.preventDefault()
-        if ( this.state.size === '' ) {
-        } else {
-            
-        }
+        let cart = document.querySelector(".cart-root")
+        cart.classList.add("cart-on")
+        
         this.props.createProduct({
             product_name: this.state.product_name,
             colorway: this.state.colorway,
@@ -173,6 +178,7 @@ class ShoeShow extends React.Component {
             cart_photo_url: this.state.cart_photo_url
         })
 
+        this.setState({ size: '', colorway: '' })
     }   
 
     render() {
@@ -180,7 +186,7 @@ class ShoeShow extends React.Component {
         this.avgStars()
 
         return (
-           <div className="main-root" >
+            <div className="main-root" onClick={() => this.turnCartOff()}>
 
            <div className="root" >
                 <div className="pathway">
@@ -211,15 +217,6 @@ class ShoeShow extends React.Component {
                         <div className="size-chart" >
                             <p>Select Size:</p>
                             {this.productSizes()}
-                            {/* <ul>
-                                <li><button className={this.state.size === 8 ? "selected" : ''} onClick={  () => this.setState(this.setSize(8))  }>8</button></li>
-                                <li><button className={this.state.size === 9 ? "selected" : ''} onClick={  () => this.setState(this.setSize(9))  } >9</button></li>
-                                <li><button className={this.state.size === 10 ? "selected" : ''} onClick={  () => this.setState(this.setSize(10))  } >10</button></li>
-                                <li><button className={this.state.size === 11 ? "selected" : ''} onClick={  () => this.setState(this.setSize(11))  } >11</button></li>
-                                <li><button className={this.state.size === 12 ? "selected" : ''} onClick={  () => this.setState(this.setSize(12))  } >12</button></li>
-                                <li><button className={this.state.size === 13 ? "selected" : ''} onClick={  () => this.setState(this.setSize(13))  } >13</button></li>
-                                <li><button className={this.state.size === 14 ? "selected" : ''} onClick={  () => this.setState(this.setSize(14))  } >14</button></li>
-                            </ul> */}
                         </div>
                         <div className="sizing-detail" >
                             <p>This style is available in whole sizes only. In between sizes? We recommend you size down.</p>
