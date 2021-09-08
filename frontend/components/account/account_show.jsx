@@ -27,28 +27,28 @@ class accountPage extends React.Component {
 
     componentDidMount() {
         this.props.fetchCart(this.props.currentUser.cart.id)
-        // if ( Object.values(this.props.cart.products).length === 0 ) {
-        //     this.props.fetchCart(this.props.currentUser.cart.id)
-        // } else {
-        //     this.props.fetchCart(this.props.currentUser.cart.id)
-        // }
+    }
+
+    turnCartOff() {
+        let cart = document.querySelector(".cart-root")
+        cart.classList.remove("cart-on")
     }
 
     render () {
         return (
-                <div className='account-page'>
-                    <h3>My Account</h3>
-                    <button onClick={() => this.props.logout(this.props.currentUser.id)}><Link to="/">Logout</Link></button>
-                    <div className='account-details'>
-                        <ul>
-                            <li>You haven't placed any orders yet.</li>
-                        </ul>
-                        <ul className='user-details'>
-                            <li>{this.props.currentUser.firstName} {this.props.currentUser.lastName}</li>
-                            <li>{this.props.currentUser.email}</li>
-                        </ul>
-                    </div>
+            <div className='account-page' onClick={() => this.turnCartOff()}>
+                <h3>My Account</h3>
+                <button onClick={() => this.props.logout(this.props.currentUser.id)}><Link to="/">Logout</Link></button>
+                <div className='account-details'>
+                    <ul>
+                        <li>You haven't placed any orders yet.</li>
+                    </ul>
+                    <ul className='user-details'>
+                        <li>{this.props.currentUser.firstName} {this.props.currentUser.lastName}</li>
+                        <li>{this.props.currentUser.email}</li>
+                    </ul>
                 </div>
+            </div>
         )
     }
 }
