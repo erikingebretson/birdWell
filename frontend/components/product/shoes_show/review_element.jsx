@@ -89,6 +89,10 @@ class ReviewElement extends React.Component {
                 reviews.push(shoeIter.reviews)
             }
         })
+        if ( reviews.length === 0 ) {
+            reviews = [[]]
+        }
+        
         return reviews[0].map( (review,idx) => {
 
             let dateStr = Date.parse(review.createdAt)

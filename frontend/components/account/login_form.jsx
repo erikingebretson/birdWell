@@ -19,7 +19,7 @@ class loginForm extends React.Component {
 
     readErrors() {
         return this.props.errors.map((error, i) => (
-            <div className="errors">
+            <div key={i} className="errors">
                 <p key={i}>{error}</p>
             </div>
         ))
