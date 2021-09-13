@@ -65,7 +65,7 @@ class sessionForm extends React.Component {
                 <form className="account-form" onSubmit={e => this.handleSubmit(e)}>
                     {this.props.formEvent === 'Register' ? this.nameFields() : '' }
                     <label >Email*</label>
-                    <input autofilltype="text" onChange={this.update('email')} value={this.state.email} />
+                    <input autofilltype="text" type="email" onChange={this.update('email')} value={this.state.email} />
                     <br />
                     <label >Password*</label>
                     <input autoComplete="off" type="password" onChange={this.update('password')} value={this.state.password} />
