@@ -12,6 +12,7 @@ const cartReducer = (oldState={ products: {} }, action) => {
         //     return newState;
         case REMOVE_CURRENT_USER:
             return { products: {} };
+            // return { id: oldState.id, products: oldState.products };
         case RECEIVE_CART:
             if ( Object.values(oldState.products).length === 0 ) {
                 newState = action.cart
