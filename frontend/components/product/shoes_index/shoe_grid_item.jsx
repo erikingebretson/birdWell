@@ -95,7 +95,7 @@ class ShoeGridItem extends React.Component {
                         <Link to={`/shoes/${this.props.shoe.id}`} >
                             {this.props.shoe.productName}
                         </Link>
-                        <p>{this.props.shoe.colorway}</p>
+                        <p>{this.state.shoe.colorway}</p>
                         <p>${this.props.shoe.price}</p>
                         <div className="thumbnail-carousel" >
                             {this.getAllImages()}
