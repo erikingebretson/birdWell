@@ -34,7 +34,10 @@ const cartReducer = (oldState={ products: {} }, action) => {
                 return newState
             }
         case RECEIVE_SHARED_CART:
-            newState.products = action.cart.products
+            action.cart.products.forEach(prod => {
+                newState.products[Object.values(prod)[0].id] = Object.values(prod)[0]
+            })
+            newState["foreignCart"] = true;
             return newState
         case REMOVE_PRODUCT: 
             delete newState.products[action.productId]

@@ -31,7 +31,7 @@ export const fetchCart = (cartId) => (dispatch) => (
 
 export const fetchSharedCart = (cartId) => (dispatch) => (
     CartApiUtil.fetchCart(cartId)
-        .then(res => dispatch(receiveCart(res)))
+        .then(res => dispatch(receiveSharedCart(res)))
 )
 
 export const updateCart = (cart) => (dispatch) => (
