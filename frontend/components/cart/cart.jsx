@@ -21,7 +21,7 @@ class Cart extends React.Component {
         return (
             <div className="cart-share">
                 <p>Want to share your shopping list?</p>
-                <p className="link-copied">Link copied! Now share it with your friend!</p>
+                <p className="link-copied">Copied! Now share it with your friend!</p>
                 <p>Click here: <span onClick={() => this.copyLink()} className="share-link">https://birdwell.herokuapp.com/#/cart/{this.props.cart.id}</span></p>
             </div>
         )
@@ -33,7 +33,7 @@ class Cart extends React.Component {
         msg.classList.add("link-copied-on")
         setTimeout( () => {
             msg.classList.remove("link-copied-on")
-        }, 2000)
+        }, 3000)
     }
 
     readCartedProduct() {

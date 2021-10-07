@@ -27,6 +27,7 @@ class accountPage extends React.Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0)
         this.props.fetchCart(this.props.currentUser.cart.id)
     }
 
