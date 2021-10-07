@@ -1,4 +1,4 @@
-import { RECEIVE_CART, REMOVE_CART } from "../actions/cart_actions";
+import { RECEIVE_CART, RECEIVE_SHARED_CART, REMOVE_CART } from "../actions/cart_actions";
 import { RECEIVE_CURRENT_USER, REMOVE_CURRENT_USER } from "../actions/session_actions";
 import { RECEIVE_PRODUCT, REMOVE_PRODUCT } from "../actions/product_actions";
 
@@ -6,24 +6,10 @@ const cartReducer = (oldState={ products: {} }, action) => {
     Object.freeze(oldState)
     let newState = Object.assign({}, oldState)
     switch(action.type) {
-        // case RECEIVE_CURRENT_USER:
-        //     newState = action.currentUser.cart
-        //     newState.products = {}
-        //     return newState;
         case REMOVE_CURRENT_USER:
             return { products: {} };
             // return { id: oldState.id, products: oldState.products };
         case RECEIVE_CART:
-            if ( Object.values(oldState.products).length === 0 ) {
-                newState = action.cart
-                let temp = action.cart.products
-                newState.products = {}
-                
-                temp.forEach(prod => {
-                    newState.products[Object.values(prod)[0].id] = Object.values(prod)[0]
-                })
-                return newState
-            } else {
                 newState = action.cart
                 let temp = action.cart.products
                 newState.products = {}
@@ -32,7 +18,13 @@ const cartReducer = (oldState={ products: {} }, action) => {
                     newState.products[Object.values(prod)[0].id] = Object.values(prod)[0]
                 })
                 return newState
-            }
+        case RECEIVE_SHARED_CART:
+            newState.products = {}
+            action.cart.products.forEach(prod => {
+                newState.products[Object.values(prod)[0].id] = Object.values(prod)[0]
+            })
+            newState["foreignCart"] = true;
+            return newState
         case REMOVE_PRODUCT: 
             delete newState.products[action.productId]
             return newState

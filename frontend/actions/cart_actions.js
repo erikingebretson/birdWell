@@ -1,10 +1,16 @@
 import * as CartApiUtil from '../util/cart_api_util'
 
 export const RECEIVE_CART = "RECEIVE_CART"
+export const RECEIVE_SHARED_CART = "RECEIVE_SHARED_CART"
 export const REMOVE_CART = "REMOVE_CART"
 
 export const receiveCart = (cart) => ({
     type: RECEIVE_CART,
+    cart
+})
+
+export const receiveSharedCart = (cart) => ({
+    type: RECEIVE_SHARED_CART,
     cart
 })
 
@@ -21,6 +27,11 @@ export const createCart = (cart) => (dispatch) => (
 export const fetchCart = (cartId) => (dispatch) => (
     CartApiUtil.fetchCart(cartId)
     .then(res => dispatch(receiveCart(res)))
+)
+
+export const fetchSharedCart = (cartId) => (dispatch) => (
+    CartApiUtil.fetchCart(cartId)
+        .then(res => dispatch(receiveSharedCart(res)))
 )
 
 export const updateCart = (cart) => (dispatch) => (

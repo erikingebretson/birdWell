@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom'
 class accountPage extends React.Component {
 
     UNSAFE_componentWillMount() {
-        if (Object.values(this.props.cart.products).length === 0) {
+        if (Object.values(this.props.cart.products).length === 0 || this.props.cart.foreignCart) {
         } else {
             Object.values(this.props.cart.products).forEach(prod => {
-                let t = {
+                console.log(this.props.cart)
+                let cartedProd = {
                     id: prod.id,
                     product_name: prod.prouctName,
                     colorway: prod.colorway,
@@ -20,12 +21,13 @@ class accountPage extends React.Component {
                     display: prod.display,
                     cart_photo_url: prod.cartPhotoUrl
                 }
-                this.props.updateProduct(t)
+                this.props.updateProduct(cartedProd)
             })
         }
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0)
         this.props.fetchCart(this.props.currentUser.cart.id)
     }
 

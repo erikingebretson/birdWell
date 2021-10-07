@@ -17,6 +17,25 @@ class Cart extends React.Component {
         msg.classList.add("checkout-button-message")
     }
 
+    showCartShare() {
+        return (
+            <div className="cart-share">
+                <p>Want to share your shopping list?</p>
+                <p className="link-copied">Copied! Now share it with your friend!</p>
+                <p>Click here: <span onClick={() => this.copyLink()} className="share-link">https://birdwell.herokuapp.com/#/cart/{this.props.cart.id}</span></p>
+            </div>
+        )
+    }
+
+    copyLink() {
+        navigator.clipboard.writeText(`https://birdwell.herokuapp.com/#/cart/${this.props.cart.id}`);
+        let msg = document.querySelector(".link-copied")
+        msg.classList.add("link-copied-on")
+        setTimeout( () => {
+            msg.classList.remove("link-copied-on")
+        }, 3000)
+    }
+
     readCartedProduct() {
         let arr = Object.values(this.props.products)
         this.total = 0;
@@ -64,13 +83,14 @@ class Cart extends React.Component {
                             {this.props.cart.products !== undefined ? this.readCartedProduct() : <p></p>}
                         </div>
                     </div>
+                    {Object.values(this.props.cart.products).length > 0 ? this.showCartShare() : <p></p>}
                     <div className="cart-footer" >
                         <div className="subtotal" >
                             <p>Subtotal</p>
                             <p>${this.total} USD</p>
                         </div>
                         <div className="checkout-button" >
-                            <button onClick={() => this.checkoutMessage() } >Thanks for Browsing!</button>
+                            <button onClick={() => this.checkoutMessage()} >Thanks for Browsing!</button>
                             <p className="hidden-message" >Nothing for sale here!</p>
                         </div>
                     </div>
