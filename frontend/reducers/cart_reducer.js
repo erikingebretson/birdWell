@@ -1,4 +1,4 @@
-import { RECEIVE_CART, REMOVE_CART } from "../actions/cart_actions";
+import { RECEIVE_CART, RECEIVE_SHARED_CART, REMOVE_CART } from "../actions/cart_actions";
 import { RECEIVE_CURRENT_USER, REMOVE_CURRENT_USER } from "../actions/session_actions";
 import { RECEIVE_PRODUCT, REMOVE_PRODUCT } from "../actions/product_actions";
 
@@ -33,6 +33,9 @@ const cartReducer = (oldState={ products: {} }, action) => {
                 })
                 return newState
             }
+        case RECEIVE_SHARED_CART:
+            newState.products = action.cart.products
+            return newState
         case REMOVE_PRODUCT: 
             delete newState.products[action.productId]
             return newState

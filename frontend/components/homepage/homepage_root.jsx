@@ -15,6 +15,9 @@ class Homepage extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0)
         this.props.fetchAllProduct()
+        if (this.props.path.cartId !== undefined) { 
+            this.props.fetchSharedCart(this.props.path.cartId)
+        }
     }
 
     toggleOn(id) {
@@ -119,7 +122,6 @@ class Homepage extends React.Component {
 
         return (
             <div className="main-root" onClick={() => this.turnCartOff()} >
-
             <div className="homepage-root" >
                 <div className="hero-root">
                     <div className="hero">

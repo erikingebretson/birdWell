@@ -17,6 +17,10 @@ class Cart extends React.Component {
         msg.classList.add("checkout-button-message")
     }
 
+    cartShareLink() {
+
+    }
+
     readCartedProduct() {
         let arr = Object.values(this.props.products)
         this.total = 0;
@@ -64,13 +68,17 @@ class Cart extends React.Component {
                             {this.props.cart.products !== undefined ? this.readCartedProduct() : <p></p>}
                         </div>
                     </div>
+                    <div>
+                        <p>Want to share your cart with someone? <span onClick={() => this.cartShareLink()}>copy this shareable link</span></p>
+                        <p>https://birdwell.herokuapp.com/#/cart/{this.props.cart.id}</p>
+                    </div>
                     <div className="cart-footer" >
                         <div className="subtotal" >
                             <p>Subtotal</p>
                             <p>${this.total} USD</p>
                         </div>
                         <div className="checkout-button" >
-                            <button onClick={() => this.checkoutMessage() } >Thanks for Browsing!</button>
+                            <button onClick={() => this.checkoutMessage()} >Thanks for Browsing!</button>
                             <p className="hidden-message" >Nothing for sale here!</p>
                         </div>
                     </div>
