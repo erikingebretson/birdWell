@@ -17,8 +17,23 @@ class Cart extends React.Component {
         msg.classList.add("checkout-button-message")
     }
 
-    cartShareLink() {
+    showCartShare() {
+        return (
+            <div className="cart-share">
+                <p>Want to share your shopping list?</p>
+                <p className="link-copied">Link copied! Now share it with your friend!</p>
+                <p>Click here: <span onClick={() => this.copyLink()} className="share-link">https://birdwell.herokuapp.com/#/cart/{this.props.cart.id}</span></p>
+            </div>
+        )
+    }
 
+    copyLink() {
+        navigator.clipboard.writeText(`https://birdwell.herokuapp.com/#/cart/${this.props.cart.id}`);
+        let msg = document.querySelector(".link-copied")
+        msg.classList.add("link-copied-on")
+        setTimeout( () => {
+            msg.classList.remove("link-copied-on")
+        }, 2000)
     }
 
     readCartedProduct() {
@@ -68,10 +83,7 @@ class Cart extends React.Component {
                             {this.props.cart.products !== undefined ? this.readCartedProduct() : <p></p>}
                         </div>
                     </div>
-                    <div>
-                        <p>Want to share your cart with someone? <span onClick={() => this.cartShareLink()}>copy this shareable link</span></p>
-                        <p>https://birdwell.herokuapp.com/#/cart/{this.props.cart.id}</p>
-                    </div>
+                    {Object.values(this.props.cart.products).length > 0 ? this.showCartShare() : <p></p>}
                     <div className="cart-footer" >
                         <div className="subtotal" >
                             <p>Subtotal</p>
