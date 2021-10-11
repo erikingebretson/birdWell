@@ -6,7 +6,6 @@ class accountPage extends React.Component {
         if (Object.values(this.props.cart.products).length === 0 || this.props.cart.foreignCart) {
         } else {
             Object.values(this.props.cart.products).forEach(prod => {
-                console.log(this.props.cart)
                 let cartedProd = {
                     id: prod.id,
                     product_name: prod.prouctName,
