@@ -29,7 +29,6 @@ class ShoeIndexMenu extends React.Component {
     } 
     
     render() {
-        
         return (
             <div>
                 <h3 className="home"><Link to='/'>Home</Link> / {this.props.path === '/shoes' ? 'New Arrivals' : this.props.path === '/shoes/mens' ? "Men's Shoes" : "Women's Shoes" } </h3>
