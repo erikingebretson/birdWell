@@ -28,42 +28,28 @@ class ShoeIndex extends React.Component {
     }
 
     shoeFilter() {
-        console.log('hiiii')
-        console.log(this.state)
         let filtered = [];
         this.props.shoes.forEach((shoe, idx) => {
             if (idx % 4 === 0 && shoe.detail1 !== null) {
-                if (this.state.shoeFilter === 'All') {
+                if (this.state.shoeFilter === 'All' && (shoe.gender === this.state.gender || this.state.gender === 'All')) {
                     filtered.push(shoe)
-                } else if (this.state.shoeFilter === 'Runners') {
+                } else if (this.state.shoeFilter === 'Runners' && (shoe.gender === this.state.gender || this.state.gender === 'All')) {
                     if (shoe.productName.includes('Runners') || shoe.productName.includes('Dashers')) {
                         filtered.push(shoe)
                     }
-                } else if (this.state.shoeFilter === 'Everyday') {
+                } else if (this.state.shoeFilter === 'Everyday' && (shoe.gender === this.state.gender || this.state.gender === 'All')) {
                     if (shoe.productName.includes('Loungers') || shoe.productName.includes('Toppers') || shoe.productName.includes('Pipers')) {
                         filtered.push(shoe)
                     }
-                } else if (this.state.shoeFilter === 'Cool Weather') {
+                } else if (this.state.shoeFilter === 'Cool Weather' && (shoe.gender === this.state.gender || this.state.gender === 'All')) {
                     if (shoe.productName.includes('Wool')) {
                         filtered.push(shoe)
                     }
-                }
+                } 
             }
         })
         return this.buildGrid(filtered)
     }
-
-//     if(this.state.gender === 'womens') {
-//     if (shoe.gender === 'women') {
-//         filtered.push(shoe)
-//     }
-// } else if (this.state.gender === 'mens') {
-//     if (shoe.gender === 'men') {
-//         filtered.push(shoe)
-//     }
-// } else if (this.state.gender === 'All') {
-//     filtered.push(shoe)
-// }
 
     buildGrid(product) {
         if (product === undefined ) return null
@@ -94,7 +80,7 @@ class ShoeIndex extends React.Component {
         }
     }
 
-    checkFilter(selector) {
+    checkFilter(category, selector) {
         if (selector === 'everyday') {
             this.setState({ filtered: 'y', shoeFilter: 'Everyday', everyday: true, runners: false, coolWeather: false, all: false })
         } else if (selector === 'runners') {
@@ -107,12 +93,12 @@ class ShoeIndex extends React.Component {
     }
 
     genderFilter(selector) {
-        if (selector === 'womens') {
-            this.setState({ filtered: 'y', gender: 'womens', shoeFilter: 'womens'})
-        } else if (selector === 'mens') {
-            this.setState({ filtered: 'y', gender: 'mens', shoeFilter: 'mens'})
+        if (selector === 'women') {
+            this.setState({ filtered: 'y', gender: 'women'})
+        } else if (selector === 'men') {
+            this.setState({ filtered: 'y', gender: 'men'})
         } else if (selector === 'All') {
-            this.setState({ filtered: 'y', gender: 'All', shoeFilter: 'All'})
+            this.setState({ filtered: 'y', gender: 'All'})
         }
     }
 
@@ -153,14 +139,14 @@ class ShoeIndex extends React.Component {
                                 </label></li>
                             </ul>
                             <h4 className="filter-gender" >Gender:</h4>
-                            <ul>
+                            <ul className="filter-buttons">
                                 <li><label >
                                     <span className="everyday"></span>
-                                    <input type="checkbox" className="everyday" checked={this.state.gender === 'womens' ? true : false } onChange={() => this.genderFilter('womens')}></input>
+                                    <input type="checkbox" className="everyday" checked={this.state.gender === 'women' ? true : false } onChange={() => this.genderFilter('women')}></input>
                                     Women's
                                 </label></li>
                                 <li><label >
-                                    <input type="checkbox" className="runners" checked={this.state.gender === 'mens' ? true : false } onChange={() => this.genderFilter('mens')}></input>
+                                    <input type="checkbox" className="runners" checked={this.state.gender === 'men' ? true : false } onChange={() => this.genderFilter('men')}></input>
                                     Men's
                                 </label></li>
                                 <li><label >
