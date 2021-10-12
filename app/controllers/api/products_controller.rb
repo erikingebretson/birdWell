@@ -1,6 +1,8 @@
 class Api::ProductsController < ApplicationController
     def index
-        @products = Product.all
+        @products = Product.all.includes(:reviews)
+        @products.includes(:photos)
+        # @products = Product.all
         render :index
     end
 
